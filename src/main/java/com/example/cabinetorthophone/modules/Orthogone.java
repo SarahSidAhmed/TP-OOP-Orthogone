@@ -28,6 +28,18 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
         this.setPatients(patients);
     }
 
+    public Orthogone(String nom, String prenom, String adresse, String telephone, String email, String password) {
+        this.setNom(nom);
+        this.setPrenom(prenom);
+        this.setAdresse(adresse);
+        this.setTelephone(telephone);
+        this.setEmail(email);
+        this.setPassword(password);
+        this.patients = new HashSet<Patient>();
+        this.dossiers = new ArrayList<Dossier>();
+        this.agenda = new Agenda();
+    }
+
     public void modifierProfile(String nom, String prenom, String adresse, String telephone) {
         this.setNom(nom);
         this.setPrenom(prenom);
