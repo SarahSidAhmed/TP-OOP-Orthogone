@@ -8,21 +8,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5F5DC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AccueilController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AccueilController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="187.0" prefWidth="600.0">
          <children>
-            <AnchorPane layoutX="-3.0" layoutY="-3.0" prefHeight="404.0" prefWidth="463.0" style="-fx-background-color: #425c59;">
+            <AnchorPane layoutX="-3.0" layoutY="-3.0" prefHeight="409.0" prefWidth="463.0" style="-fx-background-color: #425c59;">
                <children>
                   <Text fill="WHITE" layoutX="65.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue au Cabinet Orthophoniste!" textAlignment="CENTER" wrappingWidth="332.13934326171875">
                      <font>
                         <Font name="Product Sans Bold" size="27.0" />
                      </font>
                   </Text>
-                  <Button layoutX="161.0" layoutY="227.0" mnemonicParsing="false" onAction="#commencer" prefHeight="28.0" prefWidth="139.0" style="-fx-background-color: #ffffff;" text="Commencer" textAlignment="CENTER" />
+                  <Button layoutX="161.0" layoutY="227.0" mnemonicParsing="false" onAction="#commencer" prefHeight="28.0" prefWidth="139.0" style="-fx-background-color: #ffffff;" text="Commencer" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="139.0" fitWidth="133.0" layoutX="460.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="133.0" fitWidth="146.0" layoutX="464.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@cabinet-removebg-preview.png" />
                </image>

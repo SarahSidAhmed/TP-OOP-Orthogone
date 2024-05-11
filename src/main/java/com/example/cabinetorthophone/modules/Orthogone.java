@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Orthogone implements Comparable<Orthogone>, Serializable {
+public class Orthogone implements Comparable<Orthogone>, Serializable
+{
     private String nom;
     private String prenom;
     private String adresse;
