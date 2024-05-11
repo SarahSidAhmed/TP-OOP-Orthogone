@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Bo {
+public class Bo implements Serializable {
     private ArrayList<Epreuve> epreuves = new ArrayList();
     private Diagnostique diagnostique;
     private String thematique;

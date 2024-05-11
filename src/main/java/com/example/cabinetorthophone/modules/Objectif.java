@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public class Objectif {
+import java.io.Serializable;
+
+public class Objectif implements Serializable {
     public Objectif() {
     }
 }

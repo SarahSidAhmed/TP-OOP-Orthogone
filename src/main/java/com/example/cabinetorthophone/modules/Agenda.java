@@ -1,5 +1,6 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
-    public class Agenda {
+    public class Agenda implements Serializable {
         private ArrayList<RendezVous> rendezVous = new ArrayList();
 
         public Agenda() {

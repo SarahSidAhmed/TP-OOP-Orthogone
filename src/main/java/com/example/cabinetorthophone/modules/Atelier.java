@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 
 
-    public class Atelier extends RendezVous {
+    public class Atelier extends RendezVous implements Serializable {
         private HashSet<Patient> patients;
         private String thematique;
 

@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public abstract class Question_amnese {
+import java.io.Serializable;
+
+public abstract class Question_amnese implements Serializable {
     private String[] questions;
 
     public Question_amnese() {

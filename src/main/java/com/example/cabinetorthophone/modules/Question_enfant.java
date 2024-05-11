@@ -1,7 +1,9 @@
 package com.example.cabinetorthophone.modules;
 
 
-public class Question_enfant extends Question_amnese {
+import java.io.Serializable;
+
+public class Question_enfant extends Question_amnese implements Serializable {
     public Question_enfant() {
     }
 }

@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Fiche {
+public class Fiche implements Serializable {
     private Type_Terme terme;
     private ArrayList<Objectif> objectifs;
 

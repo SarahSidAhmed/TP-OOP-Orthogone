@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public abstract class Patient {
+import java.io.Serializable;
+
+public abstract class Patient implements Serializable {
     private String nom;
     private String prenom;
     private int age;

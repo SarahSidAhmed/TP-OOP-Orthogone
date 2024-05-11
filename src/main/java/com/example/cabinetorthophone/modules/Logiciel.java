@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Logiciel {
+public class Logiciel implements Serializable {
     private HashSet<Orthogone> orthogonistes = new HashSet();
     private Orthogone connectedUser = null;
 

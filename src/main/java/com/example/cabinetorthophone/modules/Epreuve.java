@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public class Epreuve {
+import java.io.Serializable;
+
+public class Epreuve implements Serializable {
     public Epreuve() {
     }
 }

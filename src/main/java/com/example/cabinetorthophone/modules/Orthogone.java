@@ -1,9 +1,10 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Orthogone implements Comparable<Orthogone> {
+public class Orthogone implements Comparable<Orthogone>, Serializable {
     private String nom;
     private String prenom;
     private String adresse;

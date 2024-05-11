@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public class Enfant extends Patient {
+import java.io.Serializable;
+
+public class Enfant extends Patient implements Serializable {
     private String etude;
     private String tel_parent;
 

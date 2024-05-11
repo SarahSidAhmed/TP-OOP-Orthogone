@@ -1,8 +1,9 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public abstract class RendezVous implements Rendez_VousSet {
+public abstract class RendezVous implements Rendez_VousSet, Serializable {
     private Date date;
     private String heure;
     private String duree;

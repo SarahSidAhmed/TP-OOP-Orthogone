@@ -1,8 +1,9 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Consultation extends RendezVous {
+public class Consultation extends RendezVous implements Serializable {
     private String nom;
     private String prenom;
     private int age;

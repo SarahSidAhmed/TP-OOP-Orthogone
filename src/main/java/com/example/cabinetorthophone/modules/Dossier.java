@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Dossier {
+public class Dossier implements Serializable {
     private static int compteurNumDossier = 0;
     private int numDossier;
     private ArrayList<RendezVous> listeRendezVous;

@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public class First_bo {
+import java.io.Serializable;
+
+public class First_bo implements Serializable {
     private Amnese amnese;
 
     public First_bo(Amnese amnese) {

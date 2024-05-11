@@ -1,9 +1,10 @@
 package com.example.cabinetorthophone.modules;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Diagnostique {
+public class Diagnostique implements Serializable {
     private String[] troubles;
     private Type_Trouble type;
 

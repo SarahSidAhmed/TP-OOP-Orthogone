@@ -1,11 +1,12 @@
 package com.example.cabinetorthophone.modules;
 
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import java.util.Arrays;
 
-public class Amnese {
+public class Amnese implements Serializable {
     private Question_amnese[] questions;
 
     public Amnese() {
