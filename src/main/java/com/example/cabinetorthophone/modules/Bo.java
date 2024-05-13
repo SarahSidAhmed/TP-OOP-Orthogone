@@ -9,13 +9,11 @@ public class Bo implements Serializable {
     private ArrayList<Epreuve> epreuves = new ArrayList();
     private Diagnostique diagnostique;
     private String thematique;
-    private First_bo first_bo;
 
     public Bo(ArrayList<Epreuve> epreuves, Diagnostique diagnostique, String thematique, First_bo firstBo) {
         this.epreuves = epreuves;
         this.diagnostique = diagnostique;
         this.thematique = thematique;
-        this.first_bo = firstBo;
     }
 
     public void ajouterEpreuve(Epreuve epreuve) {
@@ -66,14 +64,6 @@ public class Bo implements Serializable {
 
     public void setThematique(String thematique) {
         this.thematique = thematique;
-    }
-
-    public First_bo getFirst_bo() {
-        return this.first_bo;
-    }
-
-    public void setFirst_bo(First_bo first_bo) {
-        this.first_bo = first_bo;
     }
 }
 

@@ -9,16 +9,13 @@ public abstract class Patient implements Serializable {
     private static int compteur = 0;
     private int num_dossier;
     private int nb_rv;
-    private String date_naissance;
-    private String lieu_naissance;
+
     private String adresse;
 
-    public Patient(String nom, String prenom, int age, int nb_rv, String date_naissance, String lieu_naissance, String adresse) {
+    public Patient(String nom, String prenom, int age, int nb_rv, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
-        this.lieu_naissance = lieu_naissance;
-        this.date_naissance = date_naissance;
         this.adresse = adresse;
         this.num_dossier = ++compteur;
         this.nb_rv = nb_rv;
@@ -85,14 +82,6 @@ public abstract class Patient implements Serializable {
         return this.num_dossier;
     }
 
-    public String getLieu_naissance() {
-        return this.lieu_naissance;
-    }
-
-    public void setLieu_naissance(String lieu_naissance) {
-        this.lieu_naissance = lieu_naissance;
-    }
-
     public String getAdresse() {
         return this.adresse;
     }
@@ -107,8 +96,6 @@ public abstract class Patient implements Serializable {
         System.out.println("Age: " + this.age);
         System.out.println("Num_dossier: " + this.num_dossier);
         System.out.println("Nombre de rendez_vous: " + this.nb_rv);
-        System.out.println("Date de naissance: " + this.date_naissance);
-        System.out.println("Lieu de naissance: " + this.lieu_naissance);
         System.out.println("Adresse: " + this.adresse);
     }
 
@@ -118,14 +105,6 @@ public abstract class Patient implements Serializable {
 
     public void setNb_rv(int nb_rv) {
         this.nb_rv = nb_rv;
-    }
-
-    public String getDate_naissance() {
-        return this.date_naissance;
-    }
-
-    public void setDate_naissance(String date_naissance) {
-        this.date_naissance = date_naissance;
     }
 
     public void modifierProfil(String newNom, String newPrenom, int newAge, int newNb_RV, String newDate_naissance, String newLieu_naissance, String newAdresse) {
@@ -151,18 +130,6 @@ public abstract class Patient implements Serializable {
             this.nb_rv = newNb_RV;
         } else {
             System.out.println("Veuilleez entrer un numero de rendez vous valide pour le patient.");
-        }
-
-        if (newDate_naissance != null) {
-            this.date_naissance = newDate_naissance;
-        } else {
-            System.out.println("Veuilleez entrer une date de nissance pour le patient.");
-        }
-
-        if (newLieu_naissance != null && !newLieu_naissance.isEmpty()) {
-            this.lieu_naissance = newLieu_naissance;
-        } else {
-            System.out.println("Veuilleez entrer un lieu de naissance pour le patient.");
         }
 
         if (newAdresse != null && !newAdresse.isEmpty()) {

@@ -6,11 +6,9 @@ import java.util.Arrays;
 
 public class Diagnostique implements Serializable {
     private String[] troubles;
-    private Type_Trouble type;
 
-    public Diagnostique(String[] troubles, Type_Trouble type) {
+    public Diagnostique(String[] troubles) {
         this.troubles = troubles;
-        this.type = type;
     }
 
     public void ajouterTrouble(String trouble) {
@@ -26,7 +24,6 @@ public class Diagnostique implements Serializable {
     }
 
     public void afficherDiagnostique() {
-        System.out.println("Type de Trouble: " + String.valueOf(this.type));
         System.out.println("Liste des troubles: " + Arrays.toString(this.troubles));
     }
 }

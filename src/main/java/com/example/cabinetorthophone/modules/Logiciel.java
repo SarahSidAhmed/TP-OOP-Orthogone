@@ -16,6 +16,10 @@ public class Logiciel implements Serializable {
     public Logiciel() {
     }
 
+    public static HashMap<String, Orthogone> getOrthogonistes() {
+        return orthogonistes;
+    }
+
     public void ajouterOrthophone(Orthogone orthogone){
         this.orthogonistes.put(orthogone.getEmail(), orthogone);
     }
@@ -47,10 +51,10 @@ public class Logiciel implements Serializable {
 
     }
 
-    public boolean rechercheCompte(String email) {
+    public static boolean rechercheCompte(String email) {
         //Iterator var2 = this.orthogonistes.iterator();
 
-        boolean found = this.orthogonistes.containsKey(email);
+        boolean found = orthogonistes.containsKey(email);
         return found;
 //        Orthogone o;
 //        do {
@@ -64,14 +68,13 @@ public class Logiciel implements Serializable {
 //        return true;
     }
 
-    public void seConnecter(String email, String password) {
+    public static Boolean seConnecter(String email, String password) {
 
         boolean found = rechercheCompte(email);
         if (found ) {
-            if (this.orthogonistes.get(email).getPassword().equals(password)) {
-                System.out.println("Account found");
-            } else System.out.println("Check your password");
-        }else System.out.println("User doesn't exist.");
+            if (orthogonistes.get(email).getPassword().equals(password)) return true;
+            else return false;
+        }else return false;
 //        Iterator var3 = this.orthogonistes.iterator();
 //
 //
@@ -92,7 +95,6 @@ public class Logiciel implements Serializable {
 
     public void seDeconnecter() {
         if (this.connectedUser != null) {
-            this.connectedUser = null;
             System.out.println("Vous êtes maintenant déconnecté.");
         } else {
             System.out.println("Vous n'êtes pas connecté.");

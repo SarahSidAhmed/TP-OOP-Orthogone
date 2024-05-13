@@ -2,15 +2,17 @@ package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-public class Test_Question implements TotalScore, Serializable {
+public class Test_Question extends Test implements TotalScore, Serializable {
 
-    private List<Question> questions;
+    private Set<Question> questions;
 
 
     public Test_Question(){
-        this.questions = new ArrayList<Question>() {
+        this.questions = new HashSet<Question>() {
         };
     }
 
@@ -23,7 +25,9 @@ public class Test_Question implements TotalScore, Serializable {
     }
 
     public void modifierQuestion(int i, Question q){
-        this.questions.set(i, q);
+
+        this.questions.remove(i);
+        this.questions.add(q);
     }
 
     public void rechercherQuestion(String enonce){
@@ -31,7 +35,7 @@ public class Test_Question implements TotalScore, Serializable {
         int pos = 0;
 
         while(pos<this.questions.size() && !found){
-            if (this.questions.get(pos).getEnonce() == enonce){
+            if (this.questions.contains(enonce)){
                 found = true;
             }
             else pos++;

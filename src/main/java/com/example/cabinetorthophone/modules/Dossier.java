@@ -8,6 +8,8 @@ import java.util.Iterator;
 public class Dossier implements Serializable {
     private static int compteurNumDossier = 0;
     private int numDossier;
+    private String date_naissance;
+    private String lieu_naissance;
     private ArrayList<RendezVous> listeRendezVous;
     private ArrayList<Bo> bo;
     private ArrayList<Fiche> listeFiches;
@@ -72,6 +74,14 @@ public class Dossier implements Serializable {
     public int getNumDossier() {
         return this.numDossier;
     }
+
+    public void setDate_naissance(String date_naissance){this.date_naissance = date_naissance;}
+
+    public void setLieu_naissance(String lieu_naissance){this.lieu_naissance = lieu_naissance;}
+
+    public String getDate_naissance(){return this.date_naissance;}
+    
+    public String getLieu_naissance(){return this.lieu_naissance;}
 
     public ArrayList<Bo> getBo() {
         return this.bo;

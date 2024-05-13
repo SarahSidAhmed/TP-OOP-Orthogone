@@ -1,19 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 abstract class Test implements Serializable {
     private String nom;
     private int capacite;
-    private String[] observations;
-
-    public void ajouterObservations(String observation){
-        this.observations[this.observations.length] = observation;
-    }
-
-    public void modifierObservation(int i, String observation){
-        this.observations[i] = observation;
-    }
 
     public void setNom(String nom){
         this.nom = nom;
@@ -29,11 +21,8 @@ abstract class Test implements Serializable {
 
     public int getCapacite(){return this.capacite;}
 
-    public void setObservations(String[] observations){
-        this.observations = observations;
+    @Override
+    public boolean equals(Object o) {
+        return Objects.equals(this.nom, (String) o);
     }
-    public String[] getObservations(){
-        return this.observations;
-    }
-
 }

@@ -8,11 +8,10 @@ public class Test_Exo extends Test implements TotalScore, Serializable {
     private Set<Exercice> exercices;
 
 
-    public void Test_Exo(String nom, int capacite, String[] observations, Set<Exercice> exercices ){
+    public void Test_Exo(String nom, int capacite, Set<Exercice> exercices ){
 
         super.setNom(nom);
         super.setCapacite(capacite);
-        super.setObservations(observations);
         this.exercices = exercices;
 
     }
