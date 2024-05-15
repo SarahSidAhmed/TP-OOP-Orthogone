@@ -24,12 +24,12 @@ public class Logiciel implements Serializable {
         this.orthogonistes.put(orthogone.getEmail(), orthogone);
     }
 
-    void CreerCompte(Orthogone o) {
-        if (this.orthogonistes.containsKey(o.getEmail())) {
-            System.out.println("An account with this email already exists. Try connecting instead.");
+    public static String CreerCompte(Orthogone o) {
+        if (orthogonistes.containsKey(o.getEmail())) {
+            return "An account with this email already exists. Try connecting instead.";
         } else {
-            this.orthogonistes.put(o.getEmail(), o);
-            System.out.println("Account created successfully.");
+            orthogonistes.put(o.getEmail(), o);
+            return "Account created successfully.";
         }
 
     }
