@@ -7,8 +7,9 @@ public class Adulte extends Patient implements Serializable {
     private String tel;
     private String profession;
 
-    public Adulte(String nom, String prenom, int age, int nb_rv, String date_naissance, String lieu_naissance, String adresse, String diplome, String tel, String profession) {
-        super(nom, prenom, age, nb_rv, adresse);
+
+    public Adulte(String nom, String prenom, int age, String adresse, String diplome, String tel, String profession) {
+        super(nom, prenom, age, adresse);
         this.diplome = diplome;
         this.tel = tel;
         this.profession = profession;

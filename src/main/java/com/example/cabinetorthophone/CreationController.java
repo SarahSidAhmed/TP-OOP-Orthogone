@@ -56,15 +56,19 @@ public class CreationController {
                 !conPass1.isEmpty() &&
                 !telephone.isEmpty()) {
             if (pass1.equals(conPass1)) {
+
+                //creation d'un nouveau compte
                 Orthogone orthogone = new Orthogone(nom1, prenom1, address1, telephone, email1, pass1);
                 Logiciel.CreerCompte(orthogone);
+
+                //setting the current user of the desktop app
+                Logiciel.setOrthogoneCourrant(orthogone);
+
 
                 FXMLLoader loader2 = new FXMLLoader(getClass().getResource("Home.fxml"));
                 Parent root = loader2.load();
 
-                // Accédez au contrôleur de la page d'accueil si nécessaire
-                HomeController homeController = loader2.getController();
-                homeController.setUser(orthogone);
+
                 // Affichez la vue de la page d'accueil sur la scène principale
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

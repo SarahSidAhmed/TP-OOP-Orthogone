@@ -12,16 +12,24 @@ import java.util.Iterator;
 public class Logiciel implements Serializable {
     static private HashMap<String, Orthogone> orthogonistes = new HashMap<String, Orthogone>();
     private Orthogone connectedUser = null;
+    private static Orthogone orthogoneCourrant;
+
 
     public Logiciel() {
     }
 
+
+    public static void setOrthogoneCourrant(Orthogone o ){
+        orthogoneCourrant = o;
+    }
+
+    public static Orthogone getOrthogoneCourrant(){return orthogoneCourrant;}
     public static HashMap<String, Orthogone> getOrthogonistes() {
         return orthogonistes;
     }
 
     public void ajouterOrthophone(Orthogone orthogone){
-        this.orthogonistes.put(orthogone.getEmail(), orthogone);
+        orthogonistes.put(orthogone.getEmail(), orthogone);
     }
 
     public static String CreerCompte(Orthogone o) {
@@ -50,6 +58,13 @@ public class Logiciel implements Serializable {
 //        }
 
     }
+
+    public static Orthogone getCompte(String email){
+        if (rechercheCompte(email)){
+            return orthogonistes.get(email);
+        }else return null;
+    }
+
 
     public static boolean rechercheCompte(String email) {
         //Iterator var2 = this.orthogonistes.iterator();

@@ -6,8 +6,8 @@ public class Enfant extends Patient implements Serializable {
     private String etude;
     private String tel_parent;
 
-    public Enfant(String nom, String prenom, int age, int nb_rv, String date_naissance, String lieu_naissance, String adresse, String etude, String tel_parent) {
-        super(nom, prenom, age, nb_rv, adresse);
+    public Enfant(String nom, String prenom, int age, String adresse, String etude, String tel_parent) {
+        super(nom, prenom, age, adresse);
         this.etude = etude;
         this.tel_parent = tel_parent;
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Dossier implements Serializable {
-    private static int compteurNumDossier = 0;
+    //private static int compteurNumDossier = 0;
     private int numDossier;
     private String date_naissance;
     private String lieu_naissance;
@@ -14,8 +14,8 @@ public class Dossier implements Serializable {
     private ArrayList<Bo> bo;
     private ArrayList<Fiche> listeFiches;
 
-    public Dossier() {
-        this.numDossier = ++compteurNumDossier;
+    public Dossier(int numDossier) {
+        this.numDossier = numDossier;
         this.listeRendezVous = new ArrayList();
         this.listeFiches = new ArrayList();
     }

@@ -9,16 +9,19 @@ public abstract class Patient implements Serializable {
     private static int compteur = 0;
     private int num_dossier;
     private int nb_rv;
-
     private String adresse;
 
-    public Patient(String nom, String prenom, int age, int nb_rv, String adresse) {
+    public Patient(){}
+
+
+    public Patient(String nom, String prenom, int age, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.adresse = adresse;
         this.num_dossier = ++compteur;
-        this.nb_rv = nb_rv;
+        this.nb_rv = 0;
+
     }
 
     public boolean equals(Object o) {
@@ -101,6 +104,10 @@ public abstract class Patient implements Serializable {
 
     public int getNb_rv() {
         return this.nb_rv;
+    }
+
+    public void incrementNB_RV(){
+        this.nb_rv++;
     }
 
     public void setNb_rv(int nb_rv) {

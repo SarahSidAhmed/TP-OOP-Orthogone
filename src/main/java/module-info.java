@@ -1,6 +1,7 @@
 module com.example.cabinetorthophone {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jdk.jdi;
 
 
     opens com.example.cabinetorthophone to javafx.fxml;

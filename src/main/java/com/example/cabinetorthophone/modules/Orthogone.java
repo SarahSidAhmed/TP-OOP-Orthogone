@@ -47,10 +47,11 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
         this.setTelephone(telephone);
     }
 
-    public void ajouterPatient(Patient patient, Dossier dossier) {
-        if (patient != null && dossier != null) {
+    public void ajouterPatient(Patient patient, int numDossier) {
+        if (patient != null && numDossier != -1) {
             this.patients.add(patient);
-            this.dossiers.add(dossier);
+            Dossier d = new Dossier(numDossier);
+            this.dossiers.add(d);
         }
 
     }

@@ -15,6 +15,7 @@ import java.util.Iterator;
         public Agenda() {
         }
 
+        public ArrayList<RendezVous> getRendezVous(){return this.rendezVous;}
         public void ajouterRV(RendezVous RV) {
             if (RV != null) {
                 this.rendezVous.add(RV);

@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class ConnexionController {
 
+    private Orthogone orthophone;
     @FXML
     private TextField email;
     @FXML
@@ -26,23 +27,23 @@ public class ConnexionController {
 
     @FXML
     protected void connexion(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("connexion.fxml"));
 
         Orthogone o1 = new Orthogone("Hic", "Sid", "Alger", "0777796966", "sid@gmail.com", "1234");
-        String val = Logiciel.CreerCompte(o1);
+       Logiciel.CreerCompte(o1);
 
-        errorText.setText(val);
+        //errorText.setText(val);
         if (!this.password.getText().isEmpty() && !this.email.getText().isEmpty()) {
             if (Logiciel.seConnecter(email.getText(), password.getText())) {
-                Orthogone o = Logiciel.getOrthogonistes().get(email.getText());
+
+                orthophone = Logiciel.getOrthogonistes().get(email.getText());
+                Logiciel.setOrthogoneCourrant(orthophone);
 
                 FXMLLoader loader2 = new FXMLLoader(getClass().getResource("Home.fxml"));
                 Parent root = loader2.load();
+                this.errorText.setText(orthophone.getEmail());
 
-                // Accédez au contrôleur de la page d'accueil si nécessaire
-                HomeController homeController = loader2.getController();
-                homeController.setUser(o);
-                // Affichez la vue de la page d'accueil sur la scène principale
+                // Displaying the home scene
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
