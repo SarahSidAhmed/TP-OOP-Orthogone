@@ -22,6 +22,7 @@ import javafx.util.converter.IntegerStringConverter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -40,8 +41,7 @@ public class HomeControllerPatients implements Initializable {
     @FXML TableColumn<Patient, Integer> tableColumnAge;
     @FXML TableColumn<Patient, Integer> tableColumnNum;
     @FXML TableColumn<Patient, String> tableColumnTel;
-    @FXML TableColumn<Patient, Button> tableColumnCheck;
-    @FXML TableColumn<Patient, String> tableColumnProfession;
+    @FXML TableColumn<Button, Button> tableColumnCheck;
     @FXML TableColumn<Patient, String> tableColumnAddress;
 
 
@@ -124,15 +124,24 @@ public class HomeControllerPatients implements Initializable {
         List<Patient> oo = new ArrayList<>(orthogone.getPatients());
         ObservableList<Patient> o = FXCollections.observableArrayList(oo);
 
-        for (Patient p : o) {
-            if (p instanceof Adulte) {
-                tableColumnProfession.setCellValueFactory(new PropertyValueFactory<Patient, String>("profession"));
-            }
-            else tableColumnProfession.setCellValueFactory(new PropertyValueFactory<Patient, String>("etude"));
-        }
         tableViewPatient.setItems(o);
 
         editDate();
+    }
+
+    @FXML
+    protected void deleteData(ActionEvent event){
+        TableView.TableViewSelectionModel<Patient> selectionModel = tableViewPatient.getSelectionModel();
+        ObservableList<Integer> list = selectionModel.getSelectedIndices();
+
+        Integer[] selectedIndeces = new Integer[list.size()];
+        selectedIndeces = list.toArray(selectedIndeces);
+        Arrays.sort(selectedIndeces);
+
+        for (int i= selectedIndeces.length -1; i>=0; i-- ){
+            selectionModel.clearSelection(selectedIndeces[i].intValue());
+            tableViewPatient.getItems().remove(selectedIndeces[i].intValue());
+        }
     }
 
 
@@ -169,13 +178,5 @@ public class HomeControllerPatients implements Initializable {
             p.setAdresse(event.getNewValue());
         });
 
-        tableColumnProfession.setCellFactory(TextFieldTableCell.<Patient>forTableColumn());
-        tableColumnProfession.setOnEditCommit(event ->{
-            Patient p = event.getTableView().getItems().get(event.getTablePosition().getRow());
-
-            if (p instanceof Enfant){
-            ((Enfant) p).setEtude(event.getNewValue());
-            }else ((Adulte) p).setProfession(event.getNewValue());
-        });
     }
 }
