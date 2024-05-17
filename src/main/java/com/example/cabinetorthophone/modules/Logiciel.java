@@ -13,6 +13,7 @@ public class Logiciel implements Serializable {
     static private HashMap<String, Orthogone> orthogonistes = new HashMap<String, Orthogone>();
     private Orthogone connectedUser = null;
     private static Orthogone orthogoneCourrant;
+    private static Patient patientCurrant;
 
 
     public Logiciel() {
@@ -26,6 +27,14 @@ public class Logiciel implements Serializable {
     public static Orthogone getOrthogoneCourrant(){return orthogoneCourrant;}
     public static HashMap<String, Orthogone> getOrthogonistes() {
         return orthogonistes;
+    }
+
+    public static Patient getPatientCurrant() {
+        return patientCurrant;
+    }
+
+    public static void setPatientCurrant(Patient patientCurrant) {
+        Logiciel.patientCurrant = patientCurrant;
     }
 
     public void ajouterOrthophone(Orthogone orthogone){
