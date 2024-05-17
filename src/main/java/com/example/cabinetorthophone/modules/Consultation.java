@@ -1,6 +1,7 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class Consultation extends RendezVous implements Serializable {
@@ -8,7 +9,7 @@ public class Consultation extends RendezVous implements Serializable {
     private String prenom;
     private int age;
 
-    public Consultation(Date date, String heure, String duree, Type_RV type, String observation, String nom, String prenom, int age) {
+    public Consultation(ZonedDateTime date, String heure, String duree, Type_RV type, String observation, String nom, String prenom, int age) {
         super(date, heure, duree, type, observation);
         this.setNom(nom);
         this.setPrenom(prenom);

@@ -1,6 +1,7 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -43,7 +44,7 @@ import java.util.Iterator;
 
         }
 
-        public void Modifier_RV(RendezVous rendezVous, Date date, String heure) {
+        public void Modifier_RV(RendezVous rendezVous, ZonedDateTime date, String heure) {
             if (rendezVous != null && date != null && heure != null) {
                 int index = this.rendezVous.indexOf(rendezVous);
                 if (index != -1) {

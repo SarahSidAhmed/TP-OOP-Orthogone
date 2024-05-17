@@ -1,13 +1,14 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class Suivi extends RendezVous implements Serializable {
     private int num_dossier;
     private boolean present;
 
-    public Suivi(Date date, String heure, String duree, Type_RV type, String observation, int num_dossier, boolean present) {
+    public Suivi(ZonedDateTime date, String heure, String duree, Type_RV type, String observation, int num_dossier, boolean present) {
         super(date, heure, duree, type, observation);
         this.setPrsent(present);
         this.setNum_dossier(num_dossier);

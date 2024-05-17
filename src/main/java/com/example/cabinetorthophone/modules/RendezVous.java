@@ -1,10 +1,11 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public abstract class RendezVous implements Rendez_VousSet, Serializable {
-    private Date date;
+    private ZonedDateTime date;
     private String heure;
     private String duree;
     private Type_RV type;
@@ -13,7 +14,7 @@ public abstract class RendezVous implements Rendez_VousSet, Serializable {
     public RendezVous() {
     }
 
-    public RendezVous(Date date, String heure, String duree, Type_RV type, String observation) {
+    public RendezVous(ZonedDateTime date, String heure, String duree, Type_RV type, String observation) {
         this.date = date;
         this.heure = heure;
         this.duree = duree;
@@ -21,11 +22,11 @@ public abstract class RendezVous implements Rendez_VousSet, Serializable {
         this.observation = observation;
     }
 
-    public Date getDate() {
+    public ZonedDateTime getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(ZonedDateTime date) {
         this.date = date;
     }
 
@@ -61,10 +62,11 @@ public abstract class RendezVous implements Rendez_VousSet, Serializable {
         this.observation = observation;
     }
 
-    void modifier_RV(Date newDate, String newHour) {
+    void modifier_RV(ZonedDateTime newDate, String newHour) {
         this.setDate(newDate);
         this.setHeure(newHour);
     }
+
 
     void afficher() {
         System.out.println("Date: " + String.valueOf(this.getDate()));
@@ -73,4 +75,6 @@ public abstract class RendezVous implements Rendez_VousSet, Serializable {
         System.out.println("Type: " + String.valueOf(this.getType()));
         System.out.println("Observation: " + this.getObservation());
     }
+
+
 }

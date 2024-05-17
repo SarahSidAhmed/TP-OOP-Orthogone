@@ -9,26 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterPatientController">
+<AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterPatientController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane layoutY="-1.0" prefHeight="540.0" prefWidth="795.0">
          <children>
-            <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="610.0" style="-fx-background-color: #e0ea99;">
+            <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
                <children>
-                  <ImageView fitHeight="116.0" fitWidth="108.0" layoutX="117.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="127.0" fitWidth="118.0" layoutX="196.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@cabinet-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="231.0" layoutY="42.0" text="Ajouter Patient">
+                  <Label layoutX="334.0" layoutY="40.0" text="Ajouter Patient">
                      <font>
-                        <Font name="System Bold" size="21.0" />
+                        <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                   <Group layoutX="21.0" layoutY="20.0" onMouseClicked="#Back">
                      <children>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
-                        <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@previous.png" />
                            </image>
@@ -37,54 +37,54 @@
                   </Group>
                </children>
             </AnchorPane>
-            <Button layoutX="61.0" layoutY="298.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
+            <Button layoutX="202.0" layoutY="342.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
             <Label layoutX="90.0" layoutY="150.0" text="Nom:">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="nom" layoutX="163.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" />
-            <Label layoutX="311.0" layoutY="197.0" text="Telephone:">
+            <TextField fx:id="nom" layoutX="163.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Label layoutX="469.0" layoutY="193.0" text="Telephone:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tel" layoutX="389.0" layoutY="194.0" prefHeight="25.0" prefWidth="126.0" promptText="Telephone" />
-            <TextField fx:id="address" layoutX="163.0" layoutY="194.0" prefHeight="25.0" prefWidth="126.0" promptText="Address" />
+            <TextField fx:id="tel" layoutX="547.0" layoutY="190.0" prefHeight="25.0" prefWidth="126.0" promptText="Telephone" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <TextField fx:id="address" layoutX="163.0" layoutY="194.0" prefHeight="25.0" prefWidth="126.0" promptText="Address" style="-fx-min-width: 200; -fx-min-height: 38;" />
             <Label layoutX="80.0" layoutY="197.0" text="Address:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="prenom" layoutX="389.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Prenom" />
-            <Label layoutX="326.0" layoutY="150.0" text="Prenom:">
+            <TextField fx:id="prenom" layoutX="547.0" layoutY="143.0" prefHeight="25.0" prefWidth="126.0" promptText="Prenom" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Label layoutX="484.0" layoutY="146.0" text="Prenom:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="age" layoutX="161.0" layoutY="247.0" prefHeight="25.0" prefWidth="126.0" promptText="Age" />
+            <TextField fx:id="age" layoutX="161.0" layoutY="247.0" prefHeight="25.0" prefWidth="126.0" promptText="Age" style="-fx-min-width: 200; -fx-min-height: 38;" />
             <Label layoutX="104.0" layoutY="250.0" text="Age:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="profession" disable="true" layoutX="406.0" layoutY="259.0" prefHeight="25.0" prefWidth="126.0" promptText="Profession" />
-            <TextField fx:id="diplome" disable="true" layoutX="406.0" layoutY="301.0" prefHeight="25.0" prefWidth="126.0" promptText="Diplome" />
-            <Label fx:id="textProfession" layoutX="303.0" layoutY="261.0" text="Profession:">
+            <TextField fx:id="profession" disable="true" layoutX="521.0" layoutY="320.0" prefHeight="25.0" prefWidth="126.0" promptText="Profession" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <TextField fx:id="diplome" disable="true" layoutX="521.0" layoutY="362.0" prefHeight="25.0" prefWidth="126.0" promptText="Diplome" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Label fx:id="textProfession" layoutX="418.0" layoutY="322.0" text="Profession:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="316.0" layoutY="306.0" text="Diplome:">
+            <Label layoutX="431.0" layoutY="367.0" text="Diplome:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="finish" disable="true" layoutX="188.0" layoutY="298.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
+            <Button fx:id="finish" disable="true" layoutX="313.0" layoutY="460.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

@@ -10,14 +10,16 @@ public abstract class Patient implements Serializable {
     private int num_dossier;
     private int nb_rv;
     private String adresse;
+    private String tel;
 
     public Patient(){}
 
 
-    public Patient(String nom, String prenom, int age, String adresse) {
+    public Patient(String nom, String prenom, String tel, int age, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
+        this.tel = tel;
         this.adresse = adresse;
         this.num_dossier = ++compteur;
         this.nb_rv = 0;
@@ -145,5 +147,13 @@ public abstract class Patient implements Serializable {
             System.out.println("Veuilleez entrer une adresse pour le patient.");
         }
 
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

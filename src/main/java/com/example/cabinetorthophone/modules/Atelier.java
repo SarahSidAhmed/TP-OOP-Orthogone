@@ -25,6 +25,13 @@ import java.util.Iterator;
             System.out.println("Thématique: " + this.thematique);
         }
 
+        public HashSet<Patient> getPatients(){return this.patients;}
+
+        public void addPatient(Patient p){
+            this.patients.add(p);
+        }
+
+
         public void setTypeRV(Type_RV type) {
         }
     }

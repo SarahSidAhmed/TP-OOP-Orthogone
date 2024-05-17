@@ -4,12 +4,10 @@ import java.io.Serializable;
 
 public class Enfant extends Patient implements Serializable {
     private String etude;
-    private String tel_parent;
 
     public Enfant(String nom, String prenom, int age, String adresse, String etude, String tel_parent) {
-        super(nom, prenom, age, adresse);
+        super(nom, prenom,tel_parent,  age, adresse);
         this.etude = etude;
-        this.tel_parent = tel_parent;
     }
 
     public String getEtude() {
@@ -20,18 +18,11 @@ public class Enfant extends Patient implements Serializable {
         this.etude = etude;
     }
 
-    public String getTel_parent() {
-        return this.tel_parent;
-    }
-
-    public void setTel_parent(String tel_parent) {
-        this.tel_parent = tel_parent;
-    }
 
     public void afficherProfile() {
         super.afficherProfile();
         System.out.println("Niveau D etude : " + this.etude);
-        System.out.println("Numero tel parent : " + this.tel_parent);
+
     }
 
     public void modifierProfil(String newNom, String newPrenom, int newAge, int newNb_RV, String newDate_naissance, String newLieu_naissance, String newAdresse, String newEtude, String newTel_parent) {
@@ -42,11 +33,11 @@ public class Enfant extends Patient implements Serializable {
             System.out.println("Veuilleez entrer un niveau d'etude pour le patient.");
         }
 
-        if (newTel_parent != null && !newTel_parent.isEmpty()) {
-            this.tel_parent = newTel_parent;
-        } else {
-            System.out.println("Veuilleez entrer un numero de tel du parent du patient.");
-        }
+//        if (newTel_parent != null && !newTel_parent.isEmpty()) {
+//            this.tel_parent = newTel_parent;
+//        } else {
+//            System.out.println("Veuilleez entrer un numero de tel du parent du patient.");
+//        }
 
     }
 }

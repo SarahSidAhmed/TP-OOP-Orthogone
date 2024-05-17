@@ -8,67 +8,88 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.CreationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-min-width: 795; -fx-min-height: 540;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.CreationController">
    <children>
-      <AnchorPane prefHeight="107.0" prefWidth="600.0" style="-fx-background-color: #e0ea99;">
+      <AnchorPane prefHeight="112.0" prefWidth="795.0" style="-fx-background-color: #e0ea99;">
          <children>
-            <ImageView fitHeight="116.0" fitWidth="108.0" layoutX="117.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="123.0" fitWidth="132.0" layoutX="202.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@cabinet-removebg-preview.png" />
                </image>
             </ImageView>
-            <Label layoutX="226.0" layoutY="42.0" text="Inscrivez-vous!">
+            <Label layoutX="331.0" layoutY="39.0" text="Inscrivez-vous!">
                <font>
-                  <Font name="System Bold" size="21.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="246.0" layoutY="342.0" mnemonicParsing="false" onAction="#inscription" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #425c59;" text="S'inscrire" textFill="WHITE">
+      <Button layoutX="329.0" layoutY="438.0" mnemonicParsing="false" onAction="#inscription" prefHeight="40.0" prefWidth="138.0" style="-fx-background-color: #425c59;" text="S'inscrire" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Label layoutX="90.0" layoutY="150.0" text="Nom:">
+      <Label layoutX="94.0" layoutY="158.0" text="Nom:">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="nom" layoutX="163.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" />
-      <Label layoutX="311.0" layoutY="235.0" text="Telephone:">
+      <TextField fx:id="nom" layoutX="163.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" style="-fx-min-height: 40; -fx-min-width: 200;">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="400.0" layoutY="271.0" text="Telephone:">
+         <font>
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="tel" layoutX="389.0" layoutY="232.0" prefHeight="25.0" prefWidth="126.0" promptText="Telephone" />
-      <TextField fx:id="email" layoutX="163.0" layoutY="189.0" prefHeight="25.0" prefWidth="151.0" promptText="Email address" />
-      <TextField fx:id="address" layoutX="163.0" layoutY="232.0" prefHeight="25.0" prefWidth="126.0" promptText="Address" />
-      <TextField fx:id="pass" layoutX="163.0" layoutY="281.0" prefHeight="25.0" prefWidth="126.0" promptText="Password" />
-      <Label layoutX="87.0" layoutY="192.0" text="Email: ">
+      <TextField fx:id="tel" layoutX="500.0" layoutY="262.0" prefHeight="25.0" prefWidth="126.0" promptText="Telephone" style="-fx-min-height: 40; -fx-min-width: 200;">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="email" layoutX="163.0" layoutY="202.0" prefHeight="25.0" prefWidth="151.0" promptText="Email address" style="-fx-min-height: 40; -fx-min-width: 200;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="address" layoutX="163.0" layoutY="261.0" prefHeight="25.0" prefWidth="126.0" promptText="Address" style="-fx-min-height: 40; -fx-min-width: 200;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="pass" layoutX="163.0" layoutY="317.0" prefHeight="25.0" prefWidth="126.0" promptText="Password" style="-fx-min-height: 40; -fx-min-width: 200;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="91.0" layoutY="212.0" text="Email: ">
+         <font>
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="80.0" layoutY="235.0" text="Address:">
+      <Label layoutX="78.0" layoutY="262.0" text="Address:">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="284.0" text="Password:">
+      <Label layoutX="73.0" layoutY="326.0" text="Password:">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="prenom" layoutX="389.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="Prenom" />
-      <Label layoutX="326.0" layoutY="150.0" text="Prenom:">
+      <TextField fx:id="prenom" layoutX="497.0" layoutY="148.0" prefHeight="25.0" prefWidth="126.0" promptText="Prenom" style="-fx-min-height: 40; -fx-min-width: 200;">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="412.0" layoutY="156.0" text="Prenom:">
+         <font>
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="conPass" layoutX="389.0" layoutY="281.0" prefHeight="25.0" prefWidth="126.0" promptText="Confirmer password" />
-      <Label layoutX="314.0" layoutY="284.0" text="Confirmer:">
+      <TextField fx:id="conPass" layoutX="500.0" layoutY="317.0" prefHeight="25.0" prefWidth="126.0" promptText="Confirmer password" style="-fx-min-height: 40; -fx-min-width: 200;">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="400.0" layoutY="326.0" text="Confirmer:">
+         <font>
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <Label fx:id="errorLabel" layoutX="286.0" layoutY="120.0" textFill="#d20808">

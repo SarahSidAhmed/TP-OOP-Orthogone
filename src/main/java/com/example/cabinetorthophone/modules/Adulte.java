@@ -4,14 +4,12 @@ import java.io.Serializable;
 
 public class Adulte extends Patient implements Serializable {
     private String diplome;
-    private String tel;
     private String profession;
 
 
     public Adulte(String nom, String prenom, int age, String adresse, String diplome, String tel, String profession) {
-        super(nom, prenom, age, adresse);
+        super(nom, prenom,tel, age , adresse);
         this.diplome = diplome;
-        this.tel = tel;
         this.profession = profession;
     }
 
@@ -21,14 +19,6 @@ public class Adulte extends Patient implements Serializable {
 
     public void setDiplome(String diplome) {
         this.diplome = diplome;
-    }
-
-    public String getTel() {
-        return this.tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
     }
 
     public String getProfession() {
@@ -43,7 +33,7 @@ public class Adulte extends Patient implements Serializable {
         super.afficherProfile();
         System.out.println("Diplôme: " + this.diplome);
         System.out.println("Profession: " + this.profession);
-        System.out.println("Téléphone: " + this.tel);
+
     }
 
     public void modifierProfil(String newNom, String newPrenom, int newAge, int newNb_RV, String newDate_naissance, String newLieu_naissance, String newAdresse, String newEtude, String newTel_parent, String newDiplome, String newProfession, String newTel) {
@@ -60,11 +50,11 @@ public class Adulte extends Patient implements Serializable {
             System.out.println("Veuilleez entrer une profession pour le patient.");
         }
 
-        if (newTel != null && !newTel.isEmpty()) {
-            this.tel = newTel;
-        } else {
-            System.out.println("Veuilleez entrer le numero de telephone du patient.");
-        }
+//        if (newTel != null && !newTel.isEmpty()) {
+//            this.tel = newTel;
+//        } else {
+//            System.out.println("Veuilleez entrer le numero de telephone du patient.");
+//        }
 
     }
 }

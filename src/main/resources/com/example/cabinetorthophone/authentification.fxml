@@ -6,24 +6,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AuthentificationController">
+<AnchorPane prefHeight="536.0" prefWidth="800.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AuthentificationController">
    <children>
-      <Button layoutX="401.0" layoutY="231.0" mnemonicParsing="false" onAction="#connexion" style="-fx-background-color: #425c59;" text="Se connecter" textFill="WHITE">
+      <Button layoutX="491.0" layoutY="332.0" mnemonicParsing="false" onAction="#connexion" prefHeight="49.0" prefWidth="169.0" style="-fx-background-color: #425c59;" text="Se connecter" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="96.0" layoutY="231.0" mnemonicParsing="false" onAction="#creation" style="-fx-background-color: #425c59;" text="Creer un compte" textFill="WHITE">
+      <Button layoutX="124.0" layoutY="332.0" mnemonicParsing="false" onAction="#creation" prefHeight="49.0" prefWidth="169.0" style="-fx-background-color: #425c59;" text="Creer un compte" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <ImageView fitHeight="270.0" fitWidth="228.0" layoutX="193.0" opacity="0.37" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="271.0" fitWidth="271.0" layoutX="265.0" layoutY="14.0" opacity="0.37" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@cabinet-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="175.0" fitWidth="173.0" layoutX="221.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="215.0" fitWidth="216.0" layoutX="293.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@cabinet-removebg-preview.png" />
          </image>
