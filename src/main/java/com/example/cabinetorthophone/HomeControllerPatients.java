@@ -23,6 +23,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,9 @@ public class HomeControllerPatients implements Initializable {
     @FXML TableColumn<Patient, Void> tableColumnCheck;
     @FXML TableColumn<Patient, String> tableColumnAddress;
 
+
+    private ZonedDateTime dateFocus;
+    private ZonedDateTime today;
 
 
 
@@ -100,6 +104,9 @@ public class HomeControllerPatients implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        dateFocus = ZonedDateTime.now();
+        today = ZonedDateTime.now();
+
         orthogone = Logiciel.getOrthogoneCourrant();
         tableColumnNom.setCellValueFactory(new PropertyValueFactory<Patient, String>("nom"));
         tableColumnPrenom.setCellValueFactory(new PropertyValueFactory<Patient, String>("prenom"));
@@ -110,26 +117,34 @@ public class HomeControllerPatients implements Initializable {
         //tableColumnCheck.setCellValueFactory(new PropertyValueFactory<Patient, Void>("button"));
         tableColumnAddress.setCellValueFactory(new PropertyValueFactory<Patient, String>("adresse"));
 
-//        Patient p = new Enfant("Sarah", "Sid", 10, "Alger", "ESI", "07796953");
-//        Patient p1 = new Enfant("Hic", "Sid", 3, "Alger", "ESI", "07796953");
-//        Patient p2 = new Enfant("Djamel", "Sid", 5, "Alger", "ESI", "07796953");
-//        Patient p3 = new Enfant("Sora", "Sid", 0, "Alger", "ESI", "07796953");
-//        Patient p4 = new Enfant("Lyna", "Benahmed", 1, "Alger", "ESI", "07796953");
-//        Patient p5 = new Enfant("Fatima", "Senouci", 2, "Alger", "ESI", "07796953");
-//
-//        orthogone.ajouterPatient(p, p.getNum_dossier());
-//        orthogone.ajouterPatient(p1, p1.getNum_dossier());
-//        orthogone.ajouterPatient(p2, p2.getNum_dossier());
-//        orthogone.ajouterPatient(p3, p3.getNum_dossier());
-//        orthogone.ajouterPatient(p4, p4.getNum_dossier());
-//        orthogone.ajouterPatient(p5, p5.getNum_dossier());
+        Patient p = new Enfant("Sarah", "Sid", 10, "Alger", "ESI", "07796953");
+        Patient p1 = new Enfant("Hic", "Sid", 3, "Alger", "ESI", "07796953");
+        Patient p2 = new Enfant("Djamel", "Sid", 5, "Alger", "ESI", "07796953");
+        Patient p3 = new Enfant("Sora", "Sid", 0, "Alger", "ESI", "07796953");
+        Patient p4 = new Enfant("Lyna", "Benahmed", 1, "Alger", "ESI", "07796953");
+        Patient p5 = new Enfant("Fatima", "Senouci", 2, "Alger", "ESI", "07796953");
+
+
+        orthogone.ajouterPatient(p, p.getNum_dossier());
+        orthogone.ajouterPatient(p1, p1.getNum_dossier());
+        orthogone.ajouterPatient(p2, p2.getNum_dossier());
+        orthogone.ajouterPatient(p3, p3.getNum_dossier());
+        orthogone.ajouterPatient(p4, p4.getNum_dossier());
+        orthogone.ajouterPatient(p5, p5.getNum_dossier());
+
+
+        int year = dateFocus.getYear();
+        int month = dateFocus.getMonth().getValue();
+
+//        ZonedDateTime time = ZonedDateTime.of(year, month, 5, 16,0,0,0,dateFocus.getZone());
+//        RendezVous rv = new Consultation(time, " ", p.getNom(), p.getPrenom(), p.getAge());
+//        orthogone.programmerRendezVous(rv);
 
         addButtonToTable();
         List<Patient> oo = new ArrayList<>(orthogone.getPatients());
         ObservableList<Patient> o = FXCollections.observableArrayList(oo);
 
         tableViewPatient.setItems(o);
-
         editDate();
     }
 
@@ -150,6 +165,9 @@ public class HomeControllerPatients implements Initializable {
 
 
     protected void editDate(){
+
+
+        //ENABLING THE EDITIBILITY OF THE CELLS
         tableColumnNom.setCellFactory(TextFieldTableCell.<Patient>forTableColumn());
         tableColumnNom.setOnEditCommit(event ->{
             Patient p = event.getTableView().getItems().get(event.getTablePosition().getRow());

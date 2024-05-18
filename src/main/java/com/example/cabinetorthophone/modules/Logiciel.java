@@ -1,10 +1,7 @@
 package com.example.cabinetorthophone.modules;
 
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -125,6 +122,18 @@ public class Logiciel implements Serializable {
         }
 
     }
+
+    public static void sauvegarderUsers(){
+        try{
+            FileOutputStream fOut =new FileOutputStream("DataFile.dat");
+            ObjectOutputStream ojOut = new ObjectOutputStream(fOut);
+            ojOut.writeObject(orthogonistes);
+            System.out.println("Data sauvegardés avec succés");
+        }catch (IOException o ){
+            System.out.println("Erreur lors de la sauvegarde des utilisateurs "+o.getMessage());
+        }
+    }
+
 
     public static void chargerUtilisateurs() {
         try (FileInputStream fis = new FileInputStream("FichierCabinet.dat");

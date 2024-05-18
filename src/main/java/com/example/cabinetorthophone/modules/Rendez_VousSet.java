@@ -2,11 +2,10 @@ package com.example.cabinetorthophone.modules;
 
 public interface Rendez_VousSet {
 
+     void setDuree();
 
-        default void setDuree(String duree) {
-            duree = "1";
-        }
+    void setDuree(String duree);
 
-        void setTypeRV(Type_RV var1);
+    void setTypeRV(Type_RV var1);
     }
 

@@ -8,24 +8,32 @@ public class Consultation extends RendezVous implements Serializable {
     private String nom;
     private String prenom;
     private int age;
+    private final String DURRE_ADULTE = "1:30";
+    private final String DURRE_ENFANT = "2:30";
 
-    public Consultation(ZonedDateTime date, String heure, String duree, Type_RV type, String observation, String nom, String prenom, int age) {
-        super(date, heure, duree, type, observation);
+    public Consultation(ZonedDateTime date, String observation, String nom, String prenom, int age) {
+        super(date, Type_RV.CONSULTATION, observation);
+        setDuree();
+        Logiciel.getPatientCurrant().incrementNB_RV();
+        super.setDuree(getDuree());
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setAge(age);
     }
 
-    public void setDuree(String dure) {
-        if (this.age > 18) {
-            this.setDuree("1:30");
+
+
+    public void setDuree() {
+        if (getAge() >= 18) {
+            super.setDuree(DURRE_ADULTE);
         } else {
-            this.setDuree("2:30");
+            super.setDuree(DURRE_ENFANT);
         }
 
     }
 
-    public void setTypeRV(Type_RV type) {
+    public void setTypeRV() {
+        super.setTypeRV(Type_RV.CONSULTATION);
     }
 
     void afficher() {

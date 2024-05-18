@@ -4,9 +4,9 @@ import java.time.ZonedDateTime;
 public class CalendarActivity {
     private ZonedDateTime date;
     private String clientName;
-    private Integer serviceNo;
+    private Type_RV serviceNo;
 
-    public CalendarActivity(ZonedDateTime date, String clientName, Integer serviceNo) {
+        public CalendarActivity(ZonedDateTime date, String clientName, Type_RV serviceNo) {
         this.date = date;
         this.clientName = clientName;
         this.serviceNo = serviceNo;
@@ -28,11 +28,11 @@ public class CalendarActivity {
         this.clientName = clientName;
     }
 
-    public Integer getServiceNo() {
+    public Type_RV getServiceNo() {
         return serviceNo;
     }
 
-    public void setServiceNo(Integer serviceNo) {
+    public void setServiceNo(Type_RV serviceNo) {
         this.serviceNo = serviceNo;
     }
 

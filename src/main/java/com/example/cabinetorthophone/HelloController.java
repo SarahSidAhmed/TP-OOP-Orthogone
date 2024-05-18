@@ -19,7 +19,7 @@ public class HelloController {
 
     @FXML
     protected void commencer(ActionEvent event) throws IOException {
-        //Logiciel.chargerUtilisateurs();
+        Logiciel.chargerUtilisateurs();
         Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
