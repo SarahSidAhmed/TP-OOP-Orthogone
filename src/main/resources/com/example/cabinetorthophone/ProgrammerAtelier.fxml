@@ -1,8 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-min-height: 540; -fx-min-width: 795;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.ProgrammerAtelierController">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-min-height: 540; -fx-min-width: 795; -fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.ProgrammerAtelierController">
+   <children>
+      <Label layoutX="108.0" layoutY="83.0" text="Programmer Nouveau Atelier">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Group layoutX="41.0" layoutY="40.0" onMouseClicked="#Back">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@previous.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <TextField fx:id="jour" layoutX="86.0" layoutY="215.0" promptText="Jour" style="-fx-min-height: 40;" />
+      <TextField fx:id="mois" layoutX="86.0" layoutY="271.0" promptText="Mois" style="-fx-min-height: 40;" />
+      <TextField fx:id="annee" layoutX="86.0" layoutY="334.0" promptText="Annee" style="-fx-min-height: 40;" />
+      <TextField fx:id="heure" layoutX="311.0" layoutY="215.0" promptText="Heure" style="-fx-min-height: 40;" />
+      <TextField fx:id="minute" layoutX="311.0" layoutY="268.0" promptText="Minute" style="-fx-min-height: 40;" />
+      <Label layoutX="44.0" layoutY="222.0" text="Jour:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="278.0" text="Mois:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="341.0" text="Annee:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="254.0" layoutY="222.0" text="Heure:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="250.0" layoutY="275.0" text="Minute:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="175.0" layoutY="448.0" mnemonicParsing="false" onAction="#Confirmer" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #425c59 #423c69;" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorText" alignment="CENTER" layoutX="31.0" layoutY="407.0" prefHeight="26.0" prefWidth="463.0" style="-fx-background-color: #e0ea99;" text="Une erreur dans la planification de l'une de vos date" textFill="#a12121">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="532.0" layoutY="83.0" text="Ajouter a un Atelier">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceAtelier" layoutX="543.0" layoutY="191.0" prefHeight="25.0" prefWidth="213.0" />
+      <Label layoutX="554.0" layoutY="158.0" text="Choisissez l'Atelier:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="565.0" layoutY="448.0" mnemonicParsing="false" onAction="#AjouterAtelier" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #425c59 #423c69;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableAtelier" layoutX="510.0" layoutY="237.0" prefHeight="200.0" prefWidth="257.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Atelier" />
+          <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="107.33333333333331" text="Nombre Patient" />
+        </columns>
+      </TableView>
+      <TextField fx:id="thematique" layoutX="130.0" layoutY="159.0" minHeight="34.0" prefHeight="40.0" prefWidth="294.0" promptText="Ajouter Thematique" style="-fx-min-height: 40;" />
+   </children>
 </AnchorPane>

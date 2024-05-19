@@ -174,7 +174,7 @@ public class HomeAgendaController implements Initializable {
         calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
         calendarActivityBox.setMaxWidth(rectangleWidth * 0.8);
         calendarActivityBox.setMaxHeight(rectangleHeight * 0.65);
-        calendarActivityBox.setStyle("-fx-background-color:GRAY");
+        calendarActivityBox.setStyle("-fx-background-color: #429c59");
         stackPane.getChildren().add(calendarActivityBox);
     }
 
@@ -214,10 +214,6 @@ public class HomeAgendaController implements Initializable {
                 calendarActivities.add(RVtoCalendarActivity(r));
             }
         }
-//        for (int i = 0; i < 50; i++) {
-//            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27)+1, 16,0,0,0,dateFocus.getZone());
-//            calendarActivities.add(new CalendarActivity(time, "Hans", 111111));
-//        }
 
         return createCalendarMap(calendarActivities);
     }
@@ -229,7 +225,9 @@ public class HomeAgendaController implements Initializable {
         } else if (rv instanceof Suivi) {
             int n = ((Suivi) rv).getNum_dossier();
             Patient p = orthogone.rechercherPatientByDossier(n);
-            nomPrenom = p.getNom() + " "+ p.getPrenom();
+            if (((Suivi) rv).isPrsent()){
+            nomPrenom = rv.getType().toString() + " Present";
+            }else nomPrenom = rv.getType().toString() + " Enligne";
 
         }else if(rv instanceof Atelier){
             nomPrenom = ((Atelier) rv).getThematique();
