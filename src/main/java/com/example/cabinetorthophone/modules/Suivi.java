@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
-public class Suivi extends RendezVous implements Serializable {
+public class Suivi extends RendezVous implements Serializable{
     private int num_dossier;
     private boolean present;
 
-    public Suivi(ZonedDateTime date, String heure, String duree, Type_RV type, String observation, int num_dossier, boolean present) {
-        super(date, heure, duree, type, observation);
+    public Suivi(ZonedDateTime date, Type_RV type, String observation, int num_dossier, boolean present) {
+        super(date, Type_RV.SUIVI, observation);
         this.setPrsent(present);
+        Logiciel.getPatientCurrant().incrementNB_RV();
         this.setNum_dossier(num_dossier);
     }
 
@@ -38,9 +39,14 @@ public class Suivi extends RendezVous implements Serializable {
         this.present = prsent;
     }
 
-    @Override
-    public void setTypeRV(Type_RV var1) {
 
+    public void setTypeRV() {
+        super.setTypeRV(Type_RV.SUIVI);
+    }
+
+    @Override
+    public void setDuree() {
+        super.setDuree("1:00");
     }
 }
 

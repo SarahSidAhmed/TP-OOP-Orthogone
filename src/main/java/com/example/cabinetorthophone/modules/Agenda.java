@@ -31,7 +31,7 @@ import java.util.Iterator;
 
                 while(var4.hasNext()) {
                     RendezVous rv = (RendezVous)var4.next();
-                    if (rv.getDate().equals(date) && rv.getHeure().equals(heure)) {
+                    if (rv.getDate().equals(date) ) {
                         rendezVousASupprimer = rv;
                         break;
                     }
@@ -49,7 +49,7 @@ import java.util.Iterator;
                 int index = this.rendezVous.indexOf(rendezVous);
                 if (index != -1) {
                     rendezVous.setDate(date);
-                    rendezVous.setHeure(heure);
+
                     this.rendezVous.set(index, rendezVous);
                 }
             }

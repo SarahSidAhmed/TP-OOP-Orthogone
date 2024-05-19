@@ -123,7 +123,7 @@ public class HomeAgendaController implements Initializable {
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.BLACK);
                 rectangle.setStrokeWidth(strokeWidth);
-                double rectangleWidth =(calendarWidth/7) - strokeWidth - spacingH;
+                double rectangleWidth =(calendarWidth/6.5) - strokeWidth - spacingH;
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
@@ -199,12 +199,21 @@ public class HomeAgendaController implements Initializable {
     private Map<Integer, List<CalendarActivity>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) {
 
         //list de RV
-
+        Agenda a = orthogone.getAgenda();
+        ArrayList<RendezVous> listRV = a.getRendezVous();
         List<CalendarActivity> calendarActivities = new ArrayList<>();
+
+
+
+
         int year = dateFocus.getYear();
         int month = dateFocus.getMonth().getValue();
 
-//        Random random = new Random();
+        for (RendezVous r : listRV){
+            if (r.getDate().getYear() == year && r.getDate().getMonth().getValue() == month ) {
+                calendarActivities.add(RVtoCalendarActivity(r));
+            }
+        }
 //        for (int i = 0; i < 50; i++) {
 //            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27)+1, 16,0,0,0,dateFocus.getZone());
 //            calendarActivities.add(new CalendarActivity(time, "Hans", 111111));
@@ -212,4 +221,21 @@ public class HomeAgendaController implements Initializable {
 
         return createCalendarMap(calendarActivities);
     }
+
+    private CalendarActivity RVtoCalendarActivity(RendezVous rv){
+        String nomPrenom = "//";
+        if (rv instanceof Consultation){
+            nomPrenom = ((Consultation) rv).getNom()+" "+((Consultation) rv).getPrenom();
+        } else if (rv instanceof Suivi) {
+            int n = ((Suivi) rv).getNum_dossier();
+            Patient p = orthogone.rechercherPatientByDossier(n);
+            nomPrenom = p.getNom() + " "+ p.getPrenom();
+
+        }else if(rv instanceof Atelier){
+            nomPrenom = ((Atelier) rv).getThematique();
+        }
+        CalendarActivity c = new CalendarActivity(rv.getDate(), nomPrenom, rv.getType());
+        return c;
+    }
+
 }

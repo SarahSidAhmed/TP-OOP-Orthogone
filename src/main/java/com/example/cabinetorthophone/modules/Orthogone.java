@@ -56,6 +56,7 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
 
     }
 
+
     public void supprimerPatient(Patient patient) {
         if (patient != null) {
             this.patients.remove(patient);
@@ -129,6 +130,19 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
             this.patients = new HashSet();
         }
 
+    }
+
+    public Patient rechercherPatientByDossier(int num){
+
+        HashSet<Patient> p = getPatients();
+        if (getDossiers().contains(num)){
+            for (Patient p1 : p){
+                if (p1.getNum_dossier() == num){
+                    return p1;
+                }
+            }
+        }
+        return  null;
     }
 
     public ArrayList<Dossier> getDossiers() {

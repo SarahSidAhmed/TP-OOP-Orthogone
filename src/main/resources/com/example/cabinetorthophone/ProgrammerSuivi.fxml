@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-min-height: 540; -fx-min-width: 795; -fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.ProgrammerSuiviController">
+   <children>
+      <Label layoutX="268.0" layoutY="64.0" text="Programmer Seance de Suivi">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Group layoutX="41.0" layoutY="40.0" onMouseClicked="#Back">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@previous.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <TextField fx:id="jour" layoutX="144.0" layoutY="181.0" promptText="Jour" style="-fx-min-height: 40;" />
+      <TextField fx:id="mois" layoutX="144.0" layoutY="250.0" promptText="Mois" style="-fx-min-height: 40;" />
+      <TextField fx:id="annee" layoutX="144.0" layoutY="313.0" promptText="Annee" style="-fx-min-height: 40;" />
+      <TextField fx:id="heure" layoutX="463.0" layoutY="181.0" promptText="Heure" style="-fx-min-height: 40;" />
+      <TextField fx:id="minute" layoutX="463.0" layoutY="248.0" promptText="Minute" style="-fx-min-height: 40;" />
+      <Label layoutX="92.0" layoutY="188.0" text="Jour:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="257.0" text="Mois:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="320.0" text="Annee:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="398.0" layoutY="188.0" text="Heure:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="398.0" layoutY="255.0" text="Minute:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="317.0" layoutY="451.0" mnemonicParsing="false" onAction="#Confirmer" prefHeight="40.0" prefWidth="191.0" style="-fx-background-color: #425c59 #423c69;" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorText" alignment="CENTER" layoutX="181.0" layoutY="399.0" prefHeight="26.0" prefWidth="463.0" style="-fx-background-color: #e0ea99;" text="Une erreur dans la planification de l'une de vos date" textFill="#a12121">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="presentBool" layoutX="464.0" layoutY="317.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="91.0" text="Presentiel">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </CheckBox>
+   </children>
+</AnchorPane>
