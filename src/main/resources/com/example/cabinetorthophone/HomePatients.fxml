@@ -91,7 +91,7 @@
                   <TableColumn fx:id="tableColumnAge" prefWidth="42.66667175292969" text="Age:" />
                   <TableColumn fx:id="tableColumnTel" prefWidth="130.6666259765625" text="Numero Telephone:" />
                   <TableColumn fx:id="tableColumnAddress" prefWidth="75.33331298828125" text="Address" />
-                  <TableColumn fx:id="tableColumnCheck" prefWidth="144.66671752929688" text="Check" />
+                  <TableColumn fx:id="tableColumnCheck" prefWidth="147.9999877929688" text="Check" />
               </columns>
             </TableView>
             <Button layoutX="513.0" layoutY="91.0" mnemonicParsing="false" onAction="#ajouterPatient" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="      Ajouter Patient" textFill="WHITE">

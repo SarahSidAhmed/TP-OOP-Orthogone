@@ -98,6 +98,7 @@ public class HomeControllerPatients implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
+
         tableColumnNom.setCellValueFactory(new PropertyValueFactory<Patient, String>("nom"));
         tableColumnPrenom.setCellValueFactory(new PropertyValueFactory<Patient, String>("prenom"));
         tableColumnAge.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));

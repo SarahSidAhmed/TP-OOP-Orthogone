@@ -83,11 +83,28 @@ public class Dossier implements Serializable {
     
     public String getLieu_naissance(){return this.lieu_naissance;}
 
+
     public ArrayList<Bo> getBo() {
         return this.bo;
     }
+    public ArrayList<Fiche> getFiche() {
+        return this.listeFiches;
+    }
+    public ArrayList<RendezVous> getListeRendezVous() {
+        return this.listeRendezVous;
+    }
+
+
 
     public void setBo(ArrayList<Bo> bo) {
         this.bo = bo;
     }
+    public void setFiche(ArrayList<Fiche> listeFiches) {
+        this.listeFiches = listeFiches;
+    }
+    public void setListeRendezVous(ArrayList<RendezVous> listeRendezVous ) {
+        this.listeRendezVous = listeRendezVous;
+    }
+
+
 }

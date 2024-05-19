@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterBoController">
+    <children>
+        <AnchorPane prefHeight="540.0" prefWidth="795.0">
+            <children>
+                <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
+                    <children>
+                        <ImageView fitHeight="127.0" fitWidth="118.0" layoutX="196.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@cabinet-removebg-preview.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="334.0" layoutY="40.0" text="Ajouter Bilan">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                        </Label>
+                        <Group layoutX="21.0" layoutY="20.0" onMouseClicked="#Back">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
+                                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-2.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@previous.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Group>
+                    </children>
+                </AnchorPane>
+                <Button layoutX="87.0" layoutY="477.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="135.0" layoutY="238.0" prefHeight="32.0" prefWidth="118.0" text="Diagnostique:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="observations" layoutX="256.0" layoutY="142.0" minHeight="36.0" minWidth="163.0" prefHeight="36.0" prefWidth="163.0" promptText="Observation cliniques" style="-fx-min-width: 200; -fx-min-height: 38;" />
+                <TextField fx:id="thematique" layoutX="256.0" layoutY="316.0" prefHeight="25.0" prefWidth="126.0" promptText="Thematique" style="-fx-min-width: 200; -fx-min-height: 38;" />
+                <Label layoutX="142.0" layoutY="315.0" text="Thematique:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="finish" disable="true" layoutX="628.0" layoutY="477.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label fx:id="errorText" alignment="CENTER" layoutX="223.0" layoutY="111.0" prefHeight="20.0" prefWidth="169.0" textFill="#c31c1c" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            <Label layoutX="135.0" layoutY="150.0" text="Observations:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="ajouterepreuve" layoutX="256.0" layoutY="193.0" mnemonicParsing="false" onAction="#ajouterEpreuve" onMouseClicked="#ajouterepreuve" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="Ajouter Epreuve" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="135.0" layoutY="189.0" text="Epreuves:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="ajouterdiagnostique" layoutX="256.0" layoutY="254.0" mnemonicParsing="false" onAction="#ajouterDiagnostique" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #455c59;" text="Ajouter Diagnostique" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

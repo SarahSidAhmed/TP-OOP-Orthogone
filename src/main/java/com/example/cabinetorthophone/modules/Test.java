@@ -3,7 +3,7 @@ package com.example.cabinetorthophone.modules;
 import java.io.Serializable;
 import java.util.Objects;
 
-abstract class Test implements Serializable {
+public abstract class Test implements Serializable {
     private String nom;
     private int capacite;
 
