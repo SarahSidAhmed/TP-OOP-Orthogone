@@ -10,8 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -22,8 +21,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 
 public class DossierController implements Initializable{
 
@@ -35,8 +34,8 @@ public class DossierController implements Initializable{
 
     @FXML TableView<Bo> tableViewBo;
     @FXML TableColumn<Bo, String> tableColumnThematique;
-    @FXML TableColumn<Bo, Diagnostique> tableColumnDiagnostique;
-    @FXML TableColumn<Bo, Epreuve> tableColumnEpreuve;
+    @FXML TableColumn<Bo, Void> tableColumnDiagnostique;
+    @FXML TableColumn<Bo, Void> tableColumnEpreuve;
 
     @FXML
     private Label Dossier;
@@ -53,29 +52,6 @@ public class DossierController implements Initializable{
     }
 
 
-    @FXML
-    public void onFichesButtonClick(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("Fiches.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
-
-
-    @FXML
-    protected void onRVButtonClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("RV.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
 
     @FXML
     protected void ajouterBo(ActionEvent event) throws IOException {
@@ -111,8 +87,8 @@ public class DossierController implements Initializable{
 
         orthogone = Logiciel.getOrthogoneCourrant();
         tableColumnThematique.setCellValueFactory(new PropertyValueFactory<Bo, String>("Thematique"));
-        tableColumnDiagnostique.setCellValueFactory(new PropertyValueFactory<Bo, Diagnostique>("Diagnostique"));
-        tableColumnEpreuve.setCellValueFactory(new PropertyValueFactory<Bo, Epreuve>("Epreuve"));
+        addButtonToTable();
+        addButtonToTable0();
 
 
 
@@ -125,7 +101,64 @@ public class DossierController implements Initializable{
         //editDate();
     }
 
+    private void addButtonToTable0() {
 
+    }
+
+    private void addButtonToTable() {
+        Callback<TableColumn<Bo, Void>, TableCell<Bo, Void>> cellFactory = new Callback<TableColumn<Bo, Void>, TableCell<Bo, Void>>() {
+            @Override
+            public TableCell<Bo, Void> call(final TableColumn<Bo, Void> param) {
+                final TableCell<Bo, Void> cell = new TableCell<Bo, Void>() {
+
+                    private final Button btn = new Button("Check");
+
+                    {
+
+                        btn.setPrefHeight(32.0);
+                        btn.setPrefWidth(118.0);
+                        btn.setStyle("-fx-background-color: #425c59;");
+                        btn.setTextFill(javafx.scene.paint.Color.WHITE);
+                        btn.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 14));
+
+                        btn.setOnAction((event) -> {
+                            Bo data = getTableView().getItems().get(getIndex());
+                            // Perform action with data
+                          //  Logiciel.setPatientCurrant(data);
+
+                            try {
+                                Parent root =  FXMLLoader.load(getClass().getResource("Diagnostiques.fxml"));
+                                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.centerOnScreen();
+                                stage.show();
+
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+
+
+                            //System.out.println("Selected Data: " + data);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        tableColumnDiagnostique.setCellFactory(cellFactory);
+    }
 
 
 
