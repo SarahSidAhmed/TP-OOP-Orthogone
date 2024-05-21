@@ -39,11 +39,12 @@ public class Objectif implements Serializable {
     }
 
     public Type_Terme getTerme() {
-        return terme;
+        return this.terme;
     }
 
     public void setTerme(Type_Terme terme) {
         this.terme = terme;
     }
+
 }
 

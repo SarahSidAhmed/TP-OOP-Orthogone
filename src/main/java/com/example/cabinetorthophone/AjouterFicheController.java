@@ -94,4 +94,10 @@ public class AjouterFicheController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
     }//hmmmmm  what to write here ....? get dossiercourrant?
+
+    public void Suivant(ActionEvent actionEvent) {
+    }
+
+    public void ajouterobjectiif(ActionEvent actionEvent) {
+    }
 }

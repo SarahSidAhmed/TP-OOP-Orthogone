@@ -1,7 +1,6 @@
 package com.example.cabinetorthophone;
 
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
 import com.example.cabinetorthophone.modules.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,10 +10,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,16 +25,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Label;
-
 public class FicheController implements Initializable {
     private Stage stage;
     private Scene scene;
     private static Orthogone orthogone;
     private static Dossier dossier;
+    private static Fiche fiche;
+
 
     @FXML TableView<Fiche> tableViewFiche;
-    @FXML TableColumn<Fiche, Type_Terme> tableColumnTerme;
+    @FXML TableColumn<Fiche, Void> tableColumnCheck;
     @FXML TableColumn<Fiche, Objectif> tableColumnObjectif;
 
     @FXML
@@ -44,17 +46,7 @@ public class FicheController implements Initializable {
         stage.centerOnScreen();
         stage.show();
     }
-
-    @FXML
-    protected void onRVButtonClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("RV.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
+    
 
     @FXML
     protected void deleteData(ActionEvent event){
@@ -76,8 +68,9 @@ public class FicheController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
-        tableColumnTerme.setCellValueFactory(new PropertyValueFactory<Fiche, Type_Terme>("Terme"));
+        //fiche =Logiciel.getFicheCourrant();
         tableColumnObjectif.setCellValueFactory(new PropertyValueFactory<Fiche, Objectif>("Objectif"));
+        addButtonToTable();
         List<Fiche> oo = new ArrayList<Fiche>(dossier.getFiche());
         ObservableList<Fiche> o = FXCollections.observableArrayList(oo);
 
@@ -86,16 +79,63 @@ public class FicheController implements Initializable {
         //editDate();
     }
 
-    @FXML
-    protected void onBoButtonClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+    private void addButtonToTable() {
 
-    }
+            Callback<TableColumn<Fiche, Void>, TableCell<Fiche, Void>> cellFactory = new Callback<TableColumn<Fiche, Void>, TableCell<Fiche, Void>>() {
+                @Override
+                public TableCell<Fiche, Void> call(final TableColumn<Fiche, Void> param) {
+                    final TableCell<Fiche, Void> cell = new TableCell<Fiche, Void>() {
+
+                        private final Button btn = new Button("Check");
+
+                        {
+
+                            btn.setPrefHeight(32.0);
+                            btn.setPrefWidth(118.0);
+                            btn.setStyle("-fx-background-color: #425c59;");
+                            btn.setTextFill(javafx.scene.paint.Color.WHITE);
+                            btn.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 14));
+
+                            btn.setOnAction((event) -> {
+                                Fiche data = getTableView().getItems().get(getIndex());
+
+                                //HEREEEEE     Perform action with data
+                                Logiciel.getPatientCurrant().getNum_dossier();
+
+
+                                try {
+                                    Parent root =  FXMLLoader.load(getClass().getResource("Objectifs.fxml"));
+                                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.centerOnScreen();
+                                    stage.show();
+
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+
+                                //System.out.println("Selected Data: " + data);
+                            });
+                        }
+
+                        @Override
+                        public void updateItem(Void item, boolean empty) {
+                            super.updateItem(item, empty);
+                            if (empty) {
+                                setGraphic(null);
+                            } else {
+                                setGraphic(btn);
+                            }
+                        }
+                    };
+                    return cell;
+                }
+            };
+
+            tableColumnCheck.setCellFactory(cellFactory);
+        }
 
 
     @FXML
@@ -110,10 +150,9 @@ public class FicheController implements Initializable {
     }
 
 
-
     public void Back(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("HomePatients.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

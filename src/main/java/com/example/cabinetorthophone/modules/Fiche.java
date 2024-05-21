@@ -6,16 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Fiche implements Serializable {
-    private Type_Terme terme;
     private ArrayList<Objectif> objectifs;
 
     public Fiche(Type_Terme terme, ArrayList<Objectif> objectifs) {
-        this.terme = terme;
         this.objectifs = objectifs;
     }
 
     public void afficherFiche() {
-        System.out.println("Terme: " + String.valueOf(this.terme));
         System.out.print("Objectifs: ");
         Iterator var1 = this.objectifs.iterator();
 
@@ -57,12 +54,5 @@ public class Fiche implements Serializable {
         this.objectifs = objectifs;
     }
 
-    public Type_Terme getTerme() {
-        return this.terme;
-    }
-
-    public void setTerme(Type_Terme terme) {
-        this.terme = terme;
-    }
 }
 

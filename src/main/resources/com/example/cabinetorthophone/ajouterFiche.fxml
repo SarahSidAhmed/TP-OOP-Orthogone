@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterFicheController">
     <children>
-        <AnchorPane layoutY="7.0" prefHeight="540.0" prefWidth="795.0">
+        <AnchorPane prefHeight="540.0" prefWidth="795.0">
             <children>
                 <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
                     <children>
@@ -36,9 +36,14 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Label layoutX="165.0" layoutY="200.0" text="Ajouter objectif:">
+                <Button layoutX="123.0" layoutY="455.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="142.0" layoutY="131.0" prefHeight="20.0" prefWidth="148.0" text="Ajouter objectif:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
                 <Button fx:id="finish" disable="true" layoutX="576.0" layoutY="455.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
@@ -51,7 +56,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-            <Button fx:id="objectif" layoutX="301.0" layoutY="254.0" mnemonicParsing="false" onAction="#AjouterObjectif" prefHeight="32.0" prefWidth="227.0" style="-fx-background-color: #425c59;" text="Ajouter Objectif" textFill="WHITE">
+            <Button fx:id="ajouterobjectif" layoutX="274.0" layoutY="227.0" mnemonicParsing="false" onAction="#ajouterobjectiif" prefHeight="32.0" prefWidth="193.0" style="-fx-background-color: #425c59;" text="Ajouter Objectif" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
