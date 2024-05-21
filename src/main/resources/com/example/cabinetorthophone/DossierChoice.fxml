@@ -27,7 +27,7 @@
                   <Group layoutX="21.0" layoutY="20.0" onMouseClicked="#Back">
                      <children>
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
-                        <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-5.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-5.0" layoutY="-4.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@previous.png" />
                            </image>

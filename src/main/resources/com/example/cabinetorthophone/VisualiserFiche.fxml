@@ -55,7 +55,6 @@
                   <Image url="@add-button.png" />
                </image>
             </ImageView>
-            <Group />
             <Button alignment="CENTER_RIGHT" layoutX="673.0" layoutY="142.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #FF0000;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
