@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Orthogone implements Comparable<Orthogone>, Serializable
-{
+public class Orthogone implements Comparable<Orthogone>, Serializable {
     private String nom;
     private String prenom;
     private String adresse;
@@ -132,17 +131,17 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
 
     }
 
-    public Patient rechercherPatientByDossier(int num){
+    public Patient rechercherPatientByDossier(int num) {
 
         HashSet<Patient> p = getPatients();
-        if (getDossiers().contains(num)){
-            for (Patient p1 : p){
-                if (p1.getNum_dossier() == num){
+        if (getDossiers().contains(num)) {
+            for (Patient p1 : p) {
+                if (p1.getNum_dossier() == num) {
                     return p1;
                 }
             }
         }
-        return  null;
+        return null;
     }
 
     public ArrayList<Dossier> getDossiers() {
@@ -172,5 +171,14 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
             System.out.println("Impossible de creer le dossier : Ce dossier existe deja.");
         }
 
+    }
+
+    public Dossier rechercherDossier(int num_dossier) {
+        for (Dossier dossier : dossiers) {
+            if (dossier.getNumDossier() == num_dossier) {
+                return dossier;
+            }
+        }
+        return null;
     }
 }

@@ -37,11 +37,6 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button layoutX="104.0" layoutY="468.0" mnemonicParsing="false" onAction="#Suivant" onMouseClicked="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
                 <Label layoutX="90.0" layoutY="169.0" text="Observations:">
                     <font>
                         <Font name="System Bold" size="15.0" />

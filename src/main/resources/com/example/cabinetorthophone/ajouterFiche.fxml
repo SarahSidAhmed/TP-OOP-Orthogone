@@ -3,7 +3,6 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +10,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterFicheController">
     <children>
-        <AnchorPane prefHeight="540.0" prefWidth="795.0">
+        <AnchorPane layoutY="7.0" prefHeight="540.0" prefWidth="795.0">
             <children>
                 <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
                     <children>
@@ -37,21 +36,9 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button layoutX="123.0" layoutY="455.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-                <Label layoutX="90.0" layoutY="150.0" text="terme:">
+                <Label layoutX="165.0" layoutY="200.0" text="Ajouter objectif:">
                     <font>
                         <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="terme" layoutX="163.0" layoutY="147.0" prefHeight="25.0" prefWidth="126.0" promptText="terme" style="-fx-min-width: 200; -fx-min-height: 38;" />
-                <TextField fx:id="objectifs" layoutX="520.0" layoutY="301.0" prefHeight="25.0" prefWidth="126.0" promptText="Objectifs" style="-fx-min-width: 200; -fx-min-height: 38;" />
-                <Label layoutX="429.0" layoutY="281.0" text="Objectifs:">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
                 <Button fx:id="finish" disable="true" layoutX="576.0" layoutY="455.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
@@ -64,6 +51,11 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
+            <Button fx:id="objectif" layoutX="301.0" layoutY="254.0" mnemonicParsing="false" onAction="#AjouterObjectif" prefHeight="32.0" prefWidth="227.0" style="-fx-background-color: #425c59;" text="Ajouter Objectif" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

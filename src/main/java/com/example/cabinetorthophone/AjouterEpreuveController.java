@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterEpreuveController implements Initializable {
@@ -31,6 +32,8 @@ public class AjouterEpreuveController implements Initializable {
     @FXML private TextField observations;
     @FXML private Button finish;
     @FXML private Button ajouteretest;
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
     @FXML private Button ajoutercompterendu;
     @FXML private Label errorText;
 
@@ -46,17 +49,22 @@ public class AjouterEpreuveController implements Initializable {
         stage.show();
     }
 
-    public void Suivant(ActionEvent actionEvent) {
-    }
-
 
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-        //ajouter le bilan dans la liste des bilans de l'orthophoniste how : ????!!!!!
-        // orthogone.ajouterBo(newBo, newBo.getNum_dossier());
+        //ajouter Epreuve a la liste des epreuves dans Bo
+        newEpreuve.addObservation(observations.getText());
 
-        //aller a homeDossier
+        currentBo.ajouterEpreuve(newEpreuve);
+        ArrayList<Bo> bos = new ArrayList<>();
+        bos.add(currentBo);
+        currentDossier.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(currentDossier);
+        orthogone.setDossiers(dossiers);
+
+        //aller a ajouterBo
         Parent root = FXMLLoader.load(getClass().getResource("ajouterBo.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -69,7 +77,7 @@ public class AjouterEpreuveController implements Initializable {
     @FXML
     protected void ajouteretest(ActionEvent event) throws IOException {
 
-        //aller a ajouter epreuve
+        //aller a ajouter test
         Parent root = FXMLLoader.load(getClass().getResource("ajouterTest.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -80,7 +88,7 @@ public class AjouterEpreuveController implements Initializable {
     @FXML
     protected void ajoutercoompterendu(ActionEvent event) throws IOException {
 
-        //aller a ajouter epreuve
+        //aller a ajouter compterendu
         Parent root = FXMLLoader.load(getClass().getResource("ajouterCompterendu.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -92,5 +100,5 @@ public class AjouterEpreuveController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
-    }//hmmmmm  what to write here ....? get dossiercourrant?
+    }
 }

@@ -11,6 +11,13 @@ public class Logiciel implements Serializable {
     private Orthogone connectedUser = null;
     private static Orthogone orthogoneCourrant;
     private static Patient patientCurrant;
+    private static Dossier dossierCourrant;
+    private static Fiche ficheCourrant;
+    private static Epreuve epreuveCourrant;
+    private static Bo boCourrant;
+
+
+
 
 
     public Logiciel() {
@@ -30,8 +37,40 @@ public class Logiciel implements Serializable {
         return patientCurrant;
     }
 
+
     public static void setPatientCurrant(Patient patientCurrant) {
         Logiciel.patientCurrant = patientCurrant;
+    }
+
+    public static void setDossierCourrant(Dossier data) {
+        dossierCourrant = data;
+    }
+
+    public static Dossier getDossierCourrant() {
+return dossierCourrant;    }
+
+    public static void setFicheCourrant(Fiche data) {
+        ficheCourrant = data;
+    }
+
+    public static Fiche getFicheCourrant() {
+        return ficheCourrant;
+    }
+
+    public static Epreuve getEpreuveCourrant() {
+        return epreuveCourrant;
+    }
+
+    public static void setEpreuveCourrant(Epreuve epreuveCourrant) {
+        Logiciel.epreuveCourrant = epreuveCourrant;
+    }
+
+    public static Bo getBoCourrant() {
+        return boCourrant;
+    }
+
+    public static void setBoCourrant(Bo boCourrant) {
+        Logiciel.boCourrant = boCourrant;
     }
 
     public void ajouterOrthophone(Orthogone orthogone){

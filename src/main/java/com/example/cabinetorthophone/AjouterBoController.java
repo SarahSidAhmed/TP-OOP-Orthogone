@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterBoController implements Initializable {
@@ -34,6 +35,8 @@ public class AjouterBoController implements Initializable {
     @FXML private Button ajouterepreuve;
     @FXML private Button ajouterdiagnostique;
     @FXML private Label errorText;
+    private Dossier dossiercourant;
+    private Patient patientcourant;
 
 
 
@@ -48,14 +51,23 @@ public class AjouterBoController implements Initializable {
         stage.show();
     }
 
-    public void Suivant(ActionEvent actionEvent) {
-    }
+
 
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-            //ajouter le bilan dans la liste des bilans de l'orthophoniste how : ????!!!!!
-           // orthogone.ajouterBo(newBo, newBo.getNum_dossier());
+            newBo.setThematique(thematique.getText());
+            // for epreuves and diagnostique they will be sent by their repective ajouter?
+
+            //ajouter le bilan dans la liste des bilans qui se trouvent dans
+        ArrayList<Bo> bos = new ArrayList<>();
+
+        // Add the updated Fiche to the ArrayList
+        bos.add(newBo);
+        dossiercourant.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(dossiercourant);
+        orthogone.setDossiers(dossiers);
 
             //aller a homeDossier
             Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
@@ -69,7 +81,7 @@ public class AjouterBoController implements Initializable {
 
 
     @FXML
-    protected void ajouterepreuve(ActionEvent event) throws IOException {
+    protected void ajouterEpreuve(ActionEvent event) throws IOException {
 
         //aller a ajouter epreuve
         Parent root = FXMLLoader.load(getClass().getResource("ajouterEpreuve.fxml"));
@@ -97,5 +109,5 @@ public class AjouterBoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
-    }//hmmmmm  what to write here ....? get dossiercourrant?
+    }
 }

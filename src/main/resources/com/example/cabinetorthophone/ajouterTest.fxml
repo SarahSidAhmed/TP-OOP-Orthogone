@@ -37,11 +37,6 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button layoutX="104.0" layoutY="468.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
                 <Label layoutX="144.0" layoutY="169.0" text="Type:">
                     <font>
                         <Font name="System Bold" size="15.0" />
@@ -70,6 +65,11 @@
                </font>
             </Label>
             <TextField fx:id="capacite" layoutX="208.0" layoutY="261.0" prefHeight="25.0" prefWidth="126.0" promptText="Capacite" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Button fx:id="suivant" layoutX="71.0" layoutY="465.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

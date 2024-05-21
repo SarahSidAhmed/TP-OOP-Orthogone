@@ -37,19 +37,13 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button layoutX="87.0" layoutY="477.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
-                <Label layoutX="135.0" layoutY="238.0" prefHeight="32.0" prefWidth="118.0" text="Diagnostique:">
+                <Label layoutX="135.0" layoutY="305.0" prefHeight="32.0" prefWidth="118.0" text="Diagnostique:">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="observations" layoutX="256.0" layoutY="142.0" minHeight="36.0" minWidth="163.0" prefHeight="36.0" prefWidth="163.0" promptText="Observation cliniques" style="-fx-min-width: 200; -fx-min-height: 38;" />
-                <TextField fx:id="thematique" layoutX="256.0" layoutY="316.0" prefHeight="25.0" prefWidth="126.0" promptText="Thematique" style="-fx-min-width: 200; -fx-min-height: 38;" />
-                <Label layoutX="142.0" layoutY="315.0" text="Thematique:">
+                <TextField fx:id="thematique" layoutX="265.0" layoutY="169.0" prefHeight="25.0" prefWidth="126.0" promptText="Thematique" style="-fx-min-width: 200; -fx-min-height: 38;" />
+                <Label layoutX="134.0" layoutY="168.0" text="Thematique:">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -64,22 +58,17 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-            <Label layoutX="135.0" layoutY="150.0" text="Observations:">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="ajouterepreuve" layoutX="256.0" layoutY="193.0" mnemonicParsing="false" onAction="#ajouterEpreuve" onMouseClicked="#ajouterepreuve" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="Ajouter Epreuve" textFill="WHITE">
+            <Button fx:id="ajouterepreuve" layoutX="265.0" layoutY="254.0" mnemonicParsing="false" onAction="#ajouterEpreuve" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="Ajouter Epreuve" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="135.0" layoutY="189.0" text="Epreuves:">
+            <Label layoutX="142.0" layoutY="232.0" text="Epreuves:">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterdiagnostique" layoutX="256.0" layoutY="254.0" mnemonicParsing="false" onAction="#ajouterDiagnostique" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #455c59;" text="Ajouter Diagnostique" textFill="WHITE">
+            <Button fx:id="ajouterdiagnostique" layoutX="265.0" layoutY="321.0" mnemonicParsing="false" onAction="#ajouterdiagnostique" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #455c59;" text="Ajouter Diagnostique" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

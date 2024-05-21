@@ -33,6 +33,11 @@ public class AjouterTestController implements Initializable{
     @FXML private TextField capacite;
     @FXML private Button finish;
     @FXML private Label errorText;
+    private Test currentTest;
+    private Epreuve currentEpreuve=Logiciel.getEpreuveCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
+
 
     @FXML
     protected void Back(MouseEvent event) throws IOException{
@@ -46,14 +51,13 @@ public class AjouterTestController implements Initializable{
     }
 
 
-    public void Suivant(ActionEvent actionEvent) {
-    }
-
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-        //ajouter le bilan dans la liste des bilans de l'orthophoniste how : ????!!!!!
-        // orthogone.ajouterBo(newBo, newBo.getNum_dossier());
+        //ajouter le teste a la liste des teste dans epreuves
+
+          currentEpreuve.addTest(currentTest);
+
 
         //aller a homeDossier
         Parent root = FXMLLoader.load(getClass().getResource("ajouterEpreuve.fxml"));
@@ -68,5 +72,5 @@ public class AjouterTestController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
-    }//hmmmmm  what to write here ....? get dossiercourrant?
+    }
 }

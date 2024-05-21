@@ -21,10 +21,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
-public class DossierController implements Initializable{
+public class BoController implements Initializable{
 
     private Stage stage;
     private Scene scene;
@@ -90,9 +89,6 @@ public class DossierController implements Initializable{
         addButtonToTable();
         addButtonToTable0();
 
-
-
-
         List<Bo> oo = new ArrayList<Bo>(dossier.getBo());
         ObservableList<Bo> o = FXCollections.observableArrayList(oo);
 
@@ -123,8 +119,13 @@ public class DossierController implements Initializable{
 
                         btn.setOnAction((event) -> {
                             Bo data = getTableView().getItems().get(getIndex());
+
                             // Perform action with data
-                          //  Logiciel.setPatientCurrant(data);
+                            int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
+                            Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
+
+                            Logiciel.setDossierCourrant(dossierCourant);
+
 
                             try {
                                 Parent root =  FXMLLoader.load(getClass().getResource("Diagnostiques.fxml"));

@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -28,10 +29,11 @@ public class AjouterFicheController implements Initializable {
     private Stage stage;
     private Fiche newFiche;
     @FXML private Button Back;
-    @FXML private TextField terme;
     @FXML private TextField objectifs;
     @FXML private Button finish;
     @FXML private Label errorText;
+    private  Dossier dossiercourrant;
+    private Objectif newobjectif;
 
     @FXML
     protected void Back(MouseEvent event) throws IOException{
@@ -44,14 +46,25 @@ public class AjouterFicheController implements Initializable {
         stage.show();
     }
 
-    public void Suivant(ActionEvent actionEvent) {
-    }
+
 
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-        //ajouter le bilan dans la liste des bilans de l'orthophoniste how : ????!!!!!
-        // orthogone.ajouterBo(newBo, newBo.getNum_dossier());
+        //ajouter la fiche a liste fiches du dossier
+        //recuperer lobjectif suivan le nuton jfjfnejnvj
+
+       // newobjectif; blablablaa
+        newFiche.ajouterObjectif(newobjectif);
+
+        ArrayList<Fiche> fiches = new ArrayList<>();
+
+        // Add the updated Fiche to the ArrayList
+        fiches.add(newFiche);
+        dossiercourrant.setFiche(fiches);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(dossiercourrant);
+        orthogone.setDossiers(dossiers);
 
         //aller a homeDossier
         Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
@@ -60,6 +73,20 @@ public class AjouterFicheController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+
+    }
+
+    @FXML
+    protected void AjouterObjectif(ActionEvent event) throws IOException{
+
+        //aller a ajouterObjectif
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterObjectif.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+
 
     }
 
