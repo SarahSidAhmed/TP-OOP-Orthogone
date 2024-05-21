@@ -80,7 +80,7 @@ public class AjouterFicheController implements Initializable {
     protected void AjouterObjectif(ActionEvent event) throws IOException{
 
         //aller a ajouterObjectif
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterObjectif.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Fiches.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

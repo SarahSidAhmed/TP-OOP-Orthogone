@@ -1,9 +1,6 @@
 package com.example.cabinetorthophone;
 
-import com.example.cabinetorthophone.modules.Adulte;
-import com.example.cabinetorthophone.modules.Enfant;
-import com.example.cabinetorthophone.modules.Logiciel;
-import com.example.cabinetorthophone.modules.Patient;
+import com.example.cabinetorthophone.modules.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +23,7 @@ public class PatientDetailsController implements Initializable {
     private Stage stage;
     private Scene scene;
     private static Patient patientCurrant;
+    private static Orthogone orthogone;
 
     @FXML TextField nom;
     @FXML TextField prenom;
@@ -62,6 +60,7 @@ public class PatientDetailsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        orthogone = Logiciel.getOrthogoneCourrant();
         patientCurrant = Logiciel.getPatientCurrant();
         initiate();
 
@@ -69,6 +68,15 @@ public class PatientDetailsController implements Initializable {
 
     @FXML
     protected void consulterDossier(ActionEvent event) throws IOException{
+
+        Logiciel.setDossierCourrant(orthogone.getDossierByNum(patientCurrant.getNum_dossier()));
+
+        Parent root = FXMLLoader.load(getClass().getResource("DossierChoice.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
 
     }
 

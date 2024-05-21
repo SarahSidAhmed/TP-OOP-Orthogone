@@ -10,6 +10,12 @@ public class Bo implements Serializable {
     private Diagnostique diagnostique;
     private String thematique;
 
+    public Bo(){
+        this.epreuves = new ArrayList<>();
+        this.diagnostique = new Diagnostique();
+        this.thematique = "";
+
+    }
     public Bo(ArrayList<Epreuve> epreuves, Diagnostique diagnostique, String thematique, First_bo firstBo) {
         this.epreuves = epreuves;
         this.diagnostique = diagnostique;

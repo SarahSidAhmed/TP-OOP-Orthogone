@@ -10,13 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,24 +34,21 @@ public class FicheController implements Initializable {
     private static Fiche fiche;
 
 
-    @FXML TableView<Fiche> tableViewFiche;
-    @FXML TableColumn<Fiche, Void> tableColumnCheck;
-    @FXML TableColumn<Fiche, Objectif> tableColumnObjectif;
+    @FXML TableView<Objectif> tableViewFiche;
+    @FXML TableColumn<Objectif, String> tableColumnObjectif;
+    @FXML TableColumn<Objectif, Type_Terme> tableColumnTerme;
+    @FXML TableColumn<Objectif, Integer> tableColumnNote;
+    @FXML TableColumn<Objectif, Void> tableColumnChecked;
 
-    @FXML
-    public void logOut(ActionEvent event) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-    }
+    @FXML ChoiceBox<Type_Terme> choiceTerme;
+    @FXML TextField nomObjectif;
+
+
     
 
     @FXML
     protected void deleteData(ActionEvent event){
-        TableView.TableViewSelectionModel<Fiche> selectionModel = tableViewFiche.getSelectionModel();
+        TableView.TableViewSelectionModel<Objectif> selectionModel = tableViewFiche.getSelectionModel();
         ObservableList<Integer> list = selectionModel.getSelectedIndices();
 
         Integer[] selectedIndeces = new Integer[list.size()];
@@ -68,23 +66,31 @@ public class FicheController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
-        //fiche =Logiciel.getFicheCourrant();
-        tableColumnObjectif.setCellValueFactory(new PropertyValueFactory<Fiche, Objectif>("Objectif"));
-        addButtonToTable();
-        List<Fiche> oo = new ArrayList<Fiche>(dossier.getFiche());
-        ObservableList<Fiche> o = FXCollections.observableArrayList(oo);
+        fiche =Logiciel.getFicheCourrant();
 
+        tableColumnObjectif.setCellValueFactory(new PropertyValueFactory<Objectif, String>("nom"));
+        tableColumnTerme.setCellValueFactory(new PropertyValueFactory<Objectif, Type_Terme>("terme"));
+        tableColumnNote.setCellValueFactory(new PropertyValueFactory<Objectif, Integer>("note"));
+
+        addButtonToTable();
+        List<Objectif> oo = new ArrayList<Objectif>(fiche.getObjectifs());
+        ObservableList<Objectif> o = FXCollections.observableArrayList(oo);
+
+
+        ObservableList<Type_Terme> cateogires= FXCollections.observableArrayList(Arrays.asList(Type_Terme.values()));
+        choiceTerme.setItems(cateogires);
         tableViewFiche.setItems(o);
 
-        //editDate();
+        editDate();
+
     }
 
     private void addButtonToTable() {
 
-            Callback<TableColumn<Fiche, Void>, TableCell<Fiche, Void>> cellFactory = new Callback<TableColumn<Fiche, Void>, TableCell<Fiche, Void>>() {
+            Callback<TableColumn<Objectif, Void>, TableCell<Objectif, Void>> cellFactory = new Callback<TableColumn<Objectif, Void>, TableCell<Objectif, Void>>() {
                 @Override
-                public TableCell<Fiche, Void> call(final TableColumn<Fiche, Void> param) {
-                    final TableCell<Fiche, Void> cell = new TableCell<Fiche, Void>() {
+                public TableCell<Objectif, Void> call(final TableColumn<Objectif, Void> param) {
+                    final TableCell<Objectif, Void> cell = new TableCell<Objectif, Void>() {
 
                         private final Button btn = new Button("Check");
 
@@ -97,26 +103,11 @@ public class FicheController implements Initializable {
                             btn.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 14));
 
                             btn.setOnAction((event) -> {
-                                Fiche data = getTableView().getItems().get(getIndex());
+                                Objectif data = getTableView().getItems().get(getIndex());
 
                                 //HEREEEEE     Perform action with data
-                                Logiciel.getPatientCurrant().getNum_dossier();
-
-
-                                try {
-                                    Parent root =  FXMLLoader.load(getClass().getResource("Objectifs.fxml"));
-                                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                                    scene = new Scene(root);
-                                    stage.setScene(scene);
-                                    stage.centerOnScreen();
-                                    stage.show();
-
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-
-
-                                //System.out.println("Selected Data: " + data);
+                                data.setChecked(true);
+                                btn.setStyle("-fx-background-color: #429c59;");
                             });
                         }
 
@@ -134,25 +125,53 @@ public class FicheController implements Initializable {
                 }
             };
 
-            tableColumnCheck.setCellFactory(cellFactory);
+            tableColumnChecked.setCellFactory(cellFactory);
         }
 
 
-    @FXML
-    protected void ajouterFiche(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterFiche.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+    @FXML
+    protected void ajouterObjectif(ActionEvent event) throws IOException, NoteException {
+        if (choiceTerme.getValue() != null && !nomObjectif.getText().isEmpty()){
+            Type_Terme categorie = choiceTerme.getValue();
+            String enonce = nomObjectif.getText();
+
+            Objectif q = new Objectif(enonce, 0, categorie);
+            fiche.ajouterObjectif(q);
+            ArrayList<Objectif> listQuestion = fiche.getObjectifs();
+            ObservableList<Objectif> listObs = FXCollections.observableArrayList(listQuestion);
+
+            tableViewFiche.setItems(listObs);
+
+        }
     }
 
 
-    public void Back(ActionEvent event) throws IOException {
+    protected void editDate(){
 
-        Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
+        tableColumnObjectif.setCellFactory(TextFieldTableCell.<Objectif>forTableColumn());
+        tableColumnObjectif.setOnEditCommit(event ->{
+            Objectif p = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            p.setNom(event.getNewValue());
+        });
+
+        StringConverter<Integer> integerStringConverter = new IntegerStringConverter();
+
+        tableColumnNote.setCellFactory(TextFieldTableCell.<Objectif, Integer>forTableColumn(integerStringConverter));
+        tableColumnNote.setOnEditCommit(event ->{
+            Objectif p = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            try {
+                p.setNote(event.getNewValue());
+            } catch (NoteException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+    }
+
+    public void Back(MouseEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("VisualiserFiche.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

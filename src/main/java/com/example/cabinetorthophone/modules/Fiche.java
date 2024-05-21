@@ -8,7 +8,10 @@ import java.util.Iterator;
 public class Fiche implements Serializable {
     private ArrayList<Objectif> objectifs;
 
-    public Fiche(Type_Terme terme, ArrayList<Objectif> objectifs) {
+    public Fiche(){
+        this.objectifs = new ArrayList<>();
+    }
+    public Fiche(ArrayList<Objectif> objectifs) {
         this.objectifs = objectifs;
     }
 

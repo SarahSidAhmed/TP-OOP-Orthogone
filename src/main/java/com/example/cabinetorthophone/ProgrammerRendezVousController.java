@@ -109,10 +109,6 @@ public class ProgrammerRendezVousController implements Initializable {
         tableRV.setItems(listRV);
         editData();
 
-
-
-
-
     }
 
     private ObservableList<RendezVous> setTable() {

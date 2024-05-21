@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class BoController implements Initializable{
     private Stage stage;
     private Scene scene;
     private static Orthogone orthogone;
+    private static Patient patient;
     private static Dossier dossier;
 
 
@@ -36,8 +38,10 @@ public class BoController implements Initializable{
     @FXML TableColumn<Bo, Void> tableColumnDiagnostique;
     @FXML TableColumn<Bo, Void> tableColumnEpreuve;
 
-    @FXML
-    private Label Dossier;
+
+
+    @FXML TextField thematique;
+
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
@@ -54,13 +58,18 @@ public class BoController implements Initializable{
 
     @FXML
     protected void ajouterBo(ActionEvent event) throws IOException {
+        if (!thematique.getText().isEmpty()) {
+            Bo b = new Bo();
+            //ajouter la nouvelle BO
+            b.setThematique(thematique.getText());
+            dossier.getBo().add(b);
 
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterBo.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+
+            ArrayList<Bo> listBo = dossier.getBo();
+            ObservableList<Bo> listObs = FXCollections.observableArrayList(listBo);
+
+            tableViewBo.setItems(listObs);
+        }
     }
 
 
@@ -85,6 +94,9 @@ public class BoController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
+        patient = Logiciel.getPatientCurrant();
+        dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
+
         tableColumnThematique.setCellValueFactory(new PropertyValueFactory<Bo, String>("Thematique"));
         addButtonToTable();
         addButtonToTable0();
@@ -98,7 +110,63 @@ public class BoController implements Initializable{
     }
 
     private void addButtonToTable0() {
+        Callback<TableColumn<Bo, Void>, TableCell<Bo, Void>> cellFactory = new Callback<TableColumn<Bo, Void>, TableCell<Bo, Void>>() {
+            @Override
+            public TableCell<Bo, Void> call(final TableColumn<Bo, Void> param) {
+                final TableCell<Bo, Void> cell = new TableCell<Bo, Void>() {
 
+                    private final Button btn = new Button("Check");
+
+                    {
+
+                        btn.setPrefHeight(32.0);
+                        btn.setPrefWidth(118.0);
+                        btn.setStyle("-fx-background-color: #425c59;");
+                        btn.setTextFill(javafx.scene.paint.Color.WHITE);
+                        btn.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 14));
+
+                        btn.setOnAction((event) -> {
+                            Bo data = getTableView().getItems().get(getIndex());
+
+                            // Perform action with data
+                            int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
+                            Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
+
+                            Logiciel.setDossierCourrant(dossierCourant);
+
+
+                            try {
+                                Parent root =  FXMLLoader.load(getClass().getResource("ajouterEpeuve.fxml"));
+                                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.centerOnScreen();
+                                stage.show();
+
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+
+
+                            //System.out.println("Selected Data: " + data);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        tableColumnEpreuve.setCellFactory(cellFactory);
     }
 
     private void addButtonToTable() {
@@ -161,11 +229,19 @@ public class BoController implements Initializable{
         tableColumnDiagnostique.setCellFactory(cellFactory);
     }
 
+    @FXML protected void consulterFiche(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Fiches.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
 
 
-    public void Back(ActionEvent event) throws IOException {
+    public void Back(MouseEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("HomePatients.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("PatientDetails.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

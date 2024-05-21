@@ -1,6 +1,7 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.util.Iterator;
 
 public class Objectif implements Serializable {
 
@@ -9,12 +10,13 @@ public class Objectif implements Serializable {
     private boolean checked;
     private Type_Terme terme;
 
-    public Objectif(String nom, int note, Type_Terme terme) throws NoteException {
+    public Objectif(String nom, int note, Type_Terme type) throws NoteException {
         this.nom = nom;
-        this.terme = terme;
         if (note < 0 || note > 20) {
             throw new NoteException();
         }
+        this.checked = false;
+        this.terme = type;
         this.note = note;
     }
 
@@ -38,6 +40,14 @@ public class Objectif implements Serializable {
         this.note = note;
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
     public Type_Terme getTerme() {
         return this.terme;
     }
@@ -45,6 +55,5 @@ public class Objectif implements Serializable {
     public void setTerme(Type_Terme terme) {
         this.terme = terme;
     }
-
 }
 

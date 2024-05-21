@@ -48,7 +48,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="finish" disable="true" layoutX="628.0" layoutY="477.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
+                <Button fx:id="finish" layoutX="628.0" layoutY="477.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -58,7 +58,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-            <Button fx:id="ajouterepreuve" layoutX="265.0" layoutY="254.0" mnemonicParsing="false" onAction="#ajouterEpreuve" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="Ajouter Epreuve" textFill="WHITE">
+            <Button fx:id="ajouterepreuve" layoutX="265.0" layoutY="237.0" mnemonicParsing="false" onAction="#ajouterEpreuve" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #455c59;" text="Ajouter Epreuve" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="ajouterdiagnostique" layoutX="265.0" layoutY="321.0" mnemonicParsing="false" onAction="#ajouterdiagnostique" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #455c59;" text="Ajouter Diagnostique" textFill="WHITE">
+            <Button fx:id="ajouterdiagnostique" layoutX="265.0" layoutY="305.0" mnemonicParsing="false" onAction="#ajouterdiagnostique" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #455c59;" text="Ajouter Diagnostique" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

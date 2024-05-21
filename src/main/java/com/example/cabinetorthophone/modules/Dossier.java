@@ -16,8 +16,9 @@ public class Dossier implements Serializable {
 
     public Dossier(int numDossier) {
         this.numDossier = numDossier;
-        this.listeRendezVous = new ArrayList();
-        this.listeFiches = new ArrayList();
+        this.listeRendezVous = new ArrayList<>();
+        this.listeFiches = new ArrayList<>();
+        this.bo = new ArrayList<>();
     }
 
     public void ajouterBO(ArrayList<Bo> bo) {

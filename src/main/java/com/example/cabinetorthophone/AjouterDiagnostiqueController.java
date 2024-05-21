@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import com.example.cabinetorthophone.modules.*;
 import com.sun.jdi.IntegerValue;
@@ -20,21 +22,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 
 public class AjouterDiagnostiqueController implements Initializable {
 
     private static Orthogone orthogone;
+    private static Patient patient;
     private Scene scene;
     private Stage stage;
     private Diagnostique newDiagnostique;
     private Bo courrentbo;
     private Dossier courrentdossier;
-    @FXML private Button Back;
     @FXML private TextField nom;
-    @FXML private Button finish;
-    @FXML private TextField type;
+    @FXML private ChoiceBox<Type_Trouble> type;
     @FXML private Label errorText;
     private Type_Trouble typeTrouble;
     private Trouble newtrouble;
@@ -52,35 +54,41 @@ public class AjouterDiagnostiqueController implements Initializable {
 
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
-        typeTrouble = Type_Trouble.valueOf(type.getText());
-        newtrouble.setNom(nom.getText());
-        newtrouble.setType(typeTrouble);
-        newDiagnostique.ajouterTrouble(newtrouble);
 
-        //ajouter le Diagnostique
-        courrentbo.setDiagnostique(newDiagnostique);
+        if (type.getValue() != null && !nom.getText().isEmpty()) {
+            typeTrouble = type.getValue();
+            newtrouble.setNom(nom.getText());
+            newtrouble.setType(typeTrouble);
+            newDiagnostique.ajouterTrouble(newtrouble);
 
-        ArrayList<Bo> bos = new ArrayList<>();
+            //ajouter le Diagnostique
+            courrentbo.setDiagnostique(newDiagnostique);
 
-        // Add the updated Bo to the ArrayList
-        bos.add(courrentbo);
-        courrentdossier.setBo(bos);
-        ArrayList<Dossier> dossiers = new ArrayList<>();
-        dossiers.add(courrentdossier);
-        orthogone.setDossiers(dossiers);
+            ArrayList<Bo> bos = new ArrayList<>();
 
-        //aller a homeDossier
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterBo.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+            // Add the updated Bo to the ArrayList
+            bos.add(courrentbo);
+            courrentdossier.setBo(bos);
+//            ArrayList<Dossier> dossiers = new ArrayList<>();
+//            dossiers.add(courrentdossier);
+//            orthogone.setDossiers(dossiers);
+
+            //aller a homeDossier
+            Parent root = FXMLLoader.load(getClass().getResource("ajouterBo.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        }
 
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         orthogone = Logiciel.getOrthogoneCourrant();
+        type.setItems((ObservableList<Type_Trouble>) Arrays.asList(Type_Trouble.values()));
+
     }
 
 }

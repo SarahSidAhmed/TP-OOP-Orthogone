@@ -14,6 +14,7 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
     private HashSet<Patient> patients;
     private ArrayList<Dossier> dossiers;
     private Agenda agenda;
+    private Amnese amnese;
 
     public Orthogone(String nom, String prenom, String adresse, String telephone, String email, String password, HashSet<Patient> patients, Agenda agenda, ArrayList<Dossier> dossiers) {
         this.setNom(nom);
@@ -37,6 +38,14 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
         this.patients = new HashSet<Patient>();
         this.dossiers = new ArrayList<Dossier>();
         this.agenda = new Agenda();
+    }
+
+    public Dossier getDossierByNum(int num){
+        for (Dossier d : this.dossiers){
+            if (d.getNumDossier() == num) return d;
+
+        }
+        return null;
     }
 
     public void modifierProfile(String nom, String prenom, String adresse, String telephone) {
@@ -180,5 +189,13 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
             }
         }
         return null;
+    }
+
+    public Amnese getAmnese() {
+        return amnese;
+    }
+
+    public void setAmnese(Amnese amnese) {
+        this.amnese = amnese;
     }
 }

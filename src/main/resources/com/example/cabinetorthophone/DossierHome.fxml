@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,17 +41,17 @@
                 </Label>
             <TableView fx:id="tableViewBo" layoutX="18.0" layoutY="142.0" prefHeight="380.0" prefWidth="615.0">
                <columns>
-                  <TableColumn fx:id="tableColumnThematique" prefWidth="204.00000381469727" text="thematique: " />
+                  <TableColumn fx:id="tableColumnThematique" prefWidth="204.00000381469727" text="Thematique: " />
                   <TableColumn fx:id="tableColumnDiagnostique" prefWidth="209.1999053955078" text="Dignostique: " />
                   <TableColumn fx:id="tableColumnEpreuve" prefWidth="200.79998779296875" text="Epreuves:" />
                </columns>
             </TableView>
-            <Button layoutX="624.0" layoutY="100.0" mnemonicParsing="false" onAction="#ajouterBo" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #425c59 #425c59;" text="    ajouter BO" textAlignment="RIGHT" textFill="WHITE">
+            <Button layoutX="638.0" layoutY="100.0" mnemonicParsing="false" onAction="#ajouterBo" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #425c59 #425c59;" text="    ajouter BO" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="633.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="644.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@add-button.png" />
                </image>
@@ -66,6 +67,8 @@
                   <Image url="@trash-bin.png" />
                </image>
             </ImageView>
+            <TextField fx:id="thematique" layoutX="229.0" layoutY="90.0" prefHeight="25.0" prefWidth="222.0" promptText="Thematique" />
+            <Label layoutX="152.0" layoutY="93.0" text="Thematique:" />
             </children></AnchorPane>
    </top>
 </BorderPane>

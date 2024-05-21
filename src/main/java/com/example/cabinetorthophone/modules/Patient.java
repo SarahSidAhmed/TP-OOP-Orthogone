@@ -26,6 +26,9 @@ public abstract class Patient implements Serializable {
         this.num_dossier = ++compteur;
         this.nb_rv = 0;
 
+        //creation d'un dossier
+        Dossier d = new Dossier(num_dossier);
+
     }
 
     public boolean equals(Object o) {

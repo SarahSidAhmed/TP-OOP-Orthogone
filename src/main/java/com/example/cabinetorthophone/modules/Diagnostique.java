@@ -9,6 +9,9 @@ public class Diagnostique implements Serializable {
 
     private List<Trouble> troubles;
 
+    public Diagnostique(){
+        this.troubles = new ArrayList<>();
+    }
     public Diagnostique(List<Trouble> troubles) {
         this.troubles = new ArrayList<>(troubles);
     }

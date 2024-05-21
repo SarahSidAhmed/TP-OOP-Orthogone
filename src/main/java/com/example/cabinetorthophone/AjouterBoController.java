@@ -28,9 +28,11 @@ public class AjouterBoController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Bo newBo;
+
     @FXML private Button Back;
     @FXML private TextField observations;
     @FXML private TextField thematique;
+
     @FXML private Button finish;
     @FXML private Button ajouterepreuve;
     @FXML private Button ajouterdiagnostique;
@@ -56,27 +58,27 @@ public class AjouterBoController implements Initializable {
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-            newBo.setThematique(thematique.getText());
+        if (!this.thematique.getText().isEmpty()) {
+            Bo b = new Bo();
+            b.setThematique(thematique.getText());
             // for epreuves and diagnostique they will be sent by their repective ajouter?
 
-            //ajouter le bilan dans la liste des bilans qui se trouvent dans
-        ArrayList<Bo> bos = new ArrayList<>();
 
-        // Add the updated Fiche to the ArrayList
-        bos.add(newBo);
-        dossiercourant.setBo(bos);
-        ArrayList<Dossier> dossiers = new ArrayList<>();
-        dossiers.add(dossiercourant);
-        orthogone.setDossiers(dossiers);
+            // Add the updated Fiche to the ArrayList
+            this.dossiercourant.getBo().add(newBo);
+
+//        ArrayList<Dossier> dossiers = new ArrayList<>();
+//        dossiers.add(dossiercourant);
+//        orthogone.setDossiers(dossiers);
 
             //aller a homeDossier
             Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
-
+        }
     }
 
 
@@ -109,5 +111,13 @@ public class AjouterBoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
+        if (Logiciel.getBoCourrant() == null){
+            Bo b = new Bo();
+            ajouterepreuve.isDisable();
+            ajouterdiagnostique.isDisable();
+        }else {
+            this.newBo = Logiciel.getBoCourrant();
+            this.thematique.setText( newBo.getThematique());
+        }
     }
 }

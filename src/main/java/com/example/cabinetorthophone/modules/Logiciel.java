@@ -18,8 +18,6 @@ public class Logiciel implements Serializable {
 
 
 
-
-
     public Logiciel() {
     }
 
@@ -116,16 +114,7 @@ return dossierCourrant;    }
 
         boolean found = orthogonistes.containsKey(email);
         return found;
-//        Orthogone o;
-//        do {
-//            if (!var2.hasNext()) {
-//                return false;
-//            }
-//
-//            o = (Orthogone)var2.next();
-//        } while(!o.getEmail().equals(email));
-//
-//        return true;
+
     }
 
     public static Boolean seConnecter(String email, String password) {
@@ -135,22 +124,6 @@ return dossierCourrant;    }
             if (orthogonistes.get(email).getPassword().equals(password)) return true;
             else return false;
         }else return false;
-//        Iterator var3 = this.orthogonistes.iterator();
-//
-//
-//        while(true) {
-//            while(var3.hasNext()) {
-//                Orthogone o = (Orthogone)var3.next();
-//                if (o.getEmail().equals(email) && o.getPassword().equals(password)) {
-//                    this.connectedUser = o;
-//                    System.out.println("Vous êtes maintenant connecté.");
-//                } else {
-//                    System.out.println("Email ou mot de passe incorrect.");
-//                }
-//            }
-//
-//            return;
-//        }
     }
 
     public void seDeconnecter() {
