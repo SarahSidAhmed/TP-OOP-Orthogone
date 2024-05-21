@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -49,7 +50,7 @@ public class ProgrammerAtelierController implements Initializable {
     @FXML TableColumn tableDate;
     @FXML TableColumn tableNumPatient;
 
-    @FXML ChoiceBox<Atelier> choiceAtelier;
+    @FXML ChoiceBox<Integer> choiceAtelier;
 
 
 
@@ -64,15 +65,25 @@ public class ProgrammerAtelierController implements Initializable {
         month = dateFocus.getMonth().getValue();
 
         ArrayList<RendezVous> listRV = orthogone.getAgenda().getRendezVous();
-        ObservableList<Atelier> ateliers = FXCollections.observableArrayList();
+        ObservableList<Integer> ateliers = FXCollections.observableArrayList();
         //GETTING ALL THE OBJECTS RENDEZ VOUS THAT ACTUALLY ATELIER TYPE
+        int i = 0;
         for (RendezVous rv : listRV){
-            if (rv instanceof Atelier) ateliers.add((Atelier) rv);
+            if (rv instanceof Atelier) ateliers.add(((Atelier) rv).getId());
         }
 
         choiceAtelier.setItems(ateliers);
         errorText.setVisible(false);
 
+        tableDate.setCellValueFactory(new PropertyValueFactory<Atelier, ZonedDateTime>("date"));
+        tableAtelierNum.setCellValueFactory(new PropertyValueFactory<Atelier, Integer>("id"));
+        tableNumPatient.setCellValueFactory(new PropertyValueFactory<Atelier, Integer>("numPatient"));
+
+        ArrayList<Atelier> as  = orthogone.getAgenda().getAtelier();
+        ObservableList<Atelier> atliersAgenda = FXCollections.observableArrayList(as);
+
+
+        tableAtelier.setItems(atliersAgenda);
     }
 
     @FXML
@@ -87,15 +98,21 @@ public class ProgrammerAtelierController implements Initializable {
     }
 
     @FXML protected void AjouterAtelier(ActionEvent event) throws IOException {
-        Atelier a = this.choiceAtelier.getValue();
-        a.addPatient(patient);
+        Integer id = this.choiceAtelier.getValue();
+        Atelier a = orthogone.getAgenda().findAtelierById(id);
 
-        Parent root = FXMLLoader.load(getClass().getResource("ProgrammerRendezVous.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+        if (a.rechercherPatientByNum(patient.getNum_dossier())== null) {
+            a.addPatient(patient);
+            a.setNumPatient(a.getNumPatient() + 1);
+
+            Parent root = FXMLLoader.load(getClass().getResource("ProgrammerRendezVous.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        }
+        else errorText.setVisible(true);
     }
 
     @FXML
@@ -125,6 +142,9 @@ public class ProgrammerAtelierController implements Initializable {
                 ZonedDateTime time = ZonedDateTime.of(annee, mois, jour, heure, minute, 0, 0, dateFocus.getZone());
                 Atelier c = new Atelier(time, "", ps, thematique);
                 orthogone.programmerRendezVous(c);
+                c.addPatient(patient);
+
+                c.setNumPatient(c.getNumPatient()+1);
 
                 //GOING BACK AFTER SUCCESS
                 errorText.setVisible(false);

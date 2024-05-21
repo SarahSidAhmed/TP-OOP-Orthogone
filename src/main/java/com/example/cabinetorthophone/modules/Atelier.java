@@ -11,10 +11,16 @@ import java.util.Iterator;
     public class Atelier extends RendezVous implements Serializable {
         private HashSet<Patient> patients;
         private String thematique;
+        private int numPatient=0;
+        private static int idAtelier=0;
+        private int id;
 
         public Atelier(ZonedDateTime time , String observation, HashSet<Patient> patients, String thematique) {
             super(time, Type_RV.ATELIER, observation );
             this.setDuree();
+            this.id = idAtelier;
+            idAtelier++;
+            this.numPatient = 0;
             Logiciel.getPatientCurrant().incrementNB_RV();
             this.patients = patients;
             this.thematique = thematique;
@@ -35,6 +41,7 @@ import java.util.Iterator;
 
         public void addPatient(Patient p){
             this.patients.add(p);
+            setNumPatient(this.numPatient++);
         }
 
         public Patient rechercherPatientByNum(int num){
@@ -59,6 +66,17 @@ import java.util.Iterator;
         public String getThematique(){return this.thematique;}
         public void setThematique(String thema){this.thematique = thema;}
 
+        public int getNumPatient() {
+            return numPatient;
+        }
+
+        public void setNumPatient(int numPatient) {
+            this.numPatient = numPatient;
+        }
+
+        public int getId() {
+            return id;
+        }
     }
 
 

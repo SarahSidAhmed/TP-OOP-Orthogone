@@ -80,16 +80,16 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="565.0" layoutY="448.0" mnemonicParsing="false" onAction="#AjouterAtelier" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #425c59 #423c69;" text="Ajouter" textFill="WHITE">
+      <Button fx:id="ajouterBtn" alignment="CENTER" layoutX="565.0" layoutY="448.0" mnemonicParsing="false" onAction="#AjouterAtelier" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #425c59 #423c69;" text="Ajouter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
       <TableView fx:id="tableAtelier" layoutX="510.0" layoutY="237.0" prefHeight="200.0" prefWidth="257.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Atelier" />
-          <TableColumn prefWidth="75.0" text="Date" />
-            <TableColumn prefWidth="107.33333333333331" text="Nombre Patient" />
+          <TableColumn fx:id="tableAtelierNum" prefWidth="75.0" text="Atelier" />
+          <TableColumn fx:id="tableDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="tableNumPatient" prefWidth="107.33333333333331" text="Nombre Patient" />
         </columns>
       </TableView>
       <TextField fx:id="thematique" layoutX="130.0" layoutY="159.0" minHeight="34.0" prefHeight="40.0" prefWidth="294.0" promptText="Ajouter Thematique" style="-fx-min-height: 40;" />

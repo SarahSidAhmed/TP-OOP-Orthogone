@@ -37,7 +37,7 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button fx:id="suivant" layoutX="39.0" layoutY="500.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
+                <Button fx:id="suivant" layoutX="57.0" layoutY="496.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>

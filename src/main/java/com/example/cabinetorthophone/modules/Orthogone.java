@@ -14,9 +14,10 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
     private String password;
     private HashSet<Patient> patients;
     private ArrayList<Dossier> dossiers;
+    private Amnese amnese;
     private Agenda agenda;
 
-    public Orthogone(String nom, String prenom, String adresse, String telephone, String email, String password, HashSet<Patient> patients, Agenda agenda, ArrayList<Dossier> dossiers) {
+    public Orthogone(Amnese amnese, String nom, String prenom, String adresse, String telephone, String email, String password, HashSet<Patient> patients, Agenda agenda, ArrayList<Dossier> dossiers) {
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setAdresse(adresse);
@@ -26,6 +27,7 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
         this.setDossiers(dossiers);
         this.setAgenda(agenda);
         this.setPatients(patients);
+        this.setAmnese(amnese);
     }
 
     public Orthogone(String nom, String prenom, String adresse, String telephone, String email, String password) {
@@ -172,5 +174,13 @@ public class Orthogone implements Comparable<Orthogone>, Serializable
             System.out.println("Impossible de creer le dossier : Ce dossier existe deja.");
         }
 
+    }
+
+    public Amnese getAmnese() {
+        return amnese;
+    }
+
+    public void setAmnese(Amnese amnese) {
+        this.amnese = amnese;
     }
 }

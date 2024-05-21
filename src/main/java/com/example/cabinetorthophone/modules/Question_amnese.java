@@ -1,19 +1,22 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.util.HashSet;
 
 public abstract class Question_amnese implements Serializable {
-    private String[] questions;
+    private String quesiton;
 
-    public Question_amnese() {
+    public Question_amnese(String quesiton) {
+        this.quesiton = quesiton;
     }
 
-    public String[] getQuestions() {
-        return this.questions;
+
+    public String getQuesiton() {
+        return quesiton;
     }
 
-    public void setQuestions(String[] questions) {
-        this.questions = questions;
+    public void setQuesiton(String quesiton) {
+        this.quesiton = quesiton;
     }
 }
 

@@ -170,7 +170,6 @@ public class ProgrammerRendezVousController implements Initializable {
 
     protected void editData(){
 
-        tableColumnObservation.setEditable(true);
         tableColumnObservation.setCellFactory(TextFieldTableCell.<RendezVous>forTableColumn());
         tableColumnObservation.setOnEditCommit(event ->{
             RendezVous r = event.getTableView().getItems().get(event.getTablePosition().getRow());
