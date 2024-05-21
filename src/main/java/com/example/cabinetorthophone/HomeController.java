@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
 private static Orthogone orthogone = Logiciel.getOrthogoneCourrant();
-private String userMail;
-private Parent root;
 private Scene scene;
 private Stage stage;
 
@@ -81,6 +79,25 @@ private Stage stage;
         stage.show();
 
     }
+
+    @FXML protected void AmneseCheck(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("HomeAmneseEnfant.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML protected void StatistiqueCheck(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("HomeStatistique.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {

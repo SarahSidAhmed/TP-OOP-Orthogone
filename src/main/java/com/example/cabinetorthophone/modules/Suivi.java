@@ -10,6 +10,7 @@ public class Suivi extends RendezVous implements Serializable{
 
     public Suivi(ZonedDateTime date, Type_RV type, String observation, int num_dossier, boolean present) {
         super(date, Type_RV.SUIVI, observation);
+        setDuree();
         this.setPrsent(present);
         Logiciel.getPatientCurrant().incrementNB_RV();
         this.setNum_dossier(num_dossier);

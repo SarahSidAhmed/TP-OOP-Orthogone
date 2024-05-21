@@ -3,6 +3,7 @@ module com.example.cabinetorthophone {
     requires javafx.fxml;
     requires jdk.jdi;
     requires java.desktop;
+    requires jdk.compiler;
 
 
     opens com.example.cabinetorthophone to javafx.fxml;

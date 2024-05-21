@@ -38,8 +38,6 @@ public class CreationController {
     @FXML
     protected void inscription(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("creation.fxml"));
-
         String nom1 = nom.getText();
         String prenom1 = prenom.getText();
         String address1 = address.getText();

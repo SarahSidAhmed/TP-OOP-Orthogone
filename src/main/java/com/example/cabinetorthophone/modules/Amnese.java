@@ -2,69 +2,56 @@ package com.example.cabinetorthophone.modules;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.Arrays;
 
 public class Amnese implements Serializable {
-    private Question_amnese[] questions;
+    private ArrayList<Question_amnese> questions;
 
-    public Amnese() {
+    public Amnese(){
+        this.questions = new ArrayList<>();
+    }
+    public Amnese(ArrayList<Question_amnese> questions) {
+        this.questions = questions;
     }
 
-    public Question_amnese[] getQuestions() {
+    public ArrayList<Question_enfant> getQuestionsEnfant(){
+        ArrayList<Question_enfant> questionEnfants = new ArrayList<>();
+        for (Question_amnese q: questions){
+            if (q instanceof Question_enfant) questionEnfants.add((Question_enfant) q);
+        }
+        return questionEnfants;
+    }
+
+
+    public ArrayList<Question_adulte> getQuestionsAdulte(){
+        ArrayList<Question_adulte> questionAdultes = new ArrayList<>();
+
+        for (Question_amnese q: questions){
+            if (q instanceof Question_adulte) questionAdultes.add((Question_adulte) q);
+        }
+        return questionAdultes;
+    }
+
+
+    public ArrayList<Question_amnese> getQuestions() {
         return this.questions;
     }
 
-    public void setQuestions(Question_amnese[] questions) {
+    public void setQuestions(ArrayList<Question_amnese> questions) {
         this.questions = questions;
     }
 
     public void ajouterQuestion(Question_amnese question) {
-        if (this.questions.length == this.capaciteMax()) {
-            System.out.println("Le tableau est plein, impossible d'ajouter une nouvelle question.");
 
-            for(int i = 0; i < this.questions.length; ++i) {
-                if (this.questions[i] == null) {
-                    this.questions[i] = question;
-                    System.out.println("Question ajoutée avec succès.");
-                    return;
-                }
-            }
-        }
+        this.questions.add(question);
 
     }
 
     private int capaciteMax() {
-        return this.questions.length;
+        return this.questions.size();
     }
 
-    public void supprimerQuestion(String enonce) {
-        for(int i = 0; i < this.questions.length; ++i) {
-            if (this.questions[i] != null) {
-                this.questions[i].getQuestions();
-            }
-        }
-
-        System.out.println("Question non trouvée.");
-    }
-
-    public int rechercheQuestion(String enonce) {
-        for(int i = 0; i < this.questions.length; ++i) {
-            if (this.questions[i] != null) {
-                this.questions[i].getQuestions();
-            }
-        }
-
-        return -1;
-    }
-
-    public void afficherAmnese() {
-        for(int i = 0; i < this.questions.length; ++i) {
-            if (this.questions[i] != null) {
-                System.out.println(Arrays.toString(this.questions[i].getQuestions()));
-            }
-        }
-
-    }
 }

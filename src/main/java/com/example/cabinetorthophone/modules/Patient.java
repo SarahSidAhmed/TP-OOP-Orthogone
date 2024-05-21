@@ -12,7 +12,9 @@ public abstract class Patient implements Serializable {
     private String adresse;
     private String tel;
 
-    public Patient(){}
+    public Patient(){
+
+    }
 
 
     public Patient(String nom, String prenom, String tel, int age, String adresse) {
