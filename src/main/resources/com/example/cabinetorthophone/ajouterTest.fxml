@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterTestController">
     <children>
-        <AnchorPane layoutY="-1.0" prefHeight="540.0" prefWidth="795.0">
+        <AnchorPane prefHeight="540.0" prefWidth="795.0">
             <children>
                 <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
                     <children>
@@ -37,13 +37,7 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Label layoutX="144.0" layoutY="169.0" text="Type:">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="type" layoutX="208.0" layoutY="161.0" prefHeight="25.0" prefWidth="126.0" promptText="Type" style="-fx-min-width: 200; -fx-min-height: 38;" />
-                <Label layoutX="145.0" layoutY="221.0" text="Nom:">
+                <Label layoutX="186.0" layoutY="167.0" text="Nom:">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -58,18 +52,28 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-            <TextField fx:id="nom" layoutX="208.0" layoutY="212.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" style="-fx-min-width: 200; -fx-min-height: 38;" />
-            <Label layoutX="133.0" layoutY="260.0" text="Capacite:">
+            <TextField fx:id="nom" layoutX="240.0" layoutY="177.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Label layoutX="163.0" layoutY="251.0" text="Capacite:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="capacite" layoutX="208.0" layoutY="261.0" prefHeight="25.0" prefWidth="126.0" promptText="Capacite" style="-fx-min-width: 200; -fx-min-height: 38;" />
-            <Button fx:id="suivant" layoutX="71.0" layoutY="465.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
+            <TextField fx:id="capacite" layoutX="240.0" layoutY="251.0" prefHeight="25.0" prefWidth="126.0" promptText="Capacite" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <Button fx:id="Test_exo" layoutX="127.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test exo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Button fx:id="Test_question" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test question" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="310.0" layoutY="310.0" text="Type:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>
