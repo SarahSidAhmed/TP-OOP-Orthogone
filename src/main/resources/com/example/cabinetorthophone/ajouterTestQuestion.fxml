@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterTestController">
+<AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterTestQuestionController">
     <children>
-        <AnchorPane prefHeight="540.0" prefWidth="795.0">
+        <AnchorPane layoutX="6.0" prefHeight="540.0" prefWidth="795.0">
             <children>
                 <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
                     <children>
@@ -20,7 +20,7 @@
                                 <Image url="@cabinet-removebg-preview.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="334.0" layoutY="40.0" text="Ajouter Test">
+                        <Label layoutX="334.0" layoutY="40.0" text="Ajouter Test Question">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>
@@ -28,7 +28,7 @@
                         <Group layoutX="21.0" layoutY="20.0" onMouseClicked="#Back">
                             <children>
                                 <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
-                                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@previous.png" />
                                     </image>
@@ -37,43 +37,54 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Label layoutX="186.0" layoutY="167.0" text="Nom:">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Label>
-                <Button fx:id="finish" disable="true" layoutX="653.0" layoutY="468.0" mnemonicParsing="false" onAction="#Finish" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #429c59;" text="Finish" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
+
                 <Label fx:id="errorText" alignment="CENTER" layoutX="223.0" layoutY="111.0" prefHeight="20.0" prefWidth="169.0" textFill="#c31c1c" wrapText="true">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-            <TextField fx:id="nom" layoutX="240.0" layoutY="177.0" prefHeight="25.0" prefWidth="126.0" promptText="Nom" style="-fx-min-width: 200; -fx-min-height: 38;" />
-            <Label layoutX="163.0" layoutY="251.0" text="Capacite:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="capacite" layoutX="240.0" layoutY="251.0" prefHeight="25.0" prefWidth="126.0" promptText="Capacite" style="-fx-min-width: 200; -fx-min-height: 38;" />
-            <Button fx:id="Test_exo" layoutX="127.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test exo" textFill="WHITE">
+                <Button fx:id="libre" layoutX="208.0" layoutY="343.0" mnemonicParsing="false" onAction="#libre" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #425c59;" text="question libre" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="137.0" layoutY="146.0" text="Enonce:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="144.0" layoutY="220.0" text="Score:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="consigne" layoutX="233.0" layoutY="147.0" promptText="Enonce" />
+                <TextField fx:id="score" layoutX="233.0" layoutY="234.0" promptText="score" />
+                <Label layoutX="144.0" layoutY="298.0">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            <Button fx:id="qcm" layoutX="382.0" layoutY="343.0" mnemonicParsing="false" onAction="#qcm" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #425c59;" text="QCM" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Test_question" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test question" textFill="WHITE">
+            <Button fx:id="qcu" layoutX="575.0" layoutY="343.0" mnemonicParsing="false" onAction="#qcu" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #425c59;" text="QCU" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="310.0" layoutY="310.0" text="Type:">
+            <Label layoutX="144.0" layoutY="284.0" text="Type:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="question_suivant" layoutX="36.0" layoutY="458.0" mnemonicParsing="false" onAction="#question_suivant" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #425c59;" text="question suivante" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
-            </Label>
+            </Button>
             </children>
         </AnchorPane>
     </children>

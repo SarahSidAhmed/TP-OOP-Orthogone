@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0eae9; -fx-min-width: 795; -fx-min-height: 540;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.VisualiserQCUDetailsController">
+    <center>
+        <AnchorPane fx:id="centerAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane layoutY="-1.0" prefHeight="81.0" prefWidth="795.0" style="-fx-background-color: #e0ea99;">
+                    <children>
+                        <Label layoutX="278.0" layoutY="23.0" text="QCU Details" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <TextField fx:id="materiel" layoutX="207.0" layoutY="142.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Enonce">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="124.0" layoutY="136.0" text="Enonce: ">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="112.0" layoutY="204.0" text="Reponse: ">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="129.0" layoutY="314.0" text="Score: ">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="textPop" alignment="CENTER" layoutX="139.0" layoutY="399.0" prefHeight="33.0" prefWidth="381.0" style="-fx-background-color: #e0ea99; visibility: false;" textFill="#696767" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="prenom" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Reponse">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="address" layoutX="207.0" layoutY="300.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Group layoutX="28.0" layoutY="27.0" onMouseClicked="#Back" />
+            <Label layoutX="121.0" layoutY="260.0" text="Choix: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="prenom1" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Choix">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Group layoutX="28.0" layoutY="27.0" onMouseClicked="#Back">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@previous.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
