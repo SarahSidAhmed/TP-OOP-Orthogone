@@ -1,7 +1,8 @@
 package com.example.cabinetorthophone.modules;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-public class CalendarActivity {
+public class CalendarActivity implements Serializable {
     private ZonedDateTime date;
     private String clientName;
     private Type_RV serviceNo;

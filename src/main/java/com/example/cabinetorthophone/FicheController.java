@@ -58,6 +58,7 @@ public class FicheController implements Initializable {
         for (int i= selectedIndeces.length -1; i>=0; i-- ){
             selectionModel.clearSelection(selectedIndeces[i].intValue());
             tableViewFiche.getItems().remove(selectedIndeces[i].intValue());
+            fiche.getObjectifs().remove(selectedIndeces[i].intValue());
         }
     }
 

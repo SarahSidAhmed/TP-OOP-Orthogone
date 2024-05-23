@@ -112,5 +112,6 @@ public class AjouterPatientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
+
     }
 }

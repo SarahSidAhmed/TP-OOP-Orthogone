@@ -84,6 +84,7 @@ public class HomeAmneseEnfantController implements Initializable {
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
+        Logiciel.sauvegarderUsers();
         Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -170,6 +171,8 @@ public class HomeAmneseEnfantController implements Initializable {
         for (int i= selectedIndeces.length -1; i>=0; i-- ){
             selectionModel.clearSelection(selectedIndeces[i].intValue());
             tableViewQuestion.getItems().remove(selectedIndeces[i].intValue());
+            orthogone.getAmnese().getQuestions().remove(selectedIndeces[i].intValue());
+
         }
     }
 

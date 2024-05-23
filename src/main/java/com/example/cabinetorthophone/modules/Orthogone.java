@@ -153,6 +153,16 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
         return null;
     }
 
+    public Patient removePatient(int num) {
+
+
+            for (Patient p1 : this.patients) {
+                if (p1.getNum_dossier() == num) {
+                    this.getPatients().remove(p1);
+                }
+            }
+        return null;
+    }
     public ArrayList<Dossier> getDossiers() {
         return this.dossiers;
     }

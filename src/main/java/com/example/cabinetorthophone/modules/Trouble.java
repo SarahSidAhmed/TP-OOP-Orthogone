@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone.modules;
 
-public class Trouble {
+import java.io.Serializable;
+
+public class Trouble implements Serializable {
 
     private String nom;
     private Type_Trouble type;

@@ -88,6 +88,7 @@ public class Dossier implements Serializable {
     public ArrayList<Bo> getBo() {
         return this.bo;
     }
+
     public ArrayList<Fiche> getFiche() {
         return this.listeFiches;
     }

@@ -104,6 +104,12 @@ public class ProgrammerRendezVousController implements Initializable {
             textExplain.setVisible(false);
         }
 
+
+        tableColumnDate.setCellValueFactory(new PropertyValueFactory<RendezVous, ZonedDateTime>("date"));
+        tableColumnDuree.setCellValueFactory(new PropertyValueFactory<RendezVous, String>("duree"));
+        tableColumnType.setCellValueFactory(new PropertyValueFactory<RendezVous, Type_RV>("type"));
+        tableColumnObservation.setCellValueFactory(new PropertyValueFactory<RendezVous, String>("observation"));
+
         ObservableList<RendezVous> listRV = setTable();
 
         tableRV.setItems(listRV);
@@ -136,15 +142,12 @@ public class ProgrammerRendezVousController implements Initializable {
 
                 //ATELIER?
             } else if (r instanceof Atelier) {
+                //voire si le patient existe deja dans l'atelier
                 if (((Atelier) r).rechercherPatientByNum(patient.getNum_dossier()).getNum_dossier() == patient.getNum_dossier()) {
                     listRV.add(r);
                 }
             }
         }
-        tableColumnDate.setCellValueFactory(new PropertyValueFactory<RendezVous, ZonedDateTime>("date"));
-        tableColumnDuree.setCellValueFactory(new PropertyValueFactory<RendezVous, String>("duree"));
-        tableColumnType.setCellValueFactory(new PropertyValueFactory<RendezVous, Type_RV>("type"));
-        tableColumnObservation.setCellValueFactory(new PropertyValueFactory<RendezVous, String>("observation"));
 
         return listRV;
     }

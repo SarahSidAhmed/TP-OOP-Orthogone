@@ -45,6 +45,7 @@ public class BoController implements Initializable{
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
+        Logiciel.sauvegarderUsers();
         Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -85,6 +86,7 @@ public class BoController implements Initializable{
         for (int i= selectedIndeces.length -1; i>=0; i-- ){
             selectionModel.clearSelection(selectedIndeces[i].intValue());
             tableViewBo.getItems().remove(selectedIndeces[i].intValue());
+            dossier.getBo().remove(selectedIndeces[i].intValue());
         }
     }
 
@@ -132,7 +134,7 @@ public class BoController implements Initializable{
                             int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
                             Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
 
-                            Logiciel.setDossierCourrant(dossierCourant);
+                            Logiciel.setBoCourrant(data);
 
 
                             try {
@@ -193,10 +195,11 @@ public class BoController implements Initializable{
                             Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
 
                             Logiciel.setDossierCourrant(dossierCourant);
+                            Logiciel.setBoCourrant(data);
 
 
                             try {
-                                Parent root =  FXMLLoader.load(getClass().getResource("Diagnostiques.fxml"));
+                                Parent root =  FXMLLoader.load(getClass().getResource("ajouterDiagnostique.fxml"));
                                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);

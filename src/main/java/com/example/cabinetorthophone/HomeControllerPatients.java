@@ -57,6 +57,7 @@ public class HomeControllerPatients implements Initializable {
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
+        Logiciel.sauvegarderUsers();
         Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -136,28 +137,21 @@ public class HomeControllerPatients implements Initializable {
         //tableColumnCheck.setCellValueFactory(new PropertyValueFactory<Patient, Void>("button"));
         tableColumnAddress.setCellValueFactory(new PropertyValueFactory<Patient, String>("adresse"));
 
-        Patient p = new Enfant("Sarah", "Sid", 10, "Alger", "ESI", "07796953");
-        Patient p1 = new Enfant("Hic", "Sid", 3, "Alger", "ESI", "07796953");
-        Patient p2 = new Enfant("Djamel", "Sid", 5, "Alger", "ESI", "07796953");
-        Patient p3 = new Enfant("Sora", "Sid", 0, "Alger", "ESI", "07796953");
-        Patient p4 = new Enfant("Lyna", "Benahmed", 1, "Alger", "ESI", "07796953");
-        Patient p5 = new Enfant("Fatima", "Senouci", 2, "Alger", "ESI", "07796953");
+//        Patient p = new Enfant("Sarah", "Sid", 10, "Alger", "ESI", "07796953");
+//        Patient p1 = new Enfant("Hic", "Sid", 3, "Alger", "ESI", "07796953");
+//        Patient p2 = new Enfant("Djamel", "Sid", 5, "Alger", "ESI", "07796953");
+//        Patient p3 = new Enfant("Sora", "Sid", 0, "Alger", "ESI", "07796953");
+//        Patient p4 = new Enfant("Lyna", "Benahmed", 1, "Alger", "ESI", "07796953");
+//        Patient p5 = new Enfant("Fatima", "Senouci", 2, "Alger", "ESI", "07796953");
+//
+//
+//        orthogone.ajouterPatient(p, p.getNum_dossier());
+//        orthogone.ajouterPatient(p1, p1.getNum_dossier());
+//        orthogone.ajouterPatient(p2, p2.getNum_dossier());
+//        orthogone.ajouterPatient(p3, p3.getNum_dossier());
+//        orthogone.ajouterPatient(p4, p4.getNum_dossier());
+//        orthogone.ajouterPatient(p5, p5.getNum_dossier());
 
-
-        orthogone.ajouterPatient(p, p.getNum_dossier());
-        orthogone.ajouterPatient(p1, p1.getNum_dossier());
-        orthogone.ajouterPatient(p2, p2.getNum_dossier());
-        orthogone.ajouterPatient(p3, p3.getNum_dossier());
-        orthogone.ajouterPatient(p4, p4.getNum_dossier());
-        orthogone.ajouterPatient(p5, p5.getNum_dossier());
-
-
-        int year = dateFocus.getYear();
-        int month = dateFocus.getMonth().getValue();
-
-//        ZonedDateTime time = ZonedDateTime.of(year, month, 5, 16,0,0,0,dateFocus.getZone());
-//        RendezVous rv = new Consultation(time, " ", p.getNom(), p.getPrenom(), p.getAge());
-//        orthogone.programmerRendezVous(rv);
 
         addButtonToTable();
         List<Patient> oo = new ArrayList<>(orthogone.getPatients());
@@ -177,8 +171,16 @@ public class HomeControllerPatients implements Initializable {
         Arrays.sort(selectedIndeces);
 
         for (int i= selectedIndeces.length -1; i>=0; i-- ){
-            selectionModel.clearSelection(selectedIndeces[i].intValue());
+            selectionModel.clearSelection(selectedIndeces[i]);
+
+            Patient o = tableViewPatient.getItems().get(selectedIndeces[i]);
+            int num = o.getNum_dossier();
+            orthogone.removePatient(num);
+
             tableViewPatient.getItems().remove(selectedIndeces[i].intValue());
+
+
+
         }
     }
 
@@ -241,6 +243,7 @@ public class HomeControllerPatients implements Initializable {
                             Patient data = getTableView().getItems().get(getIndex());
                             // Perform action with data
                             Logiciel.setPatientCurrant(data);
+
                             try {
                                 Parent root =  FXMLLoader.load(getClass().getResource("PatientDetails.fxml"));
                                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

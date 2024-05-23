@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="793.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.FicheController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="793.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.AjouterDiagnostiqueController">
    <center>
       <AnchorPane fx:id="centerAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -41,15 +41,15 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="640.0" layoutY="102.0" mnemonicParsing="false" onAction="#ajouterObjectif" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #455c59;" text="      Ajouter trouble" textFill="WHITE">
+            <Button layoutX="640.0" layoutY="102.0" mnemonicParsing="false" onAction="#ajouterTrouble" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #455c59;" text="      Ajouter trouble" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TableView fx:id="tableViewFiche" layoutX="112.0" layoutY="153.0" prefHeight="360.0" prefWidth="393.0">
+            <TableView fx:id="tableTrouble" layoutX="112.0" layoutY="153.0" prefHeight="360.0" prefWidth="468.0">
                <columns>
-                  <TableColumn fx:id="tableColumnObjectif" maxWidth="566.7999877929688" prefWidth="290.66662979125977" text="Trouble:" />
-                  <TableColumn fx:id="tableColumnTerme" prefWidth="100.00006103515625" text="Type:" />
+                  <TableColumn fx:id="tableColumnTrouble" maxWidth="566.7999877929688" prefWidth="290.66662979125977" text="Trouble:" />
+                  <TableColumn fx:id="tableColumnType" prefWidth="174.00006103515625" text="Type:" />
                </columns>
             </TableView>
             <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="646.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
@@ -67,8 +67,8 @@
                   <Image url="@trash-bin.png" />
                </image>
             </ImageView>
-            <TextField fx:id="nomObjectif" layoutX="135.0" layoutY="102.0" promptText="Nom trouble" />
-            <ChoiceBox fx:id="choiceTerme" layoutX="356.0" layoutY="101.0" prefWidth="150.0" />
+            <TextField fx:id="nomTrouble" layoutX="135.0" layoutY="102.0" promptText="Nom trouble" />
+            <ChoiceBox fx:id="choiceTrouble" layoutX="356.0" layoutY="101.0" prefWidth="150.0" />
             <Label layoutX="313.0" layoutY="107.0" text="Type:" />
             <Label layoutX="47.0" layoutY="107.0" text="Nom trouble:" />
          </children>

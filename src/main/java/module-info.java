@@ -4,6 +4,7 @@ module com.example.cabinetorthophone {
     requires jdk.jdi;
     requires java.desktop;
     requires jdk.compiler;
+    requires java.smartcardio;
 
 
     opens com.example.cabinetorthophone to javafx.fxml;

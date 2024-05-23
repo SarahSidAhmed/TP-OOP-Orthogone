@@ -24,6 +24,17 @@ import java.util.Iterator;
 
             return a;
         }
+
+        public ArrayList<Suivi> getSuivi(){
+            ArrayList<Suivi> s = new ArrayList<>();
+            for (RendezVous rv : this.rendezVous){
+                if (rv instanceof Suivi) s.add((Suivi)rv);
+            }
+
+            return s;
+        }
+
+
         public Atelier findAtelierById(int id){
             for (RendezVous rv : this.rendezVous){
                 if (rv instanceof Atelier && ((Atelier) rv).getId()==id) return (Atelier) rv;

@@ -16,6 +16,14 @@ public class Diagnostique implements Serializable {
         this.troubles = new ArrayList<>(troubles);
     }
 
+    public void setTroubles(List<Trouble> troubles) {
+        this.troubles = troubles;
+    }
+
+    public ArrayList<Trouble> getTrouble(){
+        return (ArrayList<Trouble>) this.troubles;
+    }
+
     public void ajouterTrouble(Trouble trouble) {
         this.troubles.add(trouble);
     }

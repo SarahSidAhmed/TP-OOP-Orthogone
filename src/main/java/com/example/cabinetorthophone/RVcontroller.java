@@ -42,6 +42,7 @@ public class RVcontroller implements Initializable{
 
     @FXML
     public void logOut(ActionEvent event) throws IOException {
+        Logiciel.sauvegarderUsers();
         Parent root= FXMLLoader.load(getClass().getResource("authentification.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
