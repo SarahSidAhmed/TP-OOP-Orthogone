@@ -1,6 +1,8 @@
 package com.example.cabinetorthophone;
 
 import com.example.cabinetorthophone.modules.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.Chart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -31,7 +33,12 @@ public class HomeStatistiqueController implements Initializable {
     @FXML Label nbSuivi;
     @FXML Label nbAtelier;
 
-    @FXML Chart chart;
+    @FXML PieChart chartPie;
+
+    @FXML BarChart chartBar;
+    @FXML CategoryAxis xAxis;
+    @FXML NumberAxis yAxis;
+
 
 
 
@@ -51,6 +58,39 @@ public class HomeStatistiqueController implements Initializable {
         this.nbAtelier.setText(String.valueOf(nombreAtelier));
         this.nbRV.setText(String.valueOf(nombreRV));
         this.nbSuivi.setText(String.valueOf(nombreSuivi));
+
+
+        int nbAdult=0;
+        int nbEnfant=0;
+
+        for (Patient p : orthogone.getPatients()){
+            if (p.getAge()>=18) nbAdult++;
+            else nbEnfant++;
+        }
+        //the bar chart
+        xAxis.setLabel("RendezVous Type");
+        yAxis.setLabel("Nombre");
+
+        XYChart.Series data = new XYChart.Series();
+        data.setName("RendezVous");
+
+        data.getData().add(new XYChart.Data<>("Suivi", nombreSuivi));
+        data.getData().add(new XYChart.Data<>("Atelier", nombreAtelier));
+
+        chartBar.getData().add(data);
+
+        ObservableList<PieChart.Data> dataPie = FXCollections.observableArrayList(
+                new PieChart.Data("Adulte", nbAdult),
+                new PieChart.Data("Enfant", nbEnfant)
+        );
+
+        chartPie.setTitle("Patient Age");
+        chartPie.setData(dataPie);
+        chartPie.setLabelLineLength(50);
+        chartPie.setLabelsVisible(true);
+        chartPie.setClockwise(true);
+        chartPie.setStartAngle(180);
+
 
     }
 

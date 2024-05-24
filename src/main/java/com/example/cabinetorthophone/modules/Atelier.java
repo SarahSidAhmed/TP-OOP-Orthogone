@@ -26,6 +26,7 @@ import java.util.Iterator;
             this.thematique = thematique;
         }
 
+        public static void setCompteurAtelier(int cp){idAtelier = cp;}
         public void afficher() {
             Iterator var1 = this.patients.iterator();
 

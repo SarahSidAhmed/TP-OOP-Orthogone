@@ -1,7 +1,9 @@
 package com.example.cabinetorthophone;
 
+import com.example.cabinetorthophone.modules.Atelier;
 import com.example.cabinetorthophone.modules.Logiciel;
 import com.example.cabinetorthophone.modules.Orthogone;
+import com.example.cabinetorthophone.modules.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -162,6 +164,11 @@ private Stage stage;
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
         initiation();
+        int numDossierInit = orthogone.getPatients().size();
+
+        //this is to make sure that the programm starts with the exact numDossier that we left off at
+        Patient.setCompteur(numDossierInit);
+        Atelier.setCompteurAtelier(orthogone.getAgenda().getAtelier().size());
     }
 
     //allah ghaleb initializer f la poubelle

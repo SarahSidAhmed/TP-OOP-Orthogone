@@ -23,13 +23,15 @@ public abstract class Patient implements Serializable {
         this.age = age;
         this.tel = tel;
         this.adresse = adresse;
-        this.num_dossier = ++compteur;
+        this.num_dossier = compteur++;
         this.nb_rv = 0;
 
         //creation d'un dossier
         Dossier d = new Dossier(num_dossier);
 
     }
+
+    public static void setCompteur(int cp){compteur = cp;}
 
     public boolean equals(Object o) {
         if (this == o) {

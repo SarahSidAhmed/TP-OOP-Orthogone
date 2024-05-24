@@ -102,8 +102,10 @@ public class ProgrammerAtelierController implements Initializable {
         Atelier a = orthogone.getAgenda().findAtelierById(id);
 
         if (a.rechercherPatientByNum(patient.getNum_dossier())== null) {
+
             a.addPatient(patient);
             a.setNumPatient(a.getNumPatient() + 1);
+            orthogone.getDossierByNum(patient.getNum_dossier()).getListeRendezVous().add(a);
 
             Parent root = FXMLLoader.load(getClass().getResource("ProgrammerRendezVous.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -142,6 +144,7 @@ public class ProgrammerAtelierController implements Initializable {
                 ZonedDateTime time = ZonedDateTime.of(annee, mois, jour, heure, minute, 0, 0, dateFocus.getZone());
                 Atelier c = new Atelier(time, "", ps, thematique);
                 orthogone.programmerRendezVous(c);
+                orthogone.getDossierByNum(patient.getNum_dossier()).getListeRendezVous().add(c);
                 c.addPatient(patient);
 
                 c.setNumPatient(c.getNumPatient()+1);

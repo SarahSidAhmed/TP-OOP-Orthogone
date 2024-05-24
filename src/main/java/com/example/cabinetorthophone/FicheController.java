@@ -96,10 +96,10 @@ public class FicheController implements Initializable {
                         private final Button btn = new Button("Check");
 
                         {
-
+                            btn.setStyle("-fx-background-color: #425c59;");
                             btn.setPrefHeight(32.0);
                             btn.setPrefWidth(118.0);
-                            btn.setStyle("-fx-background-color: #425c59;");
+
                             btn.setTextFill(javafx.scene.paint.Color.WHITE);
                             btn.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 14));
 

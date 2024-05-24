@@ -133,25 +133,7 @@ public class HomeControllerPatients implements Initializable {
         tableColumnAge.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("age"));
         tableColumnTel.setCellValueFactory(new PropertyValueFactory<Patient, String>("tel"));
         tableColumnNum.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("num_dossier"));
-
-        //tableColumnCheck.setCellValueFactory(new PropertyValueFactory<Patient, Void>("button"));
         tableColumnAddress.setCellValueFactory(new PropertyValueFactory<Patient, String>("adresse"));
-
-//        Patient p = new Enfant("Sarah", "Sid", 10, "Alger", "ESI", "07796953");
-//        Patient p1 = new Enfant("Hic", "Sid", 3, "Alger", "ESI", "07796953");
-//        Patient p2 = new Enfant("Djamel", "Sid", 5, "Alger", "ESI", "07796953");
-//        Patient p3 = new Enfant("Sora", "Sid", 0, "Alger", "ESI", "07796953");
-//        Patient p4 = new Enfant("Lyna", "Benahmed", 1, "Alger", "ESI", "07796953");
-//        Patient p5 = new Enfant("Fatima", "Senouci", 2, "Alger", "ESI", "07796953");
-//
-//
-//        orthogone.ajouterPatient(p, p.getNum_dossier());
-//        orthogone.ajouterPatient(p1, p1.getNum_dossier());
-//        orthogone.ajouterPatient(p2, p2.getNum_dossier());
-//        orthogone.ajouterPatient(p3, p3.getNum_dossier());
-//        orthogone.ajouterPatient(p4, p4.getNum_dossier());
-//        orthogone.ajouterPatient(p5, p5.getNum_dossier());
-
 
         addButtonToTable();
         List<Patient> oo = new ArrayList<>(orthogone.getPatients());
@@ -176,7 +158,6 @@ public class HomeControllerPatients implements Initializable {
             Patient o = tableViewPatient.getItems().get(selectedIndeces[i]);
             int num = o.getNum_dossier();
             orthogone.removePatient(num);
-
             tableViewPatient.getItems().remove(selectedIndeces[i].intValue());
 
 

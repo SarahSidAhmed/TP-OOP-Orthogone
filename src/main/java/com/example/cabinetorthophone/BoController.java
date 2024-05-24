@@ -138,7 +138,7 @@ public class BoController implements Initializable{
 
 
                             try {
-                                Parent root =  FXMLLoader.load(getClass().getResource("ajouterEpeuve.fxml"));
+                                Parent root =  FXMLLoader.load(getClass().getResource("ajouterEpreuve.fxml"));
                                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);

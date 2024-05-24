@@ -143,7 +143,7 @@ public class HomeAgendaController implements Initializable {
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.BLACK);
                 rectangle.setStrokeWidth(strokeWidth);
-                double rectangleWidth =(calendarWidth/6.5) - strokeWidth - spacingH;
+                double rectangleWidth =(calendarWidth/6.1) - strokeWidth - spacingH;
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);

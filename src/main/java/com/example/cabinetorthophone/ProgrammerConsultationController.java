@@ -93,6 +93,7 @@ public class ProgrammerConsultationController implements Initializable {
                 ZonedDateTime time = ZonedDateTime.of(annee, mois, jour, heure, minute, 0, 0, dateFocus.getZone());
                 Consultation c = new Consultation(time, "", patient.getNom(), patient.getPrenom(), patient.getAge());
                 orthogone.programmerRendezVous(c);
+                orthogone.getDossierByNum(patient.getNum_dossier()).getListeRendezVous().add(c);
 
                 //GOING BACK AFTER SUCCESS
                 errorText.setVisible(false);

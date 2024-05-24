@@ -95,6 +95,7 @@ public class ProgrammerSuiviController implements Initializable {
                 ZonedDateTime time = ZonedDateTime.of(annee, mois, jour, heure, minute, 0, 0, dateFocus.getZone());
                 Suivi c = new Suivi(time, Type_RV.SUIVI, "//", patient.getNum_dossier(), presentBool.isSelected());
                 orthogone.programmerRendezVous(c);
+                orthogone.getDossierByNum(patient.getNum_dossier()).getListeRendezVous().add(c);
 
                 //GOING BACK AFTER SUCCESS
                 errorText.setVisible(false);

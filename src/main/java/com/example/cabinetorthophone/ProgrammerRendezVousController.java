@@ -119,7 +119,7 @@ public class ProgrammerRendezVousController implements Initializable {
 
     private ObservableList<RendezVous> setTable() {
 
-        ArrayList<RendezVous> rv = orthogone.getAgenda().getRendezVous();
+        ArrayList<RendezVous> rv = orthogone.getDossierByNum(patient.getNum_dossier()).getListeRendezVous();
 
         ObservableList<RendezVous> listRV = FXCollections.observableArrayList();
 
@@ -163,6 +163,8 @@ public class ProgrammerRendezVousController implements Initializable {
 
         for (int i= selectedIndeces.length -1; i>=0; i-- ){
             selectionModel.clearSelection(selectedIndeces[i].intValue());
+            orthogone.rechercherDossier(patient.getNum_dossier()).getListeRendezVous().remove(selectedIndeces[i].intValue());
+            orthogone.getAgenda().getRendezVous().remove(selectedIndeces[i].intValue());
             tableRV.getItems().remove(selectedIndeces[i].intValue());
         }
     }

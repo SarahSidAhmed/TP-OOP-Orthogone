@@ -7,7 +7,7 @@ public class Objectif implements Serializable {
 
     private String nom;
     private int note;
-    private boolean checked;
+    private boolean checked = false;
     private Type_Terme terme;
 
     public Objectif(String nom, int note, Type_Terme type) throws NoteException {
