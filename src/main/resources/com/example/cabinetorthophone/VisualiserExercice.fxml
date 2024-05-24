@@ -49,12 +49,12 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="prenom" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Consigne">
+                <TextField fx:id="consigne" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Consigne">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="address" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
+                <TextField fx:id="score" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -74,7 +74,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <CheckBox layoutX="230.0" layoutY="312.0" mnemonicParsing="false" />
+            <CheckBox fx:id="inclus" layoutX="230.0" layoutY="312.0" mnemonicParsing="false" />
             </children>
         </AnchorPane>
     </center>

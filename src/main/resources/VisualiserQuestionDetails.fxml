@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0eae9; -fx-min-width: 795; -fx-min-height: 540;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.VisualiserExerciceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e0eae9; -fx-min-width: 795; -fx-min-height: 540;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.VisualiserQuestionController">
     <center>
         <AnchorPane fx:id="centerAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -27,7 +27,7 @@
                   </ImageView>
                     </children>
                 </AnchorPane>
-                <TextField fx:id="materiel" layoutX="207.0" layoutY="142.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Enonce">
+                <TextField fx:id="enonce" layoutX="207.0" layoutY="142.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Enonce">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -52,12 +52,12 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="prenom" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Reponse">
+                <TextField fx:id="reponse" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Reponse">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="address" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
+                <TextField fx:id="score" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
                     <font>
                         <Font size="14.0" />
                     </font>

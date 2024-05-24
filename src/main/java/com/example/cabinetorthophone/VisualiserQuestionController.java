@@ -18,14 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class VisualiserQCUDetailsController implements Initializable{
+public class VisualiserQuestionController implements Initializable{
 
     private Stage stage;
     private Scene scene;
     @FXML TextField enonce;
     @FXML TextField reponse;
     @FXML TextField score;
-    @FXML TextField choix;
 
     private static Orthogone orthogone;
     private static Patient patient;
@@ -35,7 +34,7 @@ public class VisualiserQCUDetailsController implements Initializable{
     private static Test_Exo testExo;
     private static Epreuve epreuve;
     private static Patient patientCurrant;
-    private static QCU questionCurrant;
+    private static Question_Libre questionCurrant;
 
     public void Back(MouseEvent event) throws IOException {
 
@@ -60,9 +59,8 @@ public class VisualiserQCUDetailsController implements Initializable{
 
     protected void initiate(){
         this.enonce.setText(questionCurrant.getEnonce());
-        this.reponse.setText(String.valueOf(questionCurrant.getNum_reponse()));
+        this.reponse.setText(questionCurrant.getReponse());
         this.score.setText(String.valueOf(questionCurrant.getScore()));
 
     }
 }
-

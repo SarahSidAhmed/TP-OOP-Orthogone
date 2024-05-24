@@ -39,7 +39,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <TableView fx:id="tableViewFiche" layoutX="125.0" layoutY="123.0" prefHeight="380.0" prefWidth="417.0">
+                <TableView fx:id="tableTestQuestion" layoutX="125.0" layoutY="123.0" prefHeight="380.0" prefWidth="417.0">
                     <columns>
                         <TableColumn fx:id="tableColumnCheck" prefWidth="414.40006256103516" text="Test question Check" />
                     </columns>

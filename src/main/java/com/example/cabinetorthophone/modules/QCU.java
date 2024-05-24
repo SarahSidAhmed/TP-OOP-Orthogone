@@ -43,4 +43,5 @@ public class QCU extends Question implements ScoreQuestionExo, Serializable {
         return num_reponse;
     }
 
+
 }

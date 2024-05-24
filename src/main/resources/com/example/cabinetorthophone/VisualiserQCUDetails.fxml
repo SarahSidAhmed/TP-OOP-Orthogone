@@ -23,7 +23,7 @@
                         </Label>
                     </children>
                 </AnchorPane>
-                <TextField fx:id="materiel" layoutX="207.0" layoutY="142.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Enonce">
+                <TextField fx:id="enonce" layoutX="207.0" layoutY="142.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Enonce">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -48,12 +48,12 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="prenom" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Reponse">
+                <TextField fx:id="reponse" layoutX="207.0" layoutY="200.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Reponse">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="address" layoutX="207.0" layoutY="300.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
+                <TextField fx:id="score" layoutX="207.0" layoutY="300.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Score">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -64,7 +64,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="prenom1" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Choix">
+            <TextField fx:id="choix" layoutX="207.0" layoutY="256.0" minHeight="11.0" minWidth="154.0" prefHeight="27.0" prefWidth="154.0" promptText="Choix">
                <font>
                   <Font size="14.0" />
                </font>
