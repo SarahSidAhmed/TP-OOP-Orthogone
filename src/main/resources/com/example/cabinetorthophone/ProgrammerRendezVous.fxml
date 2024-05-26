@@ -47,7 +47,7 @@
             </ImageView>
          </children>
       </Group>
-      <TableView fx:id="tableRV" layoutX="279.0" layoutY="177.0" prefHeight="289.0" prefWidth="479.0">
+      <TableView fx:id="tableRV" editable="true" layoutX="279.0" layoutY="177.0" prefHeight="289.0" prefWidth="479.0">
         <columns>
           <TableColumn fx:id="tableColumnDate" prefWidth="146.00003051757812" text="Date" />
           <TableColumn fx:id="tableColumnType" prefWidth="121.33328247070312" text="Type" />

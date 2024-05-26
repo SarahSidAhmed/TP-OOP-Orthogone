@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TableView fx:id="tableViewFiche" layoutX="33.0" layoutY="153.0" prefHeight="360.0" prefWidth="568.0">
+            <TableView fx:id="tableViewFiche" editable="true" layoutX="33.0" layoutY="153.0" prefHeight="360.0" prefWidth="568.0">
                <columns>
                   <TableColumn fx:id="tableColumnObjectif" maxWidth="566.7999877929688" prefWidth="290.66662979125977" text="Objectifs" />
                   <TableColumn fx:id="tableColumnTerme" prefWidth="100.00006103515625" text="Terme" />
