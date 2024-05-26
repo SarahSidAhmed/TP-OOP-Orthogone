@@ -22,7 +22,7 @@
                         </Label>
                   <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@com/example/cabinetorthophone/previous.png" />
+                        <Image url="@previous.png" />
                      </image>
                   </ImageView>
                     </children>

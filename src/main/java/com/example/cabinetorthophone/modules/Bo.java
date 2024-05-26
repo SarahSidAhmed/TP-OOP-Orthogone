@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Bo implements Serializable {
-    private ArrayList<Epreuve> epreuves = new ArrayList();
+    private ArrayList<Epreuve> epreuves;
     private Diagnostique diagnostique;
     private String thematique;
 
