@@ -1,13 +1,14 @@
 package com.example.cabinetorthophone.modules;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Epreuve implements Serializable {
     private String[] oversevationsCliniques;
     private HashMap<Test, Compte_Rendu> tests;
-//    private Compte_Rendu compteRendu;
+    private ArrayList<Test> test;
 
     public Epreuve(String[] oversevationsCliniques, HashMap<Test, Compte_Rendu> tests) {
 
@@ -23,6 +24,7 @@ public class Epreuve implements Serializable {
 
     public void setTests(HashMap<Test, Compte_Rendu> tests){this.tests = tests;}
 
+
     public void setOversevationsCliniques(String[] oversevationsCliniques){this.oversevationsCliniques = oversevationsCliniques;}
 
     public void addObservation(String observation){
@@ -37,5 +39,13 @@ public class Epreuve implements Serializable {
     public void supprimerTest(String nom){
         this.tests.remove(nom);
 
+    }
+
+    public ArrayList<Test> getTest() {
+        return test;
+    }
+
+    public void setTest(ArrayList<Test> test) {
+        this.test = test;
     }
 }

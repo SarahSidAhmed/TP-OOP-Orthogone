@@ -3,55 +3,68 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.VisualiserTestExoController">
-    <children>
-        <AnchorPane prefHeight="540.0" prefWidth="795.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="793.0" style="-fx-background-color: #e0eae9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cabinetorthophone.VisualiserTestController">
+    <top>
+        <AnchorPane fx:id="centerAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane layoutX="-10.0" layoutY="-9.0" prefHeight="112.0" prefWidth="805.0" style="-fx-background-color: #e0ea99;">
+                <AnchorPane layoutX="2.0" layoutY="-1.0" prefHeight="76.0" prefWidth="793.0" style="-fx-background-color: #e0ea99;">
                     <children>
-                        <ImageView fitHeight="127.0" fitWidth="118.0" layoutX="196.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@cabinet-removebg-preview.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="334.0" layoutY="40.0" text="Consulter Testes">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                        </Label>
-                        <Group layoutX="21.0" layoutY="20.0" onMouseClicked="#Back">
+                        <Group layoutX="18.0" layoutY="17.0" onMouseClicked="#Back">
                             <children>
                                 <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="9.0" style="-fx-background-radius: 20;" />
-                                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-5.0" layoutY="-4.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@previous.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </Group>
+                        <Label layoutX="345.0" layoutY="25.0" text="Visualiser Tests" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
-                <Label fx:id="errorText" alignment="CENTER" layoutX="223.0" layoutY="111.0" prefHeight="20.0" prefWidth="169.0" textFill="#c31c1c" wrapText="true">
+                <Label fx:id="textPop" alignment="CENTER" layoutX="139.0" layoutY="348.0" prefHeight="20.0" prefWidth="185.0" style="-fx-background-color: #e0ea99; visibility: false;" textFill="#696767" wrapText="true">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="176.0" layoutY="270.0" mnemonicParsing="false" onAction="#Test_exo" prefHeight="43.0" prefWidth="153.0" style="-fx-background-color: #455c59;" text="Test_exo" textFill="WHITE">
+                <TableView fx:id="tableViewTest" layoutX="125.0" layoutY="123.0" prefHeight="380.0" prefWidth="417.0">
+                    <columns>
+                        <TableColumn fx:id="tableColumnCheck" prefWidth="414.40006256103516" text="Tests check" />
+                    </columns>
+                </TableView>
+                <Button layoutX="605.0" layoutY="100.0" mnemonicParsing="false" onAction="#ajouterTest" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #425c59 #425c59;" text="    ajouter test" textAlignment="RIGHT" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="19.0" />
+                        <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
-                <Button layoutX="488.0" layoutY="270.0" mnemonicParsing="false" onAction="#Test_question" prefHeight="43.0" prefWidth="153.0" style="-fx-background-color: #455c59;" text="Test_question" textFill="WHITE">
+                <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="612.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@add-button.png" />
+                    </image>
+                </ImageView>
+                <Button alignment="CENTER_RIGHT" layoutX="673.0" layoutY="142.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #FF0000;" text="Delete" textFill="WHITE">
                     <font>
-                        <Font name="System Bold" size="19.0" />
+                        <Font name="System Bold" size="12.0" />
                     </font>
                 </Button>
+                <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="678.0" layoutY="147.0">
+                    <image>
+                        <Image url="@trash-bin.png" />
+                    </image>
+                </ImageView>
             </children>
         </AnchorPane>
-    </children>
-</AnchorPane>
+    </top>
+</BorderPane>

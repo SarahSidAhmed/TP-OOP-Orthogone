@@ -16,6 +16,16 @@ public class Test_Question extends Test implements TotalScore, Serializable {
         };
     }
 
+    // Getter
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    // Setter
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
     public void ajouterQuestion(Question q){
         this.questions.add(q);
     }

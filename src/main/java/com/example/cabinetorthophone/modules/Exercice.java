@@ -58,4 +58,6 @@ public class Exercice implements ScoreQuestionExo, Serializable {
     public int calculateTotalScore() throws ScoreException {
         return 0;
     }
+
+
 }

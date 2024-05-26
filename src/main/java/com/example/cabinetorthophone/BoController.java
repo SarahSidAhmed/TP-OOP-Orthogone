@@ -138,7 +138,8 @@ public class BoController implements Initializable{
 
 
                             try {
-                                Parent root =  FXMLLoader.load(getClass().getResource("ajouterEpreuve.fxml"));
+
+                                Parent root =  FXMLLoader.load(getClass().getResource("Visualiser_test.fxml"));
                                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);
@@ -192,7 +193,7 @@ public class BoController implements Initializable{
 
                             // Perform action with data
                             int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
-                            Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
+                            Dossier dossierCourant= Logiciel.getOrthogoneCourrant().RechercherDossier(num_dossier);
 
                             Logiciel.setDossierCourrant(dossierCourant);
                             Logiciel.setBoCourrant(data);

@@ -21,4 +21,12 @@ public class Test_Exo extends Test implements TotalScore, Serializable {
     public int calculateTotalScore() throws ScoreException {
         return 0;
     }
+
+    public Set<Exercice> getExercices() {
+        return exercices;
+    }
+
+    public void setExercices(Set<Exercice> exercices) {
+        this.exercices = exercices;
+    }
 }

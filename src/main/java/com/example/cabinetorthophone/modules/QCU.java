@@ -43,4 +43,12 @@ public class QCU extends Question implements ScoreQuestionExo, Serializable {
         return num_reponse;
     }
 
+
+    public void addChoix(String text) {
+        int n= getChoix().length;
+        choix[n+1]=" ";
+        choix[n+3]=text;
+        setChoix(choix);
+
+    }
 }

@@ -11,10 +11,11 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
     private String telephone;
     private String email;
     private String password;
+    private Amnese amnese;
     private HashSet<Patient> patients;
     private ArrayList<Dossier> dossiers;
     private Agenda agenda;
-    private Amnese amnese;
+
 
     public Orthogone(String nom, String prenom, String adresse, String telephone, String email, String password, HashSet<Patient> patients, Agenda agenda, ArrayList<Dossier> dossiers) {
         this.setNom(nom);
@@ -192,14 +193,17 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
 
     }
 
-    public Dossier rechercherDossier(int num_dossier) {
-        for (Dossier dossier : dossiers) {
+    public Dossier RechercherDossier(int num_dossier) {
+        for (Dossier dossier: dossiers)
+        {
             if (dossier.getNumDossier() == num_dossier) {
                 return dossier;
             }
         }
         return null;
-    }
+        }
+
+
 
     public Amnese getAmnese() {
         return amnese;
@@ -207,5 +211,10 @@ public class Orthogone implements Comparable<Orthogone>, Serializable {
 
     public void setAmnese(Amnese amnese) {
         this.amnese = amnese;
+    }
+
+
+    public Dossier rechercherDossier(int numDossier) {
+        return getDossierByNum(numDossier);
     }
 }
