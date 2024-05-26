@@ -64,4 +64,12 @@ public class QCM extends Question implements ScoreQuestionExo, Serializable {
     public void setReponse(Set<Integer> reponse) {
         this.reponse = reponse;
     }
+
+    public void addChoix(String text) {
+        int n= getChoix().length;
+        choix[n+1]=" ";
+        choix[n+3]=text;
+        setChoix(choix);
+
+    }
 }

@@ -32,8 +32,10 @@ public class VisualiserTestQuestionController implements Initializable {
     private static Dossier dossier;
     private static Bo bo;
     private static Test test;
-    private static Test_Question testQuestion;
+
     private static Epreuve epreuve;
+    private static Test courrantTest;
+
 
 
 
@@ -84,13 +86,14 @@ public class VisualiserTestQuestionController implements Initializable {
         stage.show();
     }
 
-    // not finished yet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
         patient = Logiciel.getPatientCurrant();
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
-        //.... suite pour jusque arrive a epeuve et a le test
+        bo =Logiciel.getBoCourrant();
+        epreuve=Logiciel.getEpreuveCourrant();
+        courrantTest= (Test_Question) Logiciel.getTestCourant();
         addButtonToTable();
     }
 

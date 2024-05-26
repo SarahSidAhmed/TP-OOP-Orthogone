@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterQCMController implements Initializable{
@@ -31,6 +32,12 @@ public class AjouterQCMController implements Initializable{
     @FXML private Button Back;
     @FXML private TextField choix;
     @FXML private TextField reponse;
+
+    private Epreuve currentEpreuve =Logiciel.getEpreuveCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
+    private Test_Question currentTestQuestion=Logiciel.getTestQuestionCourrant();
+    private QCM newqcm;
 
     @FXML private Button finish;
     @FXML private Label errorText;
@@ -51,10 +58,20 @@ public class AjouterQCMController implements Initializable{
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-
-
         //ajouter la question au test
-        orthogone.ajouterPatient(newPatient, newPatient.getNum_dossier());
+
+        newqcm.addChoix(choix.getText());
+        currentTestQuestion.ajouterQuestion(newqcm);
+        currentEpreuve.addTest(currentTestQuestion);
+        ArrayList<Epreuve> epreuves = new ArrayList<>();
+        epreuves.add(currentEpreuve);
+        currentBo.setEpreuves(epreuves);
+        ArrayList<Bo> bos = new ArrayList<>();
+        bos.add(currentBo);
+        currentDossier.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(currentDossier);
+        orthogone.setDossiers(dossiers);
 
         //aller a homePatients
         Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
@@ -74,7 +91,7 @@ public class AjouterQCMController implements Initializable{
 
 
     public void AjouterReponse(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AjouterReponse.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -83,7 +100,7 @@ public class AjouterQCMController implements Initializable{
     }
 
     public void AjouterChoix(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AjouterChoixQCMfxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterTestController implements Initializable{
@@ -56,7 +57,16 @@ public class AjouterTestController implements Initializable{
 
         //ajouter le teste a la liste des teste dans epreuves
 
-          currentEpreuve.addTest(currentTest);
+        currentEpreuve.addTest(currentTest);
+        ArrayList<Epreuve> epreuves = new ArrayList<>();
+        epreuves.add(currentEpreuve);
+        currentBo.setEpreuves(epreuves);
+        ArrayList<Bo> bos = new ArrayList<>();
+        bos.add(currentBo);
+        currentDossier.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(currentDossier);
+        orthogone.setDossiers(dossiers);
 
 
         //aller a homeDossier

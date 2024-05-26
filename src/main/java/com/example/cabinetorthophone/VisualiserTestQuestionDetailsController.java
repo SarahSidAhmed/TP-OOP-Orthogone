@@ -30,10 +30,10 @@ public class VisualiserTestQuestionDetailsController implements Initializable {
     private static Patient patient;
     private static Dossier dossier;
     private static Bo bo;
-    private static Test test;
-    private static Test_Question testQuestion;
+    private static Test_Question testqst;
     private static Epreuve epreuve;
     private static Question question;
+    private static Test courrantTest;
 
     @FXML TableView<Question> tableViewQuestion;
     @FXML TableColumn<Question, Void> tableColumnCheck;
@@ -64,32 +64,21 @@ public class VisualiserTestQuestionDetailsController implements Initializable {
             tableViewQuestion.getItems().remove(selectedIndeces[i].intValue());
 
 // to check
-            testQuestion.getQuestions().remove(selectedIndeces[i].intValue());
+
+            testqst.getQuestions().remove(selectedIndeces[i].intValue());
         }
     }
 
-    //not finished
-    public void ajouterExercice(ActionEvent actionEvent)throws IOException {
 
 
-        //ajouter le nouveau exercice
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterExercice.fxml"));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
-
-
-    // not finished yet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
         patient = Logiciel.getPatientCurrant();
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
-        //.... suite pour jusque arrive a epeuve et a le test exo puis a lexo
+        bo =Logiciel.getBoCourrant();
+        epreuve=Logiciel.getEpreuveCourrant();
+        courrantTest= (Test_Question) Logiciel.getTestCourant();
         addButtonToTable();
     }
     private void addButtonToTable() {
@@ -114,19 +103,52 @@ public class VisualiserTestQuestionDetailsController implements Initializable {
                             // Perform action with data.... things to do here too
                             int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
                             Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
-
-                            // Logiciel.setExoCourrant(data);
+                            Bo  bo =Logiciel.getBoCourrant();
+                            Epreuve epreuve=Logiciel.getEpreuveCourrant();
+                            Test courrantTest= (Test_Question) Logiciel.getTestCourant();
+                            Logiciel.setTestCourant(courrantTest);
+                            Logiciel.setDossierCourrant(dossierCourant);
+                            Logiciel.setQuestionCourant(data);
 
                            // maybe ajouter instanceof
                             try {
-                                Parent root =  FXMLLoader.load(getClass().getResource("VisualiserQuestionDetails.fxml"));
-                                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                                scene = new Scene(root);
-                                stage.setScene(scene);
-                                stage.centerOnScreen();
-                                stage.show();
+                                if( data instanceof Question_Libre){
+                                    Parent root = FXMLLoader.load(getClass().getResource("VisualiserQuestionDetails.fxml"));
 
-                            } catch (IOException e) {
+                                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.centerOnScreen();
+                                    stage.show();
+                                }
+
+                                else{
+                                    if(data instanceof QCU) {
+                                        Parent root = FXMLLoader.load(getClass().getResource("VisualiserQCUDetails.fxml"));
+
+                                        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                        scene = new Scene(root);
+                                        stage.setScene(scene);
+                                        stage.centerOnScreen();
+                                        stage.show();
+                                    }
+                                    else{
+                                        if(data instanceof QCM) {
+                                            Parent root = FXMLLoader.load(getClass().getResource("VisualiserQCMDetails.fxml"));
+
+                                            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                                            scene = new Scene(root);
+                                            stage.setScene(scene);
+                                            stage.centerOnScreen();
+                                            stage.show();
+                                        }
+
+
+
+                            }
+                                }
+
+                            }catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
 

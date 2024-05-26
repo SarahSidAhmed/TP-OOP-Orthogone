@@ -35,6 +35,7 @@ public class VisualiserQuestionController implements Initializable{
     private static Epreuve epreuve;
     private static Patient patientCurrant;
     private static Question_Libre questionCurrant;
+    private static Test_Question testQuestion;
 
     public void Back(MouseEvent event) throws IOException {
 
@@ -48,11 +49,14 @@ public class VisualiserQuestionController implements Initializable{
     }
 
     @Override
-    // not finished yet
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
-        //exerciceCurrant = Logiciel.getExerciceCurrant();
+        dossier = Logiciel.getDossierCourrant();
+        bo =Logiciel.getBoCourrant();
+        epreuve=Logiciel.getEpreuveCourrant();
+        testQuestion= (Test_Question) Logiciel.getTestCourant();
+        questionCurrant= (Question_Libre) Logiciel.getQuestionCourant();
         initiate();
 
     }

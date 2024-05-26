@@ -31,10 +31,9 @@ public class VisualiserTestExoController implements Initializable{
     private static Patient patient;
     private static Dossier dossier;
     private static Bo bo;
-    private static Test test;
     private static Test_Exo testExo;
     private static Epreuve epreuve;
-
+    private static Test_Exo courrantTest;
 
 
 
@@ -91,7 +90,10 @@ public class VisualiserTestExoController implements Initializable{
         orthogone = Logiciel.getOrthogoneCourrant();
         patient = Logiciel.getPatientCurrant();
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
-        //.... suite pour jusque arrive a epeuve et a le test
+        bo =Logiciel.getBoCourrant();
+        epreuve=Logiciel.getEpreuveCourrant();
+        courrantTest= (Test_Exo) Logiciel.getTestCourant();
+
         addButtonToTable();
     }
 

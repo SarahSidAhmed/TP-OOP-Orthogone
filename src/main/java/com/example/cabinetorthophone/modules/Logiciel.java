@@ -15,6 +15,13 @@ public class Logiciel implements Serializable {
     private static Fiche ficheCourrant;
     private static Epreuve epreuveCourrant;
     private static Bo boCourrant;
+    private static Test testCourant;
+    private static Test_Question testquestionCourrant;
+    private static Test_Exo testexoCourrant;
+//    private static QCM qcmCourrant;
+//    private static QCU qcUCourrant;
+     private static Question questionCourant;
+    private static Exercice exerciceCourant;
 
 
 
@@ -69,6 +76,43 @@ return dossierCourrant;    }
 
     public static void setBoCourrant(Bo boCourrant) {
         Logiciel.boCourrant = boCourrant;
+    }
+
+    public static Test_Question getTestQuestionCourrant() {
+        return testquestionCourrant;
+    }
+
+//    public static QCM getQCMCourrant() {
+//        return qcmCourrant;
+//    }
+//
+//    public static QCU getQCUCourrant() {
+//        return qcUCourrant;
+//    }
+
+    public static Test getTestCourant() {
+        return testCourant ;
+    }
+
+    public static void setTestCourant(Test testCourant) {
+        Logiciel.testCourant = testCourant;
+    }
+
+
+
+    public static Question getQuestionCourant() {
+        return questionCourant;
+    }
+
+    public static void setQuestionCourant(Question questionCourant) {
+        Logiciel.questionCourant = questionCourant;
+    }
+
+    public static void setExoCourrant(Exercice exerciceCourant) {
+        Logiciel.exerciceCourant=exerciceCourant;
+    }
+    public static Exercice getExoCourrant() {
+        return  exerciceCourant;
     }
 
     public void ajouterOrthophone(Orthogone orthogone){

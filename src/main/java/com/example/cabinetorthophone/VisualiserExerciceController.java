@@ -48,16 +48,18 @@ public class VisualiserExerciceController implements Initializable{
     }
 
     @Override
-    // not finished yet
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
-        //exerciceCurrant = Logiciel.getExerciceCurrant();
+
         initiate();
 
     }
 
     protected void initiate(){
+
+
         this.materiel.setText(exerciceCurrant.getMaterial());
         this.consigne.setText(exerciceCurrant.getConsigne());
         this.score.setText(String.valueOf(exerciceCurrant.getScore()));

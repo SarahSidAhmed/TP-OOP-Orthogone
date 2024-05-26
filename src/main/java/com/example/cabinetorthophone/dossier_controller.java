@@ -80,7 +80,7 @@ public class dossier_controller implements Initializable {
             public TableCell<Dossier, Void> call(final TableColumn<Dossier, Void> param) {
                 final TableCell<Dossier, Void> cell = new TableCell<Dossier, Void>() {
 
-                    private final Button btn = new Button("Bo");
+                    private final Button btn = new Button("Fiche");
 
                     {
 

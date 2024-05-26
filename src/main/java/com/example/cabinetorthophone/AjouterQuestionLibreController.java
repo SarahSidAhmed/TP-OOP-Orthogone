@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterQuestionLibreController implements Initializable {
@@ -27,6 +28,12 @@ public class AjouterQuestionLibreController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Patient newPatient;
+
+    private Epreuve currentEpreuve =Logiciel.getEpreuveCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
+    private Test_Question currentTestQuestion=Logiciel.getTestQuestionCourrant();
+    private Question_Libre newqst;
 
     @FXML private Button Back;
     @FXML private TextField reponse;
@@ -53,11 +60,22 @@ public class AjouterQuestionLibreController implements Initializable {
     protected void Finish(ActionEvent event) throws IOException {
 
 
+        //ajouter la question au test
 
-            //ajouter la question au test
-            orthogone.ajouterPatient(newPatient, newPatient.getNum_dossier());
+        newqst.setReponse(reponse.getText());
+        currentTestQuestion.ajouterQuestion(newqst);
+        currentEpreuve.addTest(currentTestQuestion);
+        ArrayList<Epreuve> epreuves = new ArrayList<>();
+        epreuves.add(currentEpreuve);
+        currentBo.setEpreuves(epreuves);
+        ArrayList<Bo> bos = new ArrayList<>();
+        bos.add(currentBo);
+        currentDossier.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(currentDossier);
+        orthogone.setDossiers(dossiers);
 
-            //aller a homePatients
+            //aller a ajouter TestQuestion
             Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

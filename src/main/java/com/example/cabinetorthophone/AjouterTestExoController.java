@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterTestExoController implements Initializable{
@@ -26,17 +27,21 @@ public class AjouterTestExoController implements Initializable{
     private static Orthogone orthogone;
     private Scene scene;
     private Stage stage;
-    private Test newtest;
+    private Test test;
     @FXML private Button Back;
-    @FXML private TextField type;
-    @FXML private TextField nom;
+    @FXML private TextField materiel;
+    @FXML private TextField score;
     @FXML private TextField capacite;
+    @FXML private TextField consigne;
     @FXML private Button finish;
     @FXML private Label errorText;
     private Test currentTest;
     private Epreuve currentEpreuve=Logiciel.getEpreuveCourrant();
     private Bo currentBo=Logiciel.getBoCourrant();
     private Dossier currentDossier=Logiciel.getDossierCourrant();
+    private Exercice newexo;
+    private Test_Exo test_exo;
+    private int[] ScoreInt;
 
 
     @FXML
@@ -52,12 +57,24 @@ public class AjouterTestExoController implements Initializable{
 
 
     public void exo_suivant(ActionEvent actionEvent) throws IOException {
-        //ajouter le exo a testExo
 
-        //une boucle de capacite du testexo
-        currentEpreuve.addTest(currentTest);
-
-
+        for (int i = 0; i < test_exo.getCapacite();i++) {
+            //ajouter le exo a testExo
+            newexo.setConsigne(consigne.getText());
+            newexo.setMaterial(materiel.getText());
+            ScoreInt[i] = Integer.valueOf(score.getText());
+            newexo.setScore(ScoreInt);
+            //une boucle de capacite du testexo
+            currentEpreuve.addTest(currentTest);
+            ArrayList<Epreuve> epreuves = new ArrayList<>();
+            epreuves.add(currentEpreuve);
+            currentBo.setEpreuves(epreuves);
+            ArrayList<Bo> bos = new ArrayList<>();
+            bos.add(currentBo);
+            currentDossier.setBo(bos);
+            ArrayList<Dossier> dossiers = new ArrayList<>();
+            dossiers.add(currentDossier);
+            orthogone.setDossiers(dossiers);
         //aller a
         Parent root = FXMLLoader.load(getClass().getResource("ajouterTestExo.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -65,6 +82,7 @@ public class AjouterTestExoController implements Initializable{
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+        }
 
     }
 
@@ -72,6 +90,8 @@ public class AjouterTestExoController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        orthogone = Logiciel.getOrthogoneCourrant();
 
     }
 }

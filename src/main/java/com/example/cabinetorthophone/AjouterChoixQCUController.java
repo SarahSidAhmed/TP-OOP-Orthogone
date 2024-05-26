@@ -27,7 +27,7 @@ public class AjouterChoixQCUController implements Initializable{
     private Scene scene;
     private Stage stage;
     private Patient newPatient;
-
+    //private QCU currentQCU = Logiciel.getQCUCourrant();
     @FXML private Button Back;
     @FXML private TextField choix;
 
@@ -50,10 +50,7 @@ public class AjouterChoixQCUController implements Initializable{
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-
-
-        //ajouter la question au test
-        orthogone.ajouterPatient(newPatient, newPatient.getNum_dossier());
+        //currentQCU.addChoix(choix.getText());
 
         //aller a homePatients
         Parent root = FXMLLoader.load(getClass().getResource("AjouterQCU.fxml"));

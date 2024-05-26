@@ -34,6 +34,8 @@ public class VisualiserTestExoDetailsController implements Initializable{
     private static Test_Exo testExo;
     private static Epreuve epreuve;
     private static Exercice exo;
+    private static Test_Exo courrantTest;
+
 
     @FXML TableView<Exercice> tableViewExo;
     @FXML TableColumn<Exercice, Void> tableColumnCheck;
@@ -51,7 +53,6 @@ public class VisualiserTestExoDetailsController implements Initializable{
     }
 
 
-    // not finished yet
     @FXML
     protected void deleteData(ActionEvent event){
         TableView.TableViewSelectionModel<Exercice> selectionModel = tableViewExo.getSelectionModel();
@@ -85,13 +86,15 @@ public class VisualiserTestExoDetailsController implements Initializable{
     }
 
 
-    // not finished yet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
         patient = Logiciel.getPatientCurrant();
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
-        //.... suite pour jusque arrive a epeuve et a le test exo puis a lexo
+        bo =Logiciel.getBoCourrant();
+        epreuve=Logiciel.getEpreuveCourrant();
+        courrantTest= (Test_Exo) Logiciel.getTestCourant();
+
         addButtonToTable();
     }
     private void addButtonToTable() {
@@ -116,8 +119,11 @@ public class VisualiserTestExoDetailsController implements Initializable{
                             // Perform action with data.... things to do here too
                             int num_dossier = Logiciel.getPatientCurrant().getNum_dossier();
                             Dossier dossierCourant= Logiciel.getOrthogoneCourrant().rechercherDossier(num_dossier);
+                           Bo  bo =Logiciel.getBoCourrant();
+                             Epreuve epreuve=Logiciel.getEpreuveCourrant();
+                           Test_Exo courrantTest= (Test_Exo) Logiciel.getTestCourant();
+                           Logiciel.setExoCourrant(data);
 
-                            // Logiciel.setExoCourrant(data);
 
 
                             try {
@@ -153,5 +159,6 @@ public class VisualiserTestExoDetailsController implements Initializable{
 
         tableColumnCheck.setCellFactory(cellFactory);
     }
+
 
 }

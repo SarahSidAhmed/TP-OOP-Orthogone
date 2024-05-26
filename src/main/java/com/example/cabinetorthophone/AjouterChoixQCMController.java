@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterChoixQCMController implements Initializable{
@@ -26,7 +27,14 @@ public class AjouterChoixQCMController implements Initializable{
     private static Orthogone orthogone;
     private Scene scene;
     private Stage stage;
-    private Patient newPatient;
+    private Patient patientCourrant;
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
+    private Epreuve currentEpreuve=Logiciel.getEpreuveCourrant();
+    private Test_Question currentTestQuestion = Logiciel.getTestQuestionCourrant();
+    //private QCM currentQCM = Logiciel.getQCMCourrant();
+
+
 
     @FXML private Button Back;
     @FXML private TextField choix;
@@ -50,12 +58,9 @@ public class AjouterChoixQCMController implements Initializable{
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
+        //currentQCM.addChoix(choix.getText());
 
-
-        //ajouter la question au test
-        orthogone.ajouterPatient(newPatient, newPatient.getNum_dossier());
-
-        //aller a homePatients
+        //aller a ajouterQCM
         Parent root = FXMLLoader.load(getClass().getResource("AjouterQCM.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

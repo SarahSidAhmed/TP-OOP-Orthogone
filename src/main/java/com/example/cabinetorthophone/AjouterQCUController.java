@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AjouterQCUController implements Initializable{
@@ -27,9 +28,13 @@ public class AjouterQCUController implements Initializable{
     private Scene scene;
     private Stage stage;
     private Patient newPatient;
-
+    private QCU newqcu;
+    private Test_Question currentTestQuestion=Logiciel.getTestQuestionCourrant();
     @FXML private Button Back;
     @FXML private TextField choix;
+    private Epreuve currentEpreuve =Logiciel.getEpreuveCourrant();
+    private Bo currentBo=Logiciel.getBoCourrant();
+    private Dossier currentDossier=Logiciel.getDossierCourrant();
 
     @FXML private Button finish;
     @FXML private Label errorText;
@@ -50,10 +55,20 @@ public class AjouterQCUController implements Initializable{
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-
-
+        newqcu.addChoix(choix.getText());
         //ajouter la question au test
-        orthogone.ajouterPatient(newPatient, newPatient.getNum_dossier());
+        currentTestQuestion.ajouterQuestion(newqcu);
+        currentEpreuve.addTest(currentTestQuestion);
+        ArrayList<Epreuve> epreuves = new ArrayList<>();
+        epreuves.add(currentEpreuve);
+        currentBo.setEpreuves(epreuves);
+        ArrayList<Bo> bos = new ArrayList<>();
+        bos.add(currentBo);
+        currentDossier.setBo(bos);
+        ArrayList<Dossier> dossiers = new ArrayList<>();
+        dossiers.add(currentDossier);
+        orthogone.setDossiers(dossiers);
+
 
         //aller a homePatients
         Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
@@ -64,6 +79,14 @@ public class AjouterQCUController implements Initializable{
         stage.show();
     }
 
+    public void AjouterChoix(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AjouterChoixQCUfxml"));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
