@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class VisualiserQuestionController implements Initializable{
@@ -33,6 +34,7 @@ public class VisualiserQuestionController implements Initializable{
     private static Test test;
     private static Test_Exo testExo;
     private static Epreuve epreuve;
+    private static ArrayList<Epreuve> epreuves;
     private static Patient patientCurrant;
     private static Question_Libre questionCurrant;
     private static Test_Question testQuestion;
@@ -54,6 +56,9 @@ public class VisualiserQuestionController implements Initializable{
         orthogone = Logiciel.getOrthogoneCourrant();
         dossier = Logiciel.getDossierCourrant();
         bo =Logiciel.getBoCourrant();
+
+        epreuves.add(epreuve);
+        bo.setEpreuves(epreuves);
         epreuve=Logiciel.getEpreuveCourrant();
         testQuestion= (Test_Question) Logiciel.getTestCourant();
         questionCurrant= (Question_Libre) Logiciel.getQuestionCourant();
