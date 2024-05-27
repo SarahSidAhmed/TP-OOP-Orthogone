@@ -40,9 +40,10 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <TableView fx:id="tableViewEpreuve" layoutX="124.0" layoutY="142.0" prefHeight="380.0" prefWidth="417.0">
+                <TableView fx:id="tableViewEpreuve" layoutX="124.0" layoutY="142.0" prefHeight="380.0" prefWidth="491.0">
                     <columns>
-                        <TableColumn fx:id="tableColumnCheck" prefWidth="414.40006256103516" text="Epreuve check" />
+                        <TableColumn fx:id="tableColumnCheck" prefWidth="185.33332061767578" text="Epreuve check" />
+                  <TableColumn fx:id="observation" prefWidth="304.6666564941406" text="Observation" />
                     </columns>
                 </TableView>
                 <Button layoutX="605.0" layoutY="100.0" mnemonicParsing="false" onAction="#ajouterEpreuve" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #425c59 #425c59;" text="    ajouter epreuve" textAlignment="RIGHT" textFill="WHITE">

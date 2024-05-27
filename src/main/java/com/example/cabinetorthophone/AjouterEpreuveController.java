@@ -54,7 +54,7 @@ public class AjouterEpreuveController implements Initializable {
     protected void Finish(ActionEvent event) throws IOException {
 
         //ajouter Epreuve a la liste des epreuves dans Bo
-        newEpreuve.addObservation(observations.getText());
+        newEpreuve.setOversevationsCliniques(observations.getText());
 
         currentBo.ajouterEpreuve(newEpreuve);
         ArrayList<Bo> bos = new ArrayList<>();

@@ -11,6 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -37,6 +39,8 @@ public class VisualiserEpreuveController implements Initializable {
     TableView<Epreuve> tableViewEpreuve;
     @FXML
     TableColumn<Epreuve, Void> tableColumnCheck;
+    @FXML TableColumn<Epreuve, String> observation;
+
 
 
     public void Back(MouseEvent event) throws IOException {
@@ -57,7 +61,7 @@ public class VisualiserEpreuveController implements Initializable {
         if (!observations.getText().isEmpty()) {
             Epreuve p = new Epreuve();
             //ajouter la nouvelle BO
-            p.setOversevationsCliniques(new String[]{observations.getText()});
+            p.setOversevationsCliniques(observations.getText());
             bo.getEpreuves().add(p);
 
             ArrayList<Epreuve> listEpreuve = bo.getEpreuves();
@@ -84,7 +88,7 @@ public class VisualiserEpreuveController implements Initializable {
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
         bo =Logiciel.getBoCourrant();
 
-
+        observation.setCellValueFactory(new PropertyValueFactory<Epreuve, String>("oversevationsCliniques"));
         addButtonToTable();
 
         ArrayList<Epreuve> oo= new ArrayList<Epreuve>(bo.getEpreuves());
@@ -126,7 +130,6 @@ public class VisualiserEpreuveController implements Initializable {
                             try {
 
                                     Parent root = FXMLLoader.load(getClass().getResource("Visualiser_test.fxml"));
-
                                     stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                     scene = new Scene(root);
                                     stage.setScene(scene);
@@ -179,6 +182,15 @@ public class VisualiserEpreuveController implements Initializable {
             tableViewEpreuve.getItems().remove(selectedIndeces[i].intValue());
             bo.getEpreuves().remove(selectedIndeces[i].intValue());
         }
+    }
+
+    private void editData(){
+        //ENABLING THE EDITIBILITY OF THE CELLS
+        observation.setCellFactory(TextFieldTableCell.<Epreuve>forTableColumn());
+        observation.setOnEditCommit(event ->{
+            Epreuve p = event.getTableView().getItems().get(event.getTablePosition().getRow());
+            p.setOversevationsCliniques(event.getNewValue());
+        });
     }
 
 

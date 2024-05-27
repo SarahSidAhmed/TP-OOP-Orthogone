@@ -88,7 +88,7 @@ public class ProgrammerSuiviController implements Initializable {
 
             //CHECKING IF THERE ARE NO ILLOGICAL ENTRIES
             //YESSSSS
-            if (annee < year && mois < month || jour > 31 || jour < 1 || heure < 0 || heure > 23 || minute < 0 || minute > 59)  { //My god
+            if (annee < year || mois < month || jour > 31 || jour < 1 || heure < 0 || heure > 23 || minute < 0 || minute > 59)  { //My god
                 errorText.setVisible(true);
             } else {
                 //GETTING THE ZONEDATETIME READY

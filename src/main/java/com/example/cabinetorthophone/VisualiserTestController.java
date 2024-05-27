@@ -67,8 +67,7 @@ public class VisualiserTestController implements Initializable {
 //        courrantTest=Logiciel.getTestCourant();
 
 
-
-        ArrayList<Test> oo = new ArrayList<Test>(epreuve.getTest());
+        ArrayList<Test> oo = epreuve.getTest();
         ObservableList<Test> o = FXCollections.observableArrayList(oo);
 
         tableViewTest.setItems(o);
