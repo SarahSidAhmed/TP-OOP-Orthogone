@@ -255,5 +255,16 @@ public class HomeAgendaController implements Initializable {
         CalendarActivity c = new CalendarActivity(rv.getDate(), nomPrenom, rv.getType());
         return c;
     }
+//
+//    protected boolean checkIfDateTaken(ZonedDateTime time){
+//        ArrayList<RendezVous> rv = orthogone.getAgenda().getRendezVous();
+//        for (RendezVous r: rv){
+//            if (r.getDate().getYear() == time.getYear() && r.getDate().getMonth()== time.getMonth() && r.getDate().getDayOfMonth() == time.getDayOfMonth()){
+//                if (Integer.valueOf(r.getDate().getHour())> Integer.valueOf(time.getHour())&& Integer.valueOf(r.getDate().getHour())+r.getDuree()> time.getHour() ){
+//
+//                }
+//            }
+//        }
+//    }
 
 }
