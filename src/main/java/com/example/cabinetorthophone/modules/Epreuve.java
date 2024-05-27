@@ -10,6 +10,7 @@ public class Epreuve implements Serializable {
     private HashMap<Test, Compte_Rendu> tests;
     private ArrayList<Test> test;
 
+
     public Epreuve(String[] oversevationsCliniques, HashMap<Test, Compte_Rendu> tests) {
 
         this.oversevationsCliniques = oversevationsCliniques;
@@ -47,5 +48,13 @@ public class Epreuve implements Serializable {
 
     public void setTest(ArrayList<Test> test) {
         this.test = test;
+    }
+
+
+
+    // TO DO :
+
+    public void addTest(HashMap<Test, Compte_Rendu> hash) {
+        // this.tests.
     }
 }

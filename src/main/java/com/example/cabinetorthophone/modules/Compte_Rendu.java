@@ -11,4 +11,14 @@ public class Compte_Rendu implements Serializable {
     public Compte_Rendu(){
 
     }
+
+    public void AjouterQuestin (Question qst)
+    {
+        questionList.add(qst);
+    }
+
+    public void AjouterExo (Exercice exo)
+    {
+        exerciceList.add(exo);
+    }
 }

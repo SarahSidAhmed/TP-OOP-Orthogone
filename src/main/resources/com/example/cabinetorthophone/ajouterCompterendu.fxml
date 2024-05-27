@@ -37,11 +37,6 @@
                         </Group>
                     </children>
                 </AnchorPane>
-                <Button fx:id="suivant" layoutX="39.0" layoutY="500.0" mnemonicParsing="false" onAction="#Suivant" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #425c59;" text="Suivant" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
                 <Label layoutX="196.0" layoutY="131.0" text="Ajouter Question">
                     <font>
                         <Font name="System Bold" size="15.0" />
@@ -89,7 +84,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="score" layoutX="316.0" layoutY="360.0" prefHeight="25.0" prefWidth="126.0" promptText="Scoe" style="-fx-min-width: 200; -fx-min-height: 38;" />
+            <TextField fx:id="score" layoutX="316.0" layoutY="360.0" prefHeight="25.0" prefWidth="126.0" promptText="Score" style="-fx-min-width: 200; -fx-min-height: 38;" />
             <Label layoutX="522.0" layoutY="197.0" text="Consigne:">
                <font>
                   <Font name="System Bold" size="15.0" />

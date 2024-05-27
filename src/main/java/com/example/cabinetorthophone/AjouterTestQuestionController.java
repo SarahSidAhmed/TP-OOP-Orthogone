@@ -54,8 +54,12 @@ public class AjouterTestQuestionController implements Initializable{
     }
     public void libre(ActionEvent actionEvent) throws IOException {
 
-        qstCourrant.setEnonce(enonce.getText());
-        qstCourrant.setScore(Integer.valueOf(score.getText()));
+//        qstCourrant.setEnonce(enonce.getText());
+//        qstCourrant.setScore(Integer.valueOf(score.getText()));
+
+
+
+
 //        test_question.ajouterQuestion(qst);
 
         //aller a
@@ -69,8 +73,11 @@ public class AjouterTestQuestionController implements Initializable{
 
     public void qcm(ActionEvent actionEvent) throws IOException {
 
-        qstCourrant.setEnonce(enonce.getText());
-        qstCourrant.setScore(Integer.valueOf(score.getText()));
+//        qstCourrant.setEnonce(enonce.getText());
+//        qstCourrant.setScore(Integer.valueOf(score.getText()));
+
+
+
 
 //        test_question.ajouterQuestion(qst);
 //        currentEpreuve.addTest(test_question);
@@ -95,8 +102,10 @@ public class AjouterTestQuestionController implements Initializable{
 
     public void qcu(ActionEvent actionEvent) throws IOException {
 
-        qstCourrant.setEnonce(enonce.getText());
-        qstCourrant.setScore(Integer.valueOf(score.getText()));
+//        qstCourrant.setEnonce(enonce.getText());
+//        qstCourrant.setScore(Integer.valueOf(score.getText()));
+
+
 
 //        test_question.ajouterQuestion(qst);
 //        currentEpreuve.addTest(test_question);
@@ -121,7 +130,8 @@ public class AjouterTestQuestionController implements Initializable{
 
     public void question_suivant(ActionEvent actionEvent) throws IOException {
 
-        for (int i = 0; i < test_question.getCapacite();i++) {
+        for (int i = 0; i < currentTest.getCapacite();i++) {
+
             //ajouter la question a test question
             qstCourrant.setEnonce(enonce.getText());
             qstCourrant.setScore(Integer.valueOf(score.getText()));
@@ -150,6 +160,12 @@ public class AjouterTestQuestionController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
+        currentTest= (Test_Question) Logiciel.getTestCourant();
+        currentTest=test_question;
+
+
+
+
 
     }
 }

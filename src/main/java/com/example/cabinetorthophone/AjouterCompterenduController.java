@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 
@@ -29,6 +30,14 @@ public class AjouterCompterenduController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Compte_Rendu newCompte;
+    private Dossier dossiercourrant =Logiciel.getDossierCourrant();
+    private Bo bocourrant = Logiciel.getBoCourrant();
+    private Epreuve epreuvecourant =Logiciel.getEpreuveCourrant();
+    private Question newquestion;
+    private Exercice newexo;
+    private Test currentTest = Logiciel.getTestCourant();
+    private HashMap<Test,Compte_Rendu> hash = new HashMap<>();
+
     @FXML private Button Back;
     @FXML private TextField categorie;
     @FXML private TextField enonce;
@@ -40,6 +49,7 @@ public class AjouterCompterenduController implements Initializable {
     @FXML private Button finish;
     @FXML private Button suivant;
     @FXML private Label errorText;
+
 
     @FXML
     protected void Back(MouseEvent event) throws IOException{
@@ -53,14 +63,11 @@ public class AjouterCompterenduController implements Initializable {
     }
 
 
-
-    public void Suivant(ActionEvent actionEvent) {
-    }
     @FXML
     protected void Finish(ActionEvent event) throws IOException {
 
-        //ajouter le bilan dans la liste des bilans de l'orthophoniste how : ????!!!!!
-        // orthogone.ajouterBo(newBo, newBo.getNum_dossier());
+        hash.put(currentTest,newCompte);
+        epreuvecourant.addTest(hash);
 
         //aller a homeDossier
         Parent root = FXMLLoader.load(getClass().getResource("ajouterEpreuve.fxml"));
@@ -74,32 +81,29 @@ public class AjouterCompterenduController implements Initializable {
 
     @FXML
     protected void ajouterquestion(ActionEvent event) throws IOException {
+        newquestion.setCategorie(categorie.getText());
+        newquestion.setEnonce(enonce.getText());
+        newquestion.setScore(Integer.valueOf(score.getText()));
+        newCompte.AjouterQuestin(newquestion);
 
-        //aller a ajouterquestion
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterquestion.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
 
     }
     @FXML
     protected void ajouterexercice(ActionEvent event) throws IOException {
 
-        //aller a ajouterexercice
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterExercice.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+
+        newexo.setConsigne(consigne.getText());
+        newexo.setScore(Integer.valueOf(score.getText()));
+        newCompte.AjouterExo(newexo);
+
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
-    }//hmmmmm  what to write here ....? get dossiercourrant?
+
+
+    }
 
 }

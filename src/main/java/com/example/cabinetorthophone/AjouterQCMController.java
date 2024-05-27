@@ -91,7 +91,7 @@ public class AjouterQCMController implements Initializable{
 
 
     public void AjouterReponse(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterReponse.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterReponse.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -100,7 +100,7 @@ public class AjouterQCMController implements Initializable{
     }
 
     public void AjouterChoix(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterChoixQCMfxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterChoixQCM.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

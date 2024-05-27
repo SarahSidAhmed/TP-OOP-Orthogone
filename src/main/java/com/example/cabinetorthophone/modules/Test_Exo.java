@@ -28,5 +28,15 @@ public class Test_Exo extends Test implements TotalScore, Serializable {
 
     public void setExercices(Set<Exercice> exercices) {
         this.exercices = exercices;
+
     }
+
+    public void ajouterExo(Exercice exo)
+    {
+        this.exercices.add(exo);
+
+
+    }
+
+
 }

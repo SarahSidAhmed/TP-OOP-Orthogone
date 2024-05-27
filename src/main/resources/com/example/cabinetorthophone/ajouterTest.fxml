@@ -59,12 +59,12 @@
                </font>
             </Label>
             <TextField fx:id="capacite" layoutX="240.0" layoutY="251.0" prefHeight="25.0" prefWidth="126.0" promptText="Capacite" style="-fx-min-width: 200; -fx-min-height: 38;" />
-            <Button fx:id="Test_exo" layoutX="127.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test exo" textFill="WHITE">
+            <Button fx:id="Test_exo" layoutX="127.0" layoutY="348.0" mnemonicParsing="false" onAction="#TestExo" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test exo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Test_question" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test question" textFill="WHITE">
+            <Button fx:id="Test_question" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" onAction="#TestQuestion" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #425c59;" text="Test question" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

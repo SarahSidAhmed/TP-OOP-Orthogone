@@ -57,19 +57,18 @@ public class VisualiserTestController implements Initializable {
         patient = Logiciel.getPatientCurrant();
         dossier = Logiciel.getOrthogoneCourrant().getDossierByNum(patient.getNum_dossier());
         bo =Logiciel.getBoCourrant();
-
-
         epreuve=Logiciel.getEpreuveCourrant();
-        ArrayList<Epreuve> epreuves= new ArrayList<>();
-        epreuves.add(epreuve);
-        bo.setEpreuves(epreuves);
-        courrantTest=Logiciel.getTestCourant();
-
-
         addButtonToTable();
 
 
-        List<Test> oo = new ArrayList<Test>(epreuve.getTest());
+//        ArrayList<Epreuve> epreuves= new ArrayList<>();
+//        epreuves.add(epreuve);
+//        bo.setEpreuves(epreuves);
+//        courrantTest=Logiciel.getTestCourant();
+
+
+
+        ArrayList<Test> oo = new ArrayList<Test>(epreuve.getTest());
         ObservableList<Test> o = FXCollections.observableArrayList(oo);
 
         tableViewTest.setItems(o);

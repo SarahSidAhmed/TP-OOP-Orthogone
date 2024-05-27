@@ -20,7 +20,7 @@
                                 <Image url="@cabinet-removebg-preview.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="334.0" layoutY="40.0" text="Ajouter Choix QCM">
+                        <Label layoutX="334.0" layoutY="40.0" text="Ajouter Choix QCU">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>

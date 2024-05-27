@@ -41,6 +41,7 @@ public class AjouterTestExoController implements Initializable{
     private Dossier currentDossier=Logiciel.getDossierCourrant();
     private Exercice newexo;
     private Test_Exo test_exo;
+
     private int[] ScoreInt;
 
 
@@ -58,12 +59,13 @@ public class AjouterTestExoController implements Initializable{
 
     public void exo_suivant(ActionEvent actionEvent) throws IOException {
 
-        for (int i = 0; i < test_exo.getCapacite();i++) {
+        for (int i = 0; i < currentTest.getCapacite();i++) {
             //ajouter le exo a testExo
             newexo.setConsigne(consigne.getText());
             newexo.setMaterial(materiel.getText());
             ScoreInt[i] = Integer.valueOf(score.getText());
             newexo.setScore(ScoreInt);
+
             //une boucle de capacite du testexo
             currentEpreuve.addTest(currentTest);
             ArrayList<Epreuve> epreuves = new ArrayList<>();
@@ -92,6 +94,7 @@ public class AjouterTestExoController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         orthogone = Logiciel.getOrthogoneCourrant();
+        currentTest= (Test_Exo) Logiciel.getTestCourant();
 
     }
 }

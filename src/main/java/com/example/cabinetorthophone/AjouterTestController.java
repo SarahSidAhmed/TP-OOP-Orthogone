@@ -57,6 +57,9 @@ public class AjouterTestController implements Initializable{
 
         //ajouter le teste a la liste des teste dans epreuves
 
+        currentTest.setNom(nom.getText());
+        currentTest.setCapacite(Integer.valueOf(capacite.getText()));
+
         currentEpreuve.addTest(currentTest);
         ArrayList<Epreuve> epreuves = new ArrayList<>();
         epreuves.add(currentEpreuve);
@@ -82,5 +85,25 @@ public class AjouterTestController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orthogone = Logiciel.getOrthogoneCourrant();
+    }
+
+    public void TestExo(ActionEvent actionEvent) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterTestExo.fxml"));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void TestQuestion(ActionEvent actionEvent) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterTestQuestion.fxml"));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
     }
 }
