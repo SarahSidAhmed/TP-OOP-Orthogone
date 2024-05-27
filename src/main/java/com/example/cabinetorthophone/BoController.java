@@ -31,6 +31,8 @@ public class BoController implements Initializable{
     private static Orthogone orthogone;
     private static Patient patient;
     private static Dossier dossier;
+    private static Bo bo;
+
 
 
     @FXML TableView<Bo> tableViewBo;
@@ -139,7 +141,7 @@ public class BoController implements Initializable{
 
                             try {
 
-                                Parent root =  FXMLLoader.load(getClass().getResource("Visualiser_test.fxml"));
+                                Parent root =  FXMLLoader.load(getClass().getResource("VisualiserEpreuve.fxml"));
                                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 scene = new Scene(root);
                                 stage.setScene(scene);

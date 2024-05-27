@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -31,6 +28,9 @@ public class VisualiserEpreuveController implements Initializable {
     private static Dossier dossier;
     private static Bo bo;
     private static Epreuve epreuve;
+    @FXML
+    TextField observations;
+
 
 
     @FXML
@@ -54,14 +54,27 @@ public class VisualiserEpreuveController implements Initializable {
 
     public void ajouterEpreuve(ActionEvent actionEvent) throws IOException{
 
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterEpreuve.fxml"));
-        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+        if (!observations.getText().isEmpty()) {
+            Epreuve p = new Epreuve();
+            //ajouter la nouvelle BO
+            p.setOversevationsCliniques(new String[]{observations.getText()});
+            bo.getEpreuves().add(p);
+
+            ArrayList<Epreuve> listEpreuve = bo.getEpreuves();
+            ObservableList<Epreuve> listep = FXCollections.observableArrayList(listEpreuve);
+            tableViewEpreuve.setItems(listep);
+
+
+//        Parent root = FXMLLoader.load(getClass().getResource("AjouterEpreuve.fxml"));
+//        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.centerOnScreen();
+//        stage.show();
 
     }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -74,8 +87,9 @@ public class VisualiserEpreuveController implements Initializable {
 
         addButtonToTable();
 
-        ArrayList<Test> oo= new ArrayList<Test>((Collection<? extends Test>) epreuve.getTests());
-        ObservableList<Test> o = FXCollections.observableArrayList(oo);
+        ArrayList<Epreuve> oo= new ArrayList<Epreuve>(bo.getEpreuves());
+        ObservableList<Epreuve> o = FXCollections.observableArrayList(oo);
+        tableViewEpreuve.setItems(o);
 
     }
 

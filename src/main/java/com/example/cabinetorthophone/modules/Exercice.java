@@ -8,6 +8,7 @@ public class Exercice implements ScoreQuestionExo, Serializable {
     private String consigne;
     private boolean material_inclu;
     private int[] score;
+    private int score0;
 
 
     public Exercice(String material, String consigne, boolean material_inclu, int[] score){
@@ -60,4 +61,7 @@ public class Exercice implements ScoreQuestionExo, Serializable {
     }
 
 
+    public void setScore(Integer integer) {
+        score0=integer;
+    }
 }

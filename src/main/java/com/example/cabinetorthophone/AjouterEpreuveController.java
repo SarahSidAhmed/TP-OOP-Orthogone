@@ -41,7 +41,7 @@ public class AjouterEpreuveController implements Initializable {
     @FXML
     protected void Back(MouseEvent event) throws IOException{
 
-        Parent root = FXMLLoader.load(getClass().getResource("ajouterBo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DossierHome.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

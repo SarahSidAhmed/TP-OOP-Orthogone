@@ -43,7 +43,7 @@ public class AjouterQCUController implements Initializable{
     @FXML
     protected void Back(MouseEvent event) throws IOException{
 
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterTestQuestion.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -71,7 +71,7 @@ public class AjouterQCUController implements Initializable{
 
 
         //aller a homePatients
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterTestQuestion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterTestQuestion.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -80,7 +80,7 @@ public class AjouterQCUController implements Initializable{
     }
 
     public void AjouterChoix(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterChoixQCUfxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajouterChoixQCUfxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
